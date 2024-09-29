@@ -47,3 +47,17 @@ sudo dnf install figlet toilet
 
 - ```sudo vi /etc/motd```
 
+
+## 2. Системная информация
+
+- версии ядра
+- o модулях ядра (loaded and active)
+- o информацию о ресурсах (CPU and Memory)
+- o информацию о пользователях и группах
+
+- ```uname -r``` - версия ядра
+- ```lsmod``` - загруженные модули
+- ```systemctl list-units``` - просмотр какие модули активны
+- ```top``` , ```htop``` , ```atop```
+- ```/etc/passwd```
+- ```/etc/group```
