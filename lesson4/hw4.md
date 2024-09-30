@@ -109,4 +109,27 @@ sudo dnf install figlet toilet
 - ```sudo tar -zxvf jdk-23_linux-x64_bin.tar.gz -C /usr/lib/jvm/```
 - ```sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-23/bin/java 100```
 - ```sudo update-alternatives --config java```
-- - ```script java-log.txt -a -c 'java -version'```
+- ```script java-log.txt -a -c 'java -version'```
+
+## 5. Nginx
+
+- ```sudo apt install nginx```
+- ```systemctl status nginx```
+- ```systemctl stop nginx```
+
+### Автозапуск
+
+- ```systemctl list-unit-files --type=service --state=enabled```
+- ```ls /etc/init.d/```
+- ```ls /etc/rc*.d/```
+- ```crontab -l```
+- ```sudo systemctl disable nginx```
+- ```systemctl is-enabled nginx```
+- ```cat /lib/systemd/system/nginx.service```
+- https://4te.me/post/systemd-unit-ubuntu/
+- https://4te.me/post/shpargalka-systemd/
+- ```cp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.edit.service```
+- ```systemctl daemon-reload```
+- ```systemctl enable nginx_custom_.service```
+- ```script nginx-log.txt -a -c 'systemctl status nginx'```
+- ```script nginx-log.txt -a -c 'systemctl status nginx_custom'```
