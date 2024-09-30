@@ -61,3 +61,40 @@ sudo dnf install figlet toilet
 - ```top``` , ```htop``` , ```atop```
 - ```/etc/passwd```
 - ```/etc/group```
+
+
+## 3. Утилита script
+
+- https://pingvinus.ru/note/terminal-script-command
+- вывод всех процессов в системе
+- вывод всех процессов для своего пользователя
+- запуск процесса top в background
+- остановку процесса top, работающего в background
+
+- ```script myterminal.log``` - файл очищается
+- ```script myterminal.log -a``` - файл не очищается
+- ```script top.log -c top``` - вывод в результата команды в файл
+- ```exit```
+
+### Работа с пользователем
+
+- ```userdel```
+- ```ps -u username``` - процессы под пользователем
+- ```useradd -G adm -p ****** -s /bin/bash -m codeby``` - ```-m``` - с домашней директорией
+- ```chsh -s /bin/bash``` - назначить оболочку
+
+
+### Процессы
+
+- ```ps```
+- ```ps -eF```
+- ```ps -u codeby```
+- ```script ps-log.txt -c 'ps -eF'```
+- ```script ps-log.txt -a -c 'ps -u codeby'```
+
+
+### запуск процесса top в background
+
+- ```top -n 1 -b > top.log``` - перенаправить в файл
+- ```top&``` - запуск в фоне - &
+- ```top``` + ```Ctrl+Z``` + ```bg``` - восстанавливает работу в фоновом режиме
