@@ -98,3 +98,15 @@ sudo dnf install figlet toilet
 - ```top -n 1 -b > top.log``` - перенаправить в файл
 - ```top&``` - запуск в фоне - &
 - ```top``` + ```Ctrl+Z``` + ```bg``` - восстанавливает работу в фоновом режиме
+
+## 4. Установить две различные версии Java (JDK)
+
+- ```sudo apt -y install openjdk-11-jdk```
+- ```java -version```
+- https://www.oracle.com/java/technologies/downloads/
+- ```wget https://download.oracle.com/java/23/latest/jdk-23_linux-x64_bin.tar.gz```
+- ```sudo mkdir /usr/lib/jvm/```
+- ```sudo tar -zxvf jdk-23_linux-x64_bin.tar.gz -C /usr/lib/jvm/```
+- ```sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-23/bin/java 100```
+- ```sudo update-alternatives --config java```
+- - ```script java-log.txt -a -c 'java -version'```
