@@ -1,0 +1,57 @@
+Script started on 2024-09-30 21:18:24+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="238" LINES="59"]
+[?2004h]0;root@codeby-hw: ~root@codeby-hw:~# exit
+[?2004lexit
+
+Script done on 2024-09-30 21:18:43+00:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2024-09-30 21:20:11+00:00 [COMMAND="systemctl status nginx" TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="238" LINES="59"]
+[?1h=○ nginx.service - A high performance web server and a reverse proxy server[m
+     Loaded: loaded (]8;;file://codeby-hw/usr/lib/systemd/system/nginx.service/usr/lib/systemd/system/nginx.service]8;;; [0;1;38;5;185mdisabled[0m; preset: [0;1;32menabled[0m)[m
+     Active: inactive (dead)[m
+       Docs: ]8;;man:nginx(8)man:nginx(8)]8;;[m
+[m
+Sep 30 21:02:54 codeby-hw systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...[m
+Sep 30 21:02:55 codeby-hw systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.[m
+Sep 30 21:03:52 codeby-hw systemd[1]: Stopping nginx.service - A high performance web server and a reverse proxy server...[m
+Sep 30 21:03:52 codeby-hw systemd[1]: nginx.service: Deactivated successfully.[m
+Sep 30 21:03:52 codeby-hw systemd[1]: Stopped nginx.service - A high performance web server and a reverse proxy server.[m
+[K[?1l>
+Script done on 2024-09-30 21:20:11+00:00 [COMMAND_EXIT_CODE="3"]
+Script started on 2024-09-30 21:20:47+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="238" LINES="59"]
+[?2004h]0;root@codeby-hw: ~root@codeby-hw:~# [7mcp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.edit.service[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccp /lib/systemd/system/nginx.service /lib/systemd/system/nginx.edit.service[1P.service[1P.service[1P.service[1P.service[1Pservice[C.service[1Pservice_.servicec.serviceo.service[1P.serviceu.services.servicet.serviceo.servicem.service
+[?2004l[?2004h]0;root@codeby-hw: ~root@codeby-hw:~# [7msystemctl daemon-reloa[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csystemctl daemon-reloa
+[?2004l[0;1;31mUnknown command verb 'daemon-reloa', did you mean 'daemon-reload'?[0m
+[?2004h]0;root@codeby-hw: ~root@codeby-hw:~# systemctl daemon-reload
+[?2004l[?2004h]0;root@codeby-hw: ~root@codeby-hw:~# [7msystemctl enable nginx_custom_.service[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csystemctl enable nginx_custom_.service
+[?2004l[0;1;31mFailed to enable unit: Unit file nginx_custom_.service does not exist.[0m
+[?2004h]0;root@codeby-hw: ~root@codeby-hw:~# systemctl enable nginx_custom_.service[C[1P.service
+[?2004lCreated symlink /etc/systemd/system/multi-user.target.wants/nginx_custom.service → /usr/lib/systemd/system/nginx_custom.service.
+[?2004h]0;root@codeby-hw: ~root@codeby-hw:~# exit
+[?2004lexit
+
+Script done on 2024-09-30 21:22:06+00:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2024-09-30 21:22:19+00:00 [COMMAND="systemctl status nginx_custom" TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="238" LINES="59"]
+[?1h=○ nginx_custom.service - A high performance web server and a reverse proxy server[m
+     Loaded: loaded (]8;;file://codeby-hw/usr/lib/systemd/system/nginx_custom.service/usr/lib/systemd/system/nginx_custom.service]8;;; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)[m
+     Active: inactive (dead)[m
+       Docs: ]8;;man:nginx(8)man:nginx(8)]8;;[m
+[K[?1l>
+Script done on 2024-09-30 21:22:19+00:00 [COMMAND_EXIT_CODE="3"]
+Script started on 2024-09-30 21:24:30+00:00 [COMMAND="systemctl status nginx_custom" TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="238" LINES="59"]
+[?1h=[0;1;32m●[0m nginx_custom.service - A high performance web server and a reverse proxy server[m
+     Loaded: loaded (]8;;file://codeby-hw/usr/lib/systemd/system/nginx_custom.service/usr/lib/systemd/system/nginx_custom.service]8;;; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)[m
+     Active: [0;1;32mactive (running)[0m since Mon 2024-09-30 21:24:26 UTC; 3s ago[m
+       Docs: ]8;;man:nginx(8)man:nginx(8)]8;;[m
+    Process: 1476 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)[m
+    Process: 1478 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)[m
+   Main PID: 1479 (nginx)[m
+      Tasks: 2 (limit: 1126)[m
+     Memory: 1.7M (peak: 1.9M)[m
+        CPU: 23ms[m
+     CGroup: /system.slice/nginx_custom.service[m
+             ├─[0;38;5;245m1479 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"[0m[m
+             └─[0;38;5;245m1480 "nginx: worker process"[0m[m
+[m
+Sep 30 21:24:26 codeby-hw systemd[1]: Starting nginx_custom.service - A high performance web server and a reverse proxy server...[m
+Sep 30 21:24:26 codeby-hw systemd[1]: Started nginx_custom.service - A high performance web server and a reverse proxy server.[m
+[K[?1l>
+Script done on 2024-09-30 21:24:30+00:00 [COMMAND_EXIT_CODE="0"]
