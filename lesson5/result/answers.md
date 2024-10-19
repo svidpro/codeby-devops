@@ -84,4 +84,4 @@ Your Answer:
 - Network #7 172.18.22.0-255
 - Network #8 172.18.23.0-255
 - 16+8-1 = 23
-- broadcast 172.18.23.255- 
+- broadcast 172.18.23.255
