@@ -1,0 +1,56 @@
+Vagrant.configure("2") do |config|
+  # Конфигурация ВМ "client"
+  config.vm.define "client" do |client|
+    #client.vm.box = "ubuntu/jammy64"
+    #client.vm.box_version = "20241002.0.0"
+    client.vm.box = "bento/ubuntu-18.04"
+    client.vm.box_version = "202303.13.0"
+    client.vm.box_check_update = false
+    client.vm.hostname = "client"
+    client.vm.network "public_network", ip: "192.168.56.100", bridge: "eno1"
+    client.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+      vb.memory = "2048"
+      end
+    client.vm.provision "shell", inline: <<-SHELL
+      echo "client provision!"
+      sudo apt-get update
+      sudo apt-get install sshpass -y
+      ssh-keygen -t rsa -b 2048 -f /home/vagrant/.ssh/server_rsa -q -N ""
+      echo 'export server="vagrant@192.168.56.200"' >> /home/vagrant/.bashrc
+      echo "SSH key generated"
+    SHELL
+  end
+
+  # Конфигурация ВМ "server"
+  config.vm.define "server" do |server|
+    #server.vm.box = "ubuntu/jammy64"
+    #server.vm.box_version = "20241002.0.0"
+    server.vm.box = "bento/ubuntu-18.04"
+    server.vm.box_version = "202303.13.0"
+    server.vm.box_check_update = false
+    server.vm.hostname = "server"
+    server.vm.network "public_network", ip: "192.168.56.200", bridge: "eno1"
+    server.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+      vb.memory = "2048"
+      end
+    server.vm.provision "shell", run: "always", inline: <<-SHELL
+      echo "server provision!"
+      sudo apt-get update
+
+      sudo sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+      sudo systemctl start sshd
+
+      ifhostname=$(hostname)
+      if [ "$ifhostname" = "client" ]; then
+        sudo sshpass -p "vagrant" ssh-copy-id -i /home/vagrant/.ssh/server_rsa.pub -o StrictHostKeyChecking=no vagrant@192.168.56.200
+      fi
+
+      if [ "$ifhostname" = "server" ]; then
+      sudo sed -i 's/^PasswordAuthentication yes/#PasswordAuthentication yes/' /etc/ssh/sshd_config
+      sudo systemctl start sshd
+      fi
+    SHELL
+  end
+end
