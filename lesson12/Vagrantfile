@@ -1,0 +1,54 @@
+Vagrant.configure("2") do |config|
+
+  # Базовые переменные
+  base_box = "ubuntu/jammy64"
+  base_box_version = "20241002.0.0"
+  base_bridge = "eno1"
+  path = "./sh_provision/"
+  ip_ansible = "192.168.56.100"
+  ip_dev = "192.168.56.110"
+  ip_prod = "192.168.56.120"
+
+  # Конфигурация ВМ "ansible"
+  config.vm.define "ansible" do |ansible|
+    ansible.vm.box = base_box
+    ansible.vm.box_version = base_box_version
+    ansible.vm.box_check_update = false
+    ansible.vm.hostname = "ansible"
+    ansible.vm.network "public_network", ip: ip_ansible, bridge: base_bridge
+    ansible.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+      vb.memory = "2048"
+      end
+    ansible.vm.provision "shell", run: "always", path: "#{path}ansible.sh"
+  end
+
+  # Конфигурация ВМ "dev"
+  config.vm.define "dev" do |dev|
+    dev.vm.box = base_box
+    dev.vm.box_version = base_box_version
+    dev.vm.box_check_update = false
+    dev.vm.hostname = "dev"
+    dev.vm.network "public_network", ip: ip_dev, bridge: base_bridge
+    dev.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+      vb.memory = "2048"
+      end
+    dev.vm.provision "shell", run: "always", path: "#{path}dev.sh"
+  end
+
+ # Конфигурация ВМ "prod"
+  config.vm.define "prod" do |prod|
+    prod.vm.box = base_box
+    prod.vm.box_version = base_box_version
+    prod.vm.box_check_update = false
+    prod.vm.hostname = "prod"
+    prod.vm.network "public_network", ip: ip_prod, bridge: base_bridge
+    prod.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+      vb.memory = "2048"
+      end
+    prod.vm.provision "shell", run: "always", path: "#{path}prod.sh"
+  end
+
+end
