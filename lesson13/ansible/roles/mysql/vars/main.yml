@@ -1,0 +1,6 @@
+---
+mysql_package: "{{ 'mysql-server' if ansible_os_family == 'Debian' else 'mariadb-server' }}"
+mysql_root_password: "root_password"
+wordpress_db: "wordpress"
+wordpress_db_user: "wp_user"
+wordpress_db_password: "wp_password"
