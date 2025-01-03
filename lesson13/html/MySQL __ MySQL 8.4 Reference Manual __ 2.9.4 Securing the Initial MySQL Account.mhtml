@@ -1,0 +1,4281 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://dev.mysql.com/doc/refman/8.4/en/default-privileges.html
+Subject: MySQL :: MySQL 8.4 Reference Manual :: 2.9.4 Securing the Initial MySQL Account
+Date: Fri, 3 Jan 2025 21:36:32 +0300
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--bxBkFwkppgpRZQ23L9YqYWpIhQrjFkENfo5o7UZikm----"
+
+
+------MultipartBoundary--bxBkFwkppgpRZQ23L9YqYWpIhQrjFkENfo5o7UZikm----
+Content-Type: text/html
+Content-ID: <frame-AEE4DB826AD8DE15FA85C83823D226D3@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://dev.mysql.com/doc/refman/8.4/en/default-privileges.html
+
+<!DOCTYPE html><html lang=3D"en" class=3D"svg js"><head><meta http-equiv=3D=
+"Content-Type" content=3D"text/html; charset=3DUTF-8"><link rel=3D"styleshe=
+et" type=3D"text/css" href=3D"cid:css-1e2e643e-ef1c-4952-a9fd-4c7fc1303336@=
+mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-c=
+050745a-0d63-4503-896f-a3c2efad2c03@mhtml.blink" />
+   =20
+    <!--[if IE ]>
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3DEdge,chrome=3D1" /=
+>
+    <![endif]-->
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">
+        <meta name=3D"Language" content=3D"en">
+
+    <title>MySQL :: MySQL 8.4 Reference Manual :: 2.9.4 Securing the Initia=
+l MySQL Account</title>
+    <link rel=3D"stylesheet" media=3D"all" href=3D"https://labs.mysql.com/c=
+ommon/css/main-20241001.min.css">
+            <link rel=3D"stylesheet" media=3D"all" href=3D"https://labs.mys=
+ql.com/common/css/docs-20241001.min.css">
+   =20
+   =20
+    <link rel=3D"stylesheet" media=3D"print" href=3D"https://labs.mysql.com=
+/common/css/print-20241001.min.css">
+
+   =20
+   =20
+   =20
+   =20
+            <link rel=3D"contents" href=3D"https://dev.mysql.com/doc/refman=
+/8.4/en/index.html" title=3D"MySQL 8.4 Reference Manual">
+<link rel=3D"start" href=3D"https://dev.mysql.com/doc/refman/8.4/en/index.h=
+tml" title=3D"MySQL 8.4 Reference Manual">
+<link rel=3D"prev" href=3D"https://dev.mysql.com/doc/refman/8.4/en/testing-=
+server.html" title=3D"2.9.3 Testing the Server">
+<link rel=3D"next" href=3D"https://dev.mysql.com/doc/refman/8.4/en/automati=
+c-start.html?ff=3Dnopfpls" title=3D"2.9.5 Starting and Stopping MySQL Autom=
+atically">
+<link rel=3D"up" href=3D"https://dev.mysql.com/doc/refman/8.4/en/postinstal=
+lation.html" title=3D"2.9 Postinstallation Setup and Testing">
+
+   =20
+    <link rel=3D"shortcut icon" href=3D"https://labs.mysql.com/common/theme=
+s/sakila/favicon.ico">
+   =20
+   =20
+   =20
+   =20
+
+   =20
+   =20
+    <!--[if lt IE 9]>
+        <script src=3D"https://labs.mysql.com/common/js/polyfills/html5shiv=
+-printshiv-3.7.2.min.js"></script>
+        <script src=3D"https://labs.mysql.com/common/js/polyfills/respond-1=
+.4.2.min.js"></script>
+    <![endif]-->
+        <!--[if IE 9]>
+        <style>#docs-sidebar-toc { box-sizing: content-box; }</style>
+    <![endif]-->
+       =20
+                              <link href=3D"https://s.go-mpulse.net/boomera=
+ng/E6BB6-B37B4-898B7-F97BA-BBCDB" rel=3D"preload" as=3D"script"><meta http-=
+equiv=3D"origin-trial" content=3D"A6ZlvBxsryW9hXgcaPJ9kpW0x7/fHa3bkV+ey55Md=
+skMuoTzOWSI8Au9e4ZxhzDxsAv6uc//J3N1evSQQWPjZAAAAACaeyJvcmlnaW4iOiJodHRwczov=
+L2NvbnNlbnQudHJ1c3RhcmMuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN=
+0b3JhZ2VQYXJ0aXRpb25pbmcyIiwiZXhwaXJ5IjoxNzQyMzQyMzk5LCJpc1N1YmRvbWFpbiI6dH=
+J1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=3D=3D"></head>
+
+<body class=3D"no-sidebar full-page dev has-sticky-toc">
+<a class=3D"skip-main" href=3D"https://dev.mysql.com/doc/refman/8.4/en/defa=
+ult-privileges.html#main">Skip to Main Content</a>
+<div class=3D"page-wrapper">
+    <header>
+
+                        <a href=3D"https://dev.mysql.com/" aria-label=3D"My=
+SQL Home" title=3D"MySQL" id=3D"l1-home-link"></a>
+       =20
+        <div id=3D"l1-nav-container">
+            <div id=3D"l1-line1">
+                <div id=3D"l1-lhs">
+                    <div id=3D"l1-slogan">
+                        The world's most popular open source database
+                    </div>
+                    <div id=3D"l1-search-box">
+                        <form id=3D"l1-search-form" method=3D"get" action=
+=3D"https://search.oracle.com/mysql">
+                       =20
+                        <input id=3D"l1-search-input" type=3D"search" class=
+=3D"icon-search" placeholder=3D"Search" aria-label=3D"Search" name=3D"q">
+                        </form>
+                    </div>
+                    <div id=3D"l1-auth-links">
+                        <nav aria-label=3D"Contact/Login Navigation" role=
+=3D"navigation">
+                            <a href=3D"https://www.mysql.com/about/contact/=
+"><b>Contact MySQL</b></a>
+                            <span id=3D"l1-contact-separator">&nbsp;|&nbsp;=
+</span>
+                            <span id=3D"l1-contact-separator-br"><br></span=
+>
+                                                             <a href=3D"htt=
+ps://dev.mysql.com/auth/login/?dest=3Dhttps%3A%2F%2Fdev.mysql.com%2Fdoc%2Fr=
+efman%2F8.4%2Fen%2Fdefault-privileges.html">Login</a> &nbsp;|&nbsp;
+                                 <a href=3D"https://dev.mysql.com/auth/regi=
+ster/">Register</a>
+                                                    </nav>
+                    </div>
+                </div>
+            </div>
+            <div id=3D"l1-line2">
+                <nav aria-label=3D"Primary Navigation" role=3D"navigation">
+                    <ul id=3D"l1-nav">
+                        <li>
+                            <a href=3D"https://www.mysql.com/"><!-- <span c=
+lass=3D"icon-sakila"></span>  -->MySQL.com</a>
+                        </li><li>
+                            <a href=3D"https://www.mysql.com/downloads/"><!=
+-- <span class=3D"icon-download-thin"></span>  -->Downloads</a>
+                        </li><li class=3D"active">
+                            <a href=3D"https://dev.mysql.com/doc/"><!-- <sp=
+an class=3D"icon-books"></span>  -->Documentation</a>
+                        </li><li>
+                            <a href=3D"https://dev.mysql.com/"><!-- <span c=
+lass=3D"icon-code"></span>  -->Developer Zone</a>
+                        </li>                    </ul>
+                </nav>
+                <div class=3D"social-icons">
+                    <nav aria-label=3D"Social Navigation" role=3D"navigatio=
+n">
+                        <a aria-label=3D"Join us on Facebook" title=3D"Join=
+ us on Facebook" href=3D"http://www.facebook.com/mysql"><span class=3D"icon=
+-facebook"></span></a>
+                        <a aria-label=3D"Follow us on X" title=3D"Follow us=
+ on X" href=3D"https://x.com/mysql"><span class=3D"icon-x-twitter"></span><=
+/a>
+                        <a aria-label=3D"Follow us on LinkedIn" title=3D"Fo=
+llow us on LinkedIn" href=3D"https://www.linkedin.com/company/mysql"><span =
+class=3D"icon-linkedin"></span></a>
+                        <a aria-label=3D"Visit our YouTube channel" title=
+=3D"Visit our YouTube channel" href=3D"http://www.youtube.com/mysqlchannel"=
+><span class=3D"icon-youtube"></span></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id=3D"sub-header">
+            <div id=3D"l2-nav-container">
+                <div id=3D"l2-nav-toggle">
+                    <span class=3D"icon-three-bars"></span>
+                </div>
+                                                                           =
+             <a class=3D"button nav-button-3" href=3D"https://dev.mysql.com=
+/"><span class=3D"icon-code"></span> Developer Zone</a>
+                                                                           =
+                                                         <a class=3D"button=
+ nav-button-2" href=3D"https://www.mysql.com/downloads/"><span class=3D"ico=
+n-download-thin"></span> Downloads</a>
+                                                                           =
+                     <a class=3D"button nav-button-1" href=3D"https://www.m=
+ysql.com/"><span class=3D"icon-sakila"></span> MySQL.com</a>
+                                                                        <di=
+v id=3D"l2-search-toggle">
+                    <span class=3D"icon-search"></span>
+                </div>
+                <div id=3D"l2-site-icon">
+                                                                           =
+                                                                           =
+                                              <span class=3D"icon-books"></=
+span>
+                                                                           =
+                                                                           =
+                                                                           =
+                                                                           =
+                                                                           =
+                                                                           =
+                                                                           =
+                                                                           =
+</div>
+                <div id=3D"l1-section-title">
+                    <span id=3D"l1-section-label">
+                        <a href=3D"https://dev.mysql.com/doc/">Documentatio=
+n</a>
+                    </span>
+                </div>
+                <nav aria-label=3D"Secondary Navigation" role=3D"navigation=
+">
+                   =20
+
+<ul id=3D"l2-nav">
+            	<li class=3D"active"><a class=3D"active " href=3D"https://dev.=
+mysql.com/doc/refman/en/">MySQL Server</a>
+    			</li>
+	        	<li class=3D""><a href=3D"https://dev.mysql.com/doc/index-enterpr=
+ise.html">MySQL Enterprise</a>
+    			</li>
+	        	<li class=3D""><a href=3D"https://dev.mysql.com/doc/workbench/en/=
+">Workbench</a>
+    			</li>
+	        	<li class=3D""><a href=3D"https://dev.mysql.com/doc/mysql-shell/e=
+n/mysql-innodb-cluster.html">InnoDB Cluster</a>
+    			</li>
+	        	<li class=3D""><a href=3D"https://dev.mysql.com/doc/index-cluster=
+.html">MySQL NDB Cluster</a>
+    			</li>
+	        	<li class=3D""><a href=3D"https://dev.mysql.com/doc/index-connect=
+ors.html">Connectors</a>
+    			</li>
+	        	<li class=3D" last"><a href=3D"https://dev.mysql.com/doc/index-ot=
+her.html">More</a>
+    			</li>
+	                        <li class=3D"other-section"><a href=3D"https://www=
+.mysql.com/">MySQL.com</a></li>
+                            <li class=3D"other-section"><a href=3D"https://=
+www.mysql.com/downloads/">Downloads</a></li>
+                                        <li class=3D"other-section"><a href=
+=3D"https://dev.mysql.com/">Developer Zone</a></li>
+            </ul>
+                </nav>
+            </div>
+            <div id=3D"l3-search-container"></div>
+            <div id=3D"top-orange"><span id=3D"section-nav">Section Menu: &=
+nbsp; </span></div>
+        </div>
+    </header>
+        <div id=3D"page">
+                        <div role=3D"main" id=3D"main" tabindex=3D"-1">
+
+           =20
+               =20
+           =20
+<div>
+    <div id=3D"docs-sidebar-toc" class=3D"sticky" style=3D"max-height: 831.=
+141px; overflow-y: auto;">
+    <div id=3D"docs-toc-inner">
+        <div class=3D"docs-sidebar-header" id=3D"docs-nav-header">
+            <a class=3D"docs-show-hide-nav" id=3D"docs-hide-nav" href=3D"ht=
+tps://dev.mysql.com/doc/refman/8.4/en/default-privileges.html" title=3D"Hid=
+e Sidebar" aria-label=3D"Hide Sidebar"><span class=3D"icon-arrow-small-left=
+"></span></a>
+            <div class=3D"docs-nav-links">
+                                   =20
+    <a href=3D"https://dev.mysql.com/doc/refman/8.4/en/testing-server.html"=
+ aria-label=3D"Previous" title=3D"Previous: Testing the Server"><span class=
+=3D"icon-chevron-left"></span></a>
+<a href=3D"https://dev.mysql.com/doc/refman/8.4/en/index.html" aria-label=
+=3D"Start" title=3D"Start"><span class=3D"icon-book-open"></span></a>
+        <a aria-label=3D"Up" href=3D"https://dev.mysql.com/doc/refman/8.4/e=
+n/postinstallation.html" title=3D"Up: Postinstallation Setup and Testing"><=
+span class=3D"icon-chevron-up"></span></a>
+    <a href=3D"https://dev.mysql.com/doc/refman/8.4/en/automatic-start.html=
+" aria-label=3D"Next" title=3D"Next: Starting and Stopping MySQL Automatica=
+lly"><span class=3D"icon-chevron-right"></span></a>
+                            </div>
+        </div>
+                   =20
+<div id=3D"docs-sidebar-search-container">
+    <div id=3D"docs-sidebar-search-box">
+        <form method=3D"get" action=3D"https://dev.mysql.com/doc/search/">
+           =20
+           =20
+            <input type=3D"text" name=3D"q" id=3D"q" title=3D"Search this M=
+anual" value=3D"Search this Manual" style=3D"color: #bbb;">
+
+            <button class=3D"docs-sidebar-search-btn" aria-label=3D"Search"=
+ title=3D"Search" type=3D"submit">
+                <span class=3D"icon-search"></span>
+            </button>
+        </form>
+    </div>
+</div>
+                <div class=3D"docs-sidebar-nav">
+            <a class=3D"docs-icon-home" href=3D"https://dev.mysql.com/doc/"=
+><span class=3D"icon-home"></span>Documentation Home</a><hr>
+            <div class=3D"docs-sidebar-mtitle">MySQL 8.4 Reference Manual</=
+div>
+            <nav class=3D"doctoc" id=3D"doc-371">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/preface.html">Preface and Legal Notices</a></=
+div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/introduction.html">General Information</a></div></div>       =
+                 <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-down"></span></a=
+></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.co=
+m/doc/refman/8.4/en/installing.html">Installing MySQL</a></div></div>      =
+                  <div class=3D"docs-submenu">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-right"></span></=
+a></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.c=
+om/doc/refman/8.4/en/general-installation-issues.html">General Installation=
+ Guidance</a></div></div>                        <div class=3D"docs-submenu=
+ hidden">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/platform-support.html">Supported Platforms</a=
+></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/which-version.html">Which MySQL Version and D=
+istribution to Install</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/getting-mysql.html">How to Get MySQL</a></div=
+></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-right"></span></=
+a></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.c=
+om/doc/refman/8.4/en/verifying-package-integrity.html">Verifying Package In=
+tegrity Using MD5 Checksums or GnuPG</a></div></div>                       =
+ <div class=3D"docs-submenu hidden">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/verifying-md5-checksum.html">Verifying the MD=
+5 Checksum</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/checking-gpg-signature.html">Signature Checki=
+ng Using GnuPG</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/checking-gpg-signature-windows.html">Signatur=
+e Checking Using Gpg4win for Windows</a></div></div>                    </l=
+i>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/checking-rpm-signature.html">Signature Checki=
+ng Using RPM</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/gpg-key-archived-packages.html">GPG Public Bu=
+ild Key for Archived Packages</a></div></div>                    </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/installation-layouts.html">Installation Layou=
+ts</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/compiler-characteristics.html">Compiler-Speci=
+fic Build Characteristics</a></div></div>                    </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/binary-installation.html">Installing MySQL on=
+ Unix/Linux Using Generic Binaries</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-right"></span></=
+a></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.c=
+om/doc/refman/8.4/en/windows-installation.html">Installing MySQL on Microso=
+ft Windows</a></div></div>                        <div class=3D"docs-submen=
+u hidden">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/windows-choosing-package.html">Choosing an In=
+stallation Package</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-right"></span></=
+a></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.c=
+om/doc/refman/8.4/en/mysql-configurator.html">Configuration: Using MySQL Co=
+nfigurator</a></div></div>                        <div class=3D"docs-submen=
+u hidden">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/mysql-configurator-workflow-server.html">MySQ=
+L Server Configuration with MySQL Configurator</a></div></div>             =
+       </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-right"></span></=
+a></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.c=
+om/doc/refman/8.4/en/windows-install-archive.html">Configuration: Manually<=
+/a></div></div>                        <div class=3D"docs-submenu hidden">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/windows-extract-archive.html">Extracting the =
+Install Archive</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/windows-create-option-file.html">Creating an =
+Option File</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/windows-select-server.html">Selecting a MySQL=
+ Server Type</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/windows-initialize-data-directory.html">Initi=
+alizing the Data Directory</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/windows-server-first-start.html">Starting the=
+ Server for the First Time</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/windows-start-command-line.html">Starting MyS=
+QL from the Windows Command Line</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/mysql-installation-windows-path.html">Customi=
+zing the PATH for MySQL Tools</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/windows-start-service.html">Starting MySQL as=
+ a Windows Service</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/windows-testing.html">Testing The MySQL Insta=
+llation</a></div></div>                    </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/windows-troubleshooting.html">Troubleshooting=
+ a Microsoft Windows MySQL Server Installation</a></div></div>             =
+       </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/windows-postinstallation.html">Windows Postin=
+stallation Procedures</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/windows-restrictions.html">Windows Platform R=
+estrictions</a></div></div>                    </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-right"></span></=
+a></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.c=
+om/doc/refman/8.4/en/macos-installation.html">Installing MySQL on macOS</a>=
+</div></div>                        <div class=3D"docs-submenu hidden">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/macos-installation-notes.html">General Notes =
+on Installing MySQL on macOS</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/macos-installation-pkg.html">Installing MySQL=
+ on macOS Using Native Packages</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/macos-installation-launchd.html">Installing a=
+nd Using the MySQL Launch Daemon</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/macos-installation-prefpane.html">Installing =
+and Using the MySQL Preference Pane</a></div></div>                    </li=
+>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-right"></span></=
+a></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.c=
+om/doc/refman/8.4/en/linux-installation.html">Installing MySQL on Linux</a>=
+</div></div>                        <div class=3D"docs-submenu hidden">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/linux-installation-yum-repo.html">Installing =
+MySQL on Linux Using the MySQL Yum Repository</a></div></div>              =
+      </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/linux-installation-apt-repo.html">Installing =
+MySQL on Linux Using the MySQL APT Repository</a></div></div>              =
+      </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/linux-installation-sles-repo.html">Using the =
+MySQL SLES Repository</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/linux-installation-rpm.html">Installing MySQL=
+ on Linux Using RPM Packages from Oracle</a></div></div>                   =
+ </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/linux-installation-debian.html">Installing My=
+SQL on Linux Using Debian Packages from Oracle</a></div></div>             =
+       </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-right"></span></=
+a></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.c=
+om/doc/refman/8.4/en/linux-installation-docker.html">Deploying MySQL on Lin=
+ux with Docker Containers</a></div></div>                        <div class=
+=3D"docs-submenu hidden">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/docker-mysql-getting-started.html">Basic Step=
+s for MySQL Server Deployment with Docker</a></div></div>                  =
+  </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/docker-mysql-more-topics.html">More Topics on=
+ Deploying MySQL Server with Docker</a></div></div>                    </li=
+>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/deploy-mysql-nonlinux-docker.html">Deploying =
+MySQL on Windows and Other Non-Linux Platforms with Docker</a></div></div> =
+                   </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/linux-installation-native.html">Installing My=
+SQL on Linux from the Native Software Repositories</a></div></div>         =
+           </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/linux-installation-juju.html">Installing MySQ=
+L on Linux with Juju</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/using-systemd.html">Managing MySQL Server wit=
+h systemd</a></div></div>                    </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/uln-installation.html">Installing MySQL Using=
+ Unbreakable Linux Network (ULN)</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-right"></span></=
+a></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.c=
+om/doc/refman/8.4/en/solaris-installation.html">Installing MySQL on Solaris=
+</a></div></div>                        <div class=3D"docs-submenu hidden">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/solaris-installation-pkg.html">Installing MyS=
+QL on Solaris Using a Solaris PKG</a></div></div>                    </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-right"></span></=
+a></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.c=
+om/doc/refman/8.4/en/source-installation.html">Installing MySQL from Source=
+</a></div></div>                        <div class=3D"docs-submenu hidden">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/source-installation-methods.html">Source Inst=
+allation Methods</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/source-installation-prerequisites.html">Sourc=
+e Installation Prerequisites</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/source-installation-layout.html">MySQL Layout=
+ for Source Installation</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/installing-source-distribution.html">Installi=
+ng MySQL Using a Standard Source Distribution</a></div></div>              =
+      </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/installing-development-tree.html">Installing =
+MySQL Using a Development Source Tree</a></div></div>                    </=
+li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/source-ssl-library-configuration.html">Config=
+uring SSL Library Support</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/source-configuration-options.html">MySQL Sour=
+ce-Configuration Options</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/compilation-problems.html">Dealing with Probl=
+ems Compiling MySQL</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/source-configuration-third-party.html">MySQL =
+Configuration and Third-Party Tools</a></div></div>                    </li=
+>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/source-installation-doxygen.html">Generating =
+MySQL Doxygen Documentation Content</a></div></div>                    </li=
+>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-down"></span></a=
+></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.co=
+m/doc/refman/8.4/en/postinstallation.html">Postinstallation Setup and Testi=
+ng</a></div></div>                        <div class=3D"docs-submenu">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/data-directory-initialization.html">Initializ=
+ing the Data Directory</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-right"></span></=
+a></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.c=
+om/doc/refman/8.4/en/starting-server.html">Starting the Server</a></div></d=
+iv>                        <div class=3D"docs-submenu hidden">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/starting-server-troubleshooting.html">Trouble=
+shooting Problems Starting the MySQL Server</a></div></div>                =
+    </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/testing-server.html">Testing the Server</a></=
+div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link current"><a href=3D"ht=
+tps://dev.mysql.com/doc/refman/8.4/en/default-privileges.html">Securing the=
+ Initial MySQL Account</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/automatic-start.html">Starting and Stopping M=
+ySQL Automatically</a></div></div>                    </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e  loaded" aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8=
+.4/en/default-privileges.html"><span class=3D"icon-chevron-right"></span></=
+a></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.c=
+om/doc/refman/8.4/en/perl-support.html">Perl Installation Notes</a></div></=
+div>                        <div class=3D"docs-submenu hidden">
+                                   =20
+    <ul>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/perl-installation.html">Installing Perl on Un=
+ix</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/activestate-perl.html">Installing ActiveState=
+ Perl on Windows</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/perl-support-problems.html">Problems Using th=
+e Perl DBI/DBD Interface</a></div></div>                    </li>
+        </ul>
+                            </div>
+                    </li>
+        </ul>
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/upgrading.html">Upgrading MySQL</a></div></div>              =
+          <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/downgrading.html">Downgrading MySQL</a></div>=
+</div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/tutorial.html">Tutorial</a></div></div>                      =
+  <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/programs.html">MySQL Programs</a></div></div>                =
+        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/server-administration.html">MySQL Server Administration</a></=
+div></div>                        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/security.html">Security</a></div></div>                      =
+  <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/backup-and-recovery.html">Backup and Recovery</a></div></div>=
+                        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/optimization.html">Optimization</a></div></div>              =
+          <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/language-structure.html">Language Structure</a></div></div>  =
+                      <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/charset.html">Character Sets, Collations, Unicode</a></div></=
+div>                        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/data-types.html">Data Types</a></div></div>                  =
+      <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/functions.html">Functions and Operators</a></div></div>      =
+                  <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/sql-statements.html">SQL Statements</a></div></div>          =
+              <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/data-dictionary.html">MySQL Data Dictionary</a></div></div>  =
+                      <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/innodb-storage-engine.html">The InnoDB Storage Engine</a></di=
+v></div>                        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/storage-engines.html">Alternative Storage Engines</a></div></=
+div>                        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/replication.html">Replication</a></div></div>                =
+        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/group-replication.html">Group Replication</a></div></div>    =
+                    <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/mysql-shell-userguide.html">MySQL Shell</a></=
+div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/document-store.html">Using MySQL as a Document Store</a></div=
+></div>                        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/mysql-innodb-cluster-introduction.html">InnoD=
+B Cluster</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/mysql-innodb-replicaset-introduction.html">In=
+noDB ReplicaSet</a></div></div>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/mysql-cluster.html">MySQL NDB Cluster 8.4</a></div></div>    =
+                    <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/partitioning.html">Partitioning</a></div></div>              =
+          <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/stored-objects.html">Stored Objects</a></div></div>          =
+              <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/information-schema.html">INFORMATION_SCHEMA Tables</a></div><=
+/div>                        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/performance-schema.html">MySQL Performance Schema</a></div></=
+div>                        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/sys-schema.html">MySQL sys Schema</a></div></div>            =
+            <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/connectors-apis.html">Connectors and APIs</a></div></div>    =
+                    <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/mysql-enterprise.html">MySQL Enterprise Edition</a></div></di=
+v>                        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/workbench.html">MySQL Workbench</a></div></di=
+v>                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/mysql-oci-marketplace.html">MySQL on OCI Marketplace</a></div=
+></div>                        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/telemetry.html">Telemetry</a></div></div>                    =
+    <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/faqs.html">MySQL 8.4 Frequently Asked Questions</a></div></di=
+v>                        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/error-handling.html">Error Messages and Common Problems</a></=
+div></div>                        <div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><a class=3D"expandabl=
+e " aria-label=3D"Subnav" href=3D"https://dev.mysql.com/doc/refman/8.4/en/d=
+efault-privileges.html"><span class=3D"icon-chevron-right"></span></a></div=
+><div class=3D"docs-sidebar-nav-link"><a href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/indexes.html">Indexes</a></div></div>                        =
+<div class=3D"docs-submenu hidden">
+                            </div>
+                    </li>
+            <li>
+            <div><div class=3D"docs-sidebar-nav-icon"><span class=3D"icon-d=
+ot"></span></div><div class=3D"docs-sidebar-nav-link"><a href=3D"https://de=
+v.mysql.com/doc/refman/8.4/en/glossary.html">MySQL Glossary</a></div></div>=
+                    </li>
+        </ul>
+                            </nav>
+        </div>
+
+       =20
+<a class=3D"docs-sidebar-section" href=3D"https://dev.mysql.com/doc/refman/=
+8.4/en/default-privileges.html"><span class=3D"icon-related"></span>
+    <span class=3D"text">Related Documentation</span></a>
+<div class=3D"docs-sidebar-accordian open">
+    <div class=3D"text">
+        <a href=3D"https://dev.mysql.com/doc/relnotes/mysql/8.4/en/">MySQL =
+8.4 Release Notes</a><br>
+        </div>
+</div>
+
+    <a class=3D"docs-sidebar-section" href=3D"https://dev.mysql.com/doc/ref=
+man/8.4/en/default-privileges.html"><span class=3D"icon-download-thin"></sp=
+an>
+        <span class=3D"text">
+            Download
+                            this Manual
+                    </span>
+    </a>
+    <div class=3D"docs-sidebar-accordian open">
+        <div class=3D"text">
+                                    <a href=3D"https://downloads.mysql.com/=
+docs/refman-8.4-en.pdf">PDF (US Ltr)</a>
+            - 40.1Mb<br>
+                                                <a href=3D"https://download=
+s.mysql.com/docs/refman-8.4-en.a4.pdf">PDF (A4)</a>
+            - 40.2Mb<br>
+                                                <a href=3D"https://download=
+s.mysql.com/docs/refman-8.4-en.man-gpl.tar.gz">Man Pages (TGZ)</a>
+            - 259.3Kb<br>
+                                                <a href=3D"https://download=
+s.mysql.com/docs/refman-8.4-en.man-gpl.zip">Man Pages (Zip)</a>
+            - 366.6Kb<br>
+                                                <a href=3D"https://download=
+s.mysql.com/docs/mysql-8.4.info.gz">Info (Gzip)</a>
+            - 4.0Mb<br>
+                                                <a href=3D"https://download=
+s.mysql.com/docs/mysql-8.4.info.zip">Info (Zip)</a>
+            - 4.0Mb<br>
+                                </div>
+    </div>
+
+
+        <br><span id=3D"wkr" style=3D""><br></span>
+    </div>
+    </div>
+
+    <div id=3D"docs-main" class=3D"has-toc">
+    <div id=3D"docs-main-inner">
+
+                <div class=3D"right" id=3D"docs-version-nav">
+            <a href=3D"https://dev.mysql.com/doc/refman/8.4/en/default-priv=
+ileges.html" id=3D"docs-version-nav-toggle">version 8.4
+            <span class=3D"icon-chevron-down"></span></a>
+            <div id=3D"docs-version-list">
+                                                        <a href=3D"https://=
+dev.mysql.com/doc/refman/9.1/en/default-privileges.html">
+                        9.1
+                                            </a><br>
+                                                                           =
+ <a href=3D"https://dev.mysql.com/doc/refman/9.0/en/default-privileges.html=
+">
+                        9.0
+                                            </a><br>
+                                                                           =
+                                     <a href=3D"https://dev.mysql.com/doc/r=
+efman/8.0/en/default-privileges.html">
+                        8.0
+                                            </a><br>
+                                                                           =
+ <a href=3D"https://dev.mysql.com/doc/refman/5.7/en/default-privileges.html=
+">
+                        5.7
+                                            </a><br>
+                                                                        <di=
+v id=3D"docs-version-nav-lang">
+                                                                           =
+                                                                         <a=
+ href=3D"https://dev.mysql.com/doc/refman/8.0/ja/default-privileges.html">
+                                    8.0&nbsp;
+                                                                           =
+ Japanese
+                                                                    </a><br=
+>
+                                                                           =
+                 </div>
+                            </div>
+        </div>
+       =20
+        <div id=3D"docs-show-nav" class=3D"left hidden" style=3D"margin-rig=
+ht: 15px;">
+            <a class=3D"docs-show-hide-nav" href=3D"https://dev.mysql.com/d=
+oc/refman/8.4/en/default-privileges.html" aria-label=3D"Show Sidebar" title=
+=3D"Show Sidebar"><span class=3D"icon-arrow-small-right"></span></a>
+        </div>
+
+                        <div id=3D"docs-breadcrumbs">
+            <a href=3D"https://dev.mysql.com/doc/refman/8.4/en/">MySQL 8.4 =
+Reference Manual</a> &nbsp;/&nbsp;
+                            <span id=3D"breadcrumbs-link"><a href=3D"https:=
+//dev.mysql.com/doc/refman/8.4/en/default-privileges.html" id=3D"show-bread=
+crumbs">...</a> &nbsp;/&nbsp;</span>
+                <span class=3D"hidden" id=3D"hidden-breadcrumbs">
+                                                        <a href=3D"https://=
+dev.mysql.com/doc/refman/8.4/en/installing.html">Installing MySQL</a> &nbsp=
+;/&nbsp;
+                                                            <a href=3D"http=
+s://dev.mysql.com/doc/refman/8.4/en/postinstallation.html">Postinstallation=
+ Setup and Testing</a> &nbsp;/&nbsp;
+                                                                           =
+             </span>
+                                        Securing the Initial MySQL Account
+                                    </div>
+       =20
+        <div id=3D"docs-body">
+       =20
+<div class=3D"section">
+<div class=3D"titlepage">
+<div>
+<div>
+<h3 class=3D"title"><a name=3D"default-privileges"></a>2.9.4&nbsp;Securing =
+the Initial MySQL Account</h3>
+
+</div>
+
+</div>
+
+</div>
+<a class=3D"indexterm" name=3D"idm46102222478480"></a><a class=3D"indexterm=
+" name=3D"idm46102222477024"></a><a class=3D"indexterm" name=3D"idm46102222=
+475536"></a><a class=3D"indexterm" name=3D"idm46102222474464"></a><a class=
+=3D"indexterm" name=3D"idm46102222473392"></a><a class=3D"indexterm" name=
+=3D"idm46102222471904"></a><a class=3D"indexterm" name=3D"idm46102222470832=
+"></a><a class=3D"indexterm" name=3D"idm46102222469344"></a><a class=3D"ind=
+exterm" name=3D"idm46102222467856"></a><a class=3D"indexterm" name=3D"idm46=
+102222466368"></a><a class=3D"indexterm" name=3D"idm46102222464880"></a><a =
+class=3D"indexterm" name=3D"idm46102222463392"></a><a class=3D"indexterm" n=
+ame=3D"idm46102222461904"></a><a class=3D"indexterm" name=3D"idm46102222460=
+416"></a><a class=3D"indexterm" name=3D"idm46102222458928"></a><a class=3D"=
+indexterm" name=3D"idm46102222457440"></a><a class=3D"indexterm" name=3D"id=
+m46102222455952"></a><a class=3D"indexterm" name=3D"idm46102222454464"></a>=
+<a class=3D"indexterm" name=3D"idm46102222452976"></a><a class=3D"indexterm=
+" name=3D"idm46102222451488"></a><p>
+      The MySQL installation process involves initializing the data
+      directory, including the grant tables in the
+      <code class=3D"literal">mysql</code> system schema that define MySQL =
+accounts.
+      For details, see <a class=3D"xref" href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/data-directory-initialization.html" title=3D"2.9.1&nbsp;Initi=
+alizing the Data Directory">Section&nbsp;2.9.1, =E2=80=9CInitializing the D=
+ata Directory=E2=80=9D</a>.
+    </p><p>
+      This section describes how to assign a password to the initial
+      <code class=3D"literal">root</code> account created during the MySQL
+      installation procedure, if you have not already done so.
+</p>
+<div class=3D"note" style=3D"margin-left: 0.5in; margin-right: 0.5in;">
+
+<div class=3D"admon-title">
+Note
+</div>
+<p>
+        Alternative means for performing the process described in this
+        section:
+</p>
+<div class=3D"itemizedlist">
+<ul class=3D"itemizedlist" style=3D"list-style-type: disc; "><li class=3D"l=
+istitem"><p>
+            On Windows, you can perform the process during installation
+            with MySQL Configurator (see <a class=3D"xref" href=3D"https://=
+dev.mysql.com/doc/refman/8.4/en/mysql-configurator.html" title=3D"2.3.2&nbs=
+p;Configuration: Using MySQL Configurator">Section&nbsp;2.3.2, =E2=80=9CCon=
+figuration: Using MySQL Configurator=E2=80=9D</a>).
+          </p></li><li class=3D"listitem"><p>
+            On all platforms, the MySQL distribution includes
+            <a class=3D"link" href=3D"https://dev.mysql.com/doc/refman/8.4/=
+en/mysql-secure-installation.html" title=3D"6.4.2&nbsp;mysql_secure_install=
+ation =E2=80=94 Improve MySQL Installation Security"><span class=3D"command=
+"><strong>mysql_secure_installation</strong></span></a>, a command-line
+            utility that automates much of the process of securing a
+            MySQL installation.
+          </p></li><li class=3D"listitem"><p>
+            On all platforms, MySQL Workbench is available and offers the
+            ability to manage user accounts (see
+            <a class=3D"xref" href=3D"https://dev.mysql.com/doc/refman/8.4/=
+en/workbench.html" title=3D"Chapter&nbsp;33&nbsp;MySQL Workbench">Chapter&n=
+bsp;33, <i>MySQL Workbench</i></a> ).
+</p></li></ul>
+</div>
+
+</div>
+<p>
+      A password may already be assigned to the initial account under
+      these circumstances:
+</p>
+<div class=3D"itemizedlist">
+<ul class=3D"itemizedlist" style=3D"list-style-type: disc; "><li class=3D"l=
+istitem"><p>
+          On Windows, installations performed using the MSI installer
+          and MySQL Configurator give you the option of assigning a passwor=
+d.
+        </p></li><li class=3D"listitem"><p>
+          Installation using the macOS installer generates an initial
+          random password, which the installer displays to the user in a
+          dialog box.
+        </p></li><li class=3D"listitem"><p>
+          Installation using RPM packages generates an initial random
+          password, which is written to the server error log.
+        </p></li><li class=3D"listitem"><p>
+          Installations using Debian packages give you the option of
+          assigning a password.
+        </p></li><li class=3D"listitem"><p>
+          For data directory initialization performed manually using
+          <a class=3D"link" href=3D"https://dev.mysql.com/doc/refman/8.4/en=
+/mysqld.html" title=3D"6.3.1&nbsp;mysqld =E2=80=94 The MySQL Server"><span =
+class=3D"command"><strong>mysqld --initialize</strong></span></a>,
+          <a class=3D"link" href=3D"https://dev.mysql.com/doc/refman/8.4/en=
+/mysqld.html" title=3D"6.3.1&nbsp;mysqld =E2=80=94 The MySQL Server"><span =
+class=3D"command"><strong>mysqld</strong></span></a> generates an initial r=
+andom
+          password, marks it expired, and writes it to the server error
+          log. See <a class=3D"xref" href=3D"https://dev.mysql.com/doc/refm=
+an/8.4/en/data-directory-initialization.html" title=3D"2.9.1&nbsp;Initializ=
+ing the Data Directory">Section&nbsp;2.9.1, =E2=80=9CInitializing the Data =
+Directory=E2=80=9D</a>.
+</p></li></ul>
+</div>
+<p>
+      The <code class=3D"literal">mysql.user</code> grant table defines the=
+ initial
+      MySQL user account and its access privileges. Installation of
+      MySQL creates only a <code class=3D"literal">'root'@'localhost'</code=
+>
+      superuser account that has all privileges and can do anything. If
+      the <code class=3D"literal">root</code> account has an empty password=
+, your
+      MySQL installation is unprotected: Anyone can connect to the MySQL
+      server as <code class=3D"literal">root</code> <span class=3D"emphasis=
+"><em>without a
+      password</em></span> and be granted all privileges.
+    </p><p>
+      The <code class=3D"literal">'root'@'localhost'</code> account also ha=
+s a row
+      in the <code class=3D"literal">mysql.proxies_priv</code> table that e=
+nables
+      granting the <a class=3D"link" href=3D"https://dev.mysql.com/doc/refm=
+an/8.4/en/privileges-provided.html#priv_proxy"><code class=3D"literal">PROX=
+Y</code></a> privilege for
+      <code class=3D"literal">''@''</code>, that is, for all users and all =
+hosts.
+      This enables <code class=3D"literal">root</code> to set up proxy user=
+s, as
+      well as to delegate to other accounts the authority to set up
+      proxy users. See <a class=3D"xref" href=3D"https://dev.mysql.com/doc/=
+refman/8.4/en/proxy-users.html" title=3D"8.2.19&nbsp;Proxy Users">Section&n=
+bsp;8.2.19, =E2=80=9CProxy Users=E2=80=9D</a>.
+    </p><p>
+      To assign a password for the initial MySQL <code class=3D"literal">ro=
+ot</code>
+      account, use the following procedure. Replace
+      <em class=3D"replaceable"><code>root-password</code></em> in the exam=
+ples with the
+      password that you want to use.
+    </p><p>
+      Start the server if it is not running. For instructions, see
+      <a class=3D"xref" href=3D"https://dev.mysql.com/doc/refman/8.4/en/sta=
+rting-server.html" title=3D"2.9.2&nbsp;Starting the Server">Section&nbsp;2.=
+9.2, =E2=80=9CStarting the Server=E2=80=9D</a>.
+    </p><p>
+      The initial <code class=3D"literal">root</code> account may or may no=
+t have a
+      password. Choose whichever of the following procedures applies:
+</p>
+<div class=3D"itemizedlist">
+<ul class=3D"itemizedlist" style=3D"list-style-type: disc; "><li class=3D"l=
+istitem"><p>
+          If the <code class=3D"literal">root</code> account exists with an=
+ initial
+          random password that has been expired, connect to the server
+          as <code class=3D"literal">root</code> using that password, then =
+choose a
+          new password. This is the case if the data directory was
+          initialized using <a class=3D"link" href=3D"https://dev.mysql.com=
+/doc/refman/8.4/en/mysqld.html" title=3D"6.3.1&nbsp;mysqld =E2=80=94 The My=
+SQL Server"><span class=3D"command"><strong>mysqld --initialize</strong></s=
+pan></a>,
+          either manually or using an installer that does not give you
+          the option of specifying a password during the install
+          operation. Because the password exists, you must use it to
+          connect to the server. But because the password is expired,
+          you cannot use the account for any purpose other than to
+          choose a new password, until you do choose one.
+</p>
+<div class=3D"orderedlist">
+<ol class=3D"orderedlist" type=3D"1"><li class=3D"listitem"><p>
+              If you do not know the initial random password, look in
+              the server error log.
+            </p></li><li class=3D"listitem"><p>
+              Connect to the server as <code class=3D"literal">root</code> =
+using the
+              password:
+            </p><div class=3D"copytoclipboard-wrapper"><pre class=3D"progra=
+mlisting  language-terminal"><div class=3D"docs-select-all right" id=3D"sa4=
+7651858"><div class=3D"copy-help left">Press CTRL+C to copy</div> <div clas=
+s=3D"right"><button class=3D"clipboard-btn" title=3D"Copy to Clipboard"><sp=
+an class=3D"icon-clipboard"></span></button></div></div><code class=3D" lan=
+guage-terminal"><span class=3D"token prompt">$&gt; </span><span class=3D"to=
+ken command">mysql</span> <span class=3D"token property">-u</span> root <sp=
+an class=3D"token property">-p</span>
+Enter password<span class=3D"token punctuation">:</span> <span class=3D"tok=
+en punctuation"></span><em class=3D"replaceable"><span class=3D"token punct=
+uation">(</span>enter the random root password here<span class=3D"token pun=
+ctuation">)</span></em><span class=3D"token punctuation"></span></code></pr=
+e></div></li><li class=3D"listitem"><p>
+              Choose a new password to replace the random password:
+            </p><div class=3D"copytoclipboard-wrapper"><pre class=3D"progra=
+mlisting one-line language-sql"><div class=3D"docs-select-all right" id=3D"=
+sa76114047"><div class=3D"copy-help left">Press CTRL+C to copy</div> <div c=
+lass=3D"right"><button class=3D"clipboard-btn" title=3D"Copy to Clipboard">=
+<span class=3D"icon-clipboard"></span></button></div></div><code class=3D" =
+language-sql"><span class=3D"token prompt">mysql&gt;</span> <span class=3D"=
+token keyword">ALTER</span> <span class=3D"token keyword">USER</span> <span=
+ class=3D"token string">'root'</span>@<span class=3D"token string">'localho=
+st'</span> <span class=3D"token keyword">IDENTIFIED</span> <span class=3D"t=
+oken keyword">BY</span> <span class=3D"token string">'<em class=3D"replacea=
+ble">root-password</em>'</span><span class=3D"token punctuation">;</span></=
+code></pre></div></li></ol>
+</div>
+</li><li class=3D"listitem"><p>
+          If the <code class=3D"literal">root</code> account exists but has=
+ no
+          password, connect to the server as <code class=3D"literal">root</=
+code>
+          using no password, then assign a password. This is the case if
+          you initialized the data directory using <a class=3D"link" href=
+=3D"https://dev.mysql.com/doc/refman/8.4/en/mysqld.html" title=3D"6.3.1&nbs=
+p;mysqld =E2=80=94 The MySQL Server"><span class=3D"command"><strong>mysqld
+          --initialize-insecure</strong></span></a>.
+</p>
+<div class=3D"orderedlist">
+<ol class=3D"orderedlist" type=3D"1"><li class=3D"listitem"><p>
+              Connect to the server as <code class=3D"literal">root</code> =
+using no
+              password:
+            </p><div class=3D"copytoclipboard-wrapper"><pre class=3D"progra=
+mlisting one-line language-terminal"><div class=3D"docs-select-all right" i=
+d=3D"sa91649370" style=3D"display: none;"><div class=3D"copy-help left" sty=
+le=3D"display: none;">Press CTRL+C to copy</div> <div class=3D"right"><butt=
+on class=3D"clipboard-btn" title=3D"Copy to Clipboard"><span class=3D"icon-=
+clipboard"></span></button></div></div><code class=3D" language-terminal"><=
+span class=3D"token prompt">$&gt; </span><span class=3D"token command">mysq=
+l</span> <span class=3D"token property">-u</span> root <span class=3D"token=
+ property">--skip-password</span></code></pre></div></li><li class=3D"listi=
+tem"><p>
+              Assign a password:
+            </p><div class=3D"copytoclipboard-wrapper"><pre class=3D"progra=
+mlisting one-line language-sql"><div class=3D"docs-select-all right" id=3D"=
+sa17878307" style=3D"display: none;"><div class=3D"copy-help left" style=3D=
+"display: none;">Press CTRL+C to copy</div> <div class=3D"right"><button cl=
+ass=3D"clipboard-btn" title=3D"Copy to Clipboard"><span class=3D"icon-clipb=
+oard"></span></button></div></div><code class=3D" language-sql"><span class=
+=3D"token prompt">mysql&gt;</span> <span class=3D"token keyword">ALTER</spa=
+n> <span class=3D"token keyword">USER</span> <span class=3D"token string">'=
+root'</span>@<span class=3D"token string">'localhost'</span> <span class=3D=
+"token keyword">IDENTIFIED</span> <span class=3D"token keyword">BY</span> <=
+span class=3D"token string">'<em class=3D"replaceable">root-password</em>'<=
+/span><span class=3D"token punctuation">;</span></code></pre></div></li></o=
+l>
+</div>
+</li></ul>
+</div>
+<p>
+      After assigning the <code class=3D"literal">root</code> account a pas=
+sword,
+      you must supply that password whenever you connect to the server
+      using the account. For example, to connect to the server using the
+      <a class=3D"link" href=3D"https://dev.mysql.com/doc/refman/8.4/en/mys=
+ql.html" title=3D"6.5.1&nbsp;mysql =E2=80=94 The MySQL Command-Line Client"=
+><span class=3D"command"><strong>mysql</strong></span></a> client, use this=
+ command:
+    </p><div class=3D"copytoclipboard-wrapper"><pre class=3D"programlisting=
+  language-terminal"><div class=3D"docs-select-all right" id=3D"sa39143308"=
+ style=3D"display: none;"><div class=3D"copy-help left" style=3D"display: n=
+one;">Press CTRL+C to copy</div> <div class=3D"right"><button class=3D"clip=
+board-btn" title=3D"Copy to Clipboard"><span class=3D"icon-clipboard"></spa=
+n></button></div></div><code class=3D" language-terminal"><span class=3D"to=
+ken prompt">$&gt; </span><span class=3D"token command">mysql</span> <span c=
+lass=3D"token property">-u</span> root <span class=3D"token property">-p</s=
+pan>
+Enter password<span class=3D"token punctuation">:</span> <span class=3D"tok=
+en punctuation"></span><em class=3D"replaceable"><span class=3D"token punct=
+uation">(</span>enter root password here<span class=3D"token punctuation">)=
+</span></em><span class=3D"token punctuation"></span></code></pre></div><p>
+      To shut down the server with <a class=3D"link" href=3D"https://dev.my=
+sql.com/doc/refman/8.4/en/mysqladmin.html" title=3D"6.5.2&nbsp;mysqladmin =
+=E2=80=94 A MySQL Server Administration Program"><span class=3D"command"><s=
+trong>mysqladmin</strong></span></a>, use
+      this command:
+    </p><div class=3D"copytoclipboard-wrapper"><pre class=3D"programlisting=
+  language-sql"><div class=3D"docs-select-all right" id=3D"sa83245500" styl=
+e=3D"display: block;"><div class=3D"copy-help left">Press CTRL+C to copy</d=
+iv> <div class=3D"right"><button class=3D"clipboard-btn" title=3D"Copy to C=
+lipboard"><span class=3D"icon-clipboard"></span></button></div></div><code =
+class=3D" language-sql">$<span class=3D"token operator">&gt;</span> mysqlad=
+min <span class=3D"token operator">-</span>u root <span class=3D"token oper=
+ator">-</span>p <span class=3D"token keyword">shutdown</span>
+Enter <span class=3D"token keyword">password</span>: <span class=3D"token p=
+unctuation"></span><em class=3D"replaceable"><span class=3D"token punctuati=
+on">(</span>enter root <span class=3D"token keyword">password</span> here<s=
+pan class=3D"token punctuation">)</span></em><span class=3D"token punctuati=
+on"></span></code></pre></div>
+<div class=3D"note" style=3D"margin-left: 0.5in; margin-right: 0.5in;">
+
+<div class=3D"admon-title">
+Note
+</div>
+<p>
+        For additional information about setting passwords, see
+        <a class=3D"xref" href=3D"https://dev.mysql.com/doc/refman/8.4/en/a=
+ssigning-passwords.html" title=3D"8.2.14&nbsp;Assigning Account Passwords">=
+Section&nbsp;8.2.14, =E2=80=9CAssigning Account Passwords=E2=80=9D</a>. If =
+you forget your
+        <code class=3D"literal">root</code> password after setting it, see
+        <a class=3D"xref" href=3D"https://dev.mysql.com/doc/refman/8.4/en/r=
+esetting-permissions.html" title=3D"B.3.3.2&nbsp;How to Reset the Root Pass=
+word">Section&nbsp;B.3.3.2, =E2=80=9CHow to Reset the Root Password=E2=80=
+=9D</a>.
+      </p><p>
+        To set up additional accounts, see
+        <a class=3D"xref" href=3D"https://dev.mysql.com/doc/refman/8.4/en/c=
+reating-accounts.html" title=3D"8.2.8&nbsp;Adding Accounts, Assigning Privi=
+leges, and Dropping Accounts">Section&nbsp;8.2.8, =E2=80=9CAdding Accounts,=
+ Assigning Privileges, and Dropping Accounts=E2=80=9D</a>.
+</p>
+</div>
+
+</div>
+<br>
+        </div>
+
+                <div id=3D"docs-in-page-nav-container">
+            <div id=3D"docs-in-page-nav">
+               =20
+    <a href=3D"https://dev.mysql.com/doc/refman/8.4/en/testing-server.html"=
+ aria-label=3D"Previous" title=3D"Previous: Testing the Server"><span class=
+=3D"icon-chevron-left"></span> PREV</a> &nbsp;
+<a href=3D"https://dev.mysql.com/doc/refman/8.4/en/index.html" aria-label=
+=3D"Start" title=3D"Start"> HOME</a> &nbsp;
+        <a aria-label=3D"Up" href=3D"https://dev.mysql.com/doc/refman/8.4/e=
+n/postinstallation.html" title=3D"Up: Postinstallation Setup and Testing"> =
+UP</a> &nbsp;
+    <a href=3D"https://dev.mysql.com/doc/refman/8.4/en/automatic-start.html=
+" aria-label=3D"Next" title=3D"Next: Starting and Stopping MySQL Automatica=
+lly">NEXT <span class=3D"icon-chevron-right"></span></a>
+            </div>
+        </div>
+       =20
+         <div id=3D"docs-body-extra">
+            =20
+<a class=3D"docs-sidebar-section" href=3D"https://dev.mysql.com/doc/refman/=
+8.4/en/default-privileges.html"><span class=3D"icon-related"></span>
+    <span class=3D"text">Related Documentation</span></a>
+<div class=3D"docs-sidebar-accordian">
+    <div class=3D"text">
+        <a href=3D"https://dev.mysql.com/doc/relnotes/mysql/8.4/en/">MySQL =
+8.4 Release Notes</a><br>
+        </div>
+</div>
+
+    <a class=3D"docs-sidebar-section" href=3D"https://dev.mysql.com/doc/ref=
+man/8.4/en/default-privileges.html"><span class=3D"icon-download-thin"></sp=
+an>
+        <span class=3D"text">
+            Download
+                            this Manual
+                    </span>
+    </a>
+    <div class=3D"docs-sidebar-accordian">
+        <div class=3D"text">
+                                    <a href=3D"https://downloads.mysql.com/=
+docs/refman-8.4-en.pdf">PDF (US Ltr)</a>
+            - 40.1Mb<br>
+                                                <a href=3D"https://download=
+s.mysql.com/docs/refman-8.4-en.a4.pdf">PDF (A4)</a>
+            - 40.2Mb<br>
+                                                <a href=3D"https://download=
+s.mysql.com/docs/refman-8.4-en.man-gpl.tar.gz">Man Pages (TGZ)</a>
+            - 259.3Kb<br>
+                                                <a href=3D"https://download=
+s.mysql.com/docs/refman-8.4-en.man-gpl.zip">Man Pages (Zip)</a>
+            - 366.6Kb<br>
+                                                <a href=3D"https://download=
+s.mysql.com/docs/mysql-8.4.info.gz">Info (Gzip)</a>
+            - 4.0Mb<br>
+                                                <a href=3D"https://download=
+s.mysql.com/docs/mysql-8.4.info.zip">Info (Zip)</a>
+            - 4.0Mb<br>
+                                </div>
+    </div>
+
+         </div>
+     </div>
+     </div>
+
+</div>
+
+
+   =20
+
+           =20
+        </div>
+    </div>
+
+    <footer class=3D"collapsed">
+        <div id=3D"footer-bottom">
+                                    <div id=3D"footer-collapse">
+                <a href=3D"https://dev.mysql.com/doc/refman/8.4/en/default-=
+privileges.html" id=3D"expand-footer" aria-label=3D"Expand Footer" title=3D=
+"Expand Footer"><span class=3D"icon-plus-square"></span></a>
+            </div>
+                        <div class=3D"footer-contact">
+                <div id=3D"footer-contact-icon" style=3D"display: none;">
+                    <span class=3D"icon-call-phone"></span>
+                </div>
+                <div id=3D"footer-contact-numbers" style=3D"display: none;"=
+>
+                    <strong>Contact MySQL Sales</strong><br>
+                    USA/Canada: +1-866-221-0634 &nbsp;
+                    (<a href=3D"https://www.mysql.com/about/contact/phone/"=
+ class=3D"darker-blue">More Countries =C2=BB</a>)
+                </div>
+                <div id=3D"footer-contact-copyright" style=3D"display: inli=
+ne-block;">
+                    <a href=3D"http://www.oracle.com/" aria-label=3D"Oracle=
+" title=3D"Oracle"><span class=3D"oracle-logo"></span></a>
+                    &nbsp; <a href=3D"https://www.oracle.com/legal/copyrigh=
+t.html">=C2=A9 2025 Oracle</a>
+                </div>
+            </div>
+            <div class=3D"social-icons">
+                <a aria-label=3D"Join us on Facebook" title=3D"Join us on F=
+acebook" href=3D"http://www.facebook.com/mysql"><span class=3D"icon-faceboo=
+k-square"></span></a>
+                <a aria-label=3D"Follow us on X" title=3D"Follow us on X" h=
+ref=3D"https://x.com/mysql"><span class=3D"icon-x-twitter-square"></span></=
+a>
+                <a aria-label=3D"Follow us on LinkedIn" title=3D"Follow us =
+on LinkedIn" href=3D"https://www.linkedin.com/company/mysql"><span class=3D=
+"icon-linkedin-square"></span></a>
+                <a aria-label=3D"Visit our YouTube channel" title=3D"Visit =
+our YouTube channel" href=3D"http://www.youtube.com/mysqlchannel"><span cla=
+ss=3D"icon-youtube-square"></span></a>
+            </div>
+            <br class=3D"clear">
+        </div>
+        <div id=3D"footer-links">
+
+            <div id=3D"site-footer-links">
+                <div id=3D"footer-nav"></div>
+
+                <div class=3D"links">
+                    <ul>
+                        <li class=3D"top"><a href=3D"https://www.mysql.com/=
+products/">Products</a></li>
+                        <li><a href=3D"https://www.mysql.com/products/heatw=
+ave/">HeatWave</a></li>
+                        <li><a href=3D"https://www.mysql.com/products/enter=
+prise/">MySQL Enterprise Edition</a></li>
+                        <li><a href=3D"https://www.mysql.com/products/stand=
+ard/">MySQL Standard Edition</a></li>
+                        <li><a href=3D"https://www.mysql.com/products/class=
+ic/">MySQL Classic Edition</a></li>
+                        <li><a href=3D"https://www.mysql.com/products/clust=
+er/">MySQL Cluster CGE</a></li>
+                        <li><a href=3D"https://www.mysql.com/oem/">MySQL Em=
+bedded (OEM/ISV)</a></li>
+                    </ul>
+                </div>
+
+                <div class=3D"links">
+                    <ul>
+                        <li class=3D"top"><a href=3D"https://www.mysql.com/=
+services/">Services</a></li>
+                        <li><a href=3D"https://www.mysql.com/training/">Tra=
+ining</a></li>
+                        <li><a href=3D"https://www.mysql.com/certification/=
+">Certification</a></li>
+                        <li><a href=3D"https://www.mysql.com/support/">Supp=
+ort</a></li>
+                    </ul>
+                </div>
+
+                <div class=3D"links">
+                    <ul>
+                        <li class=3D"top"><a href=3D"https://www.mysql.com/=
+downloads/">Downloads</a></li>
+                        <li><a href=3D"https://dev.mysql.com/downloads/mysq=
+l/">MySQL Community Server</a></li>
+                        <li><a href=3D"https://dev.mysql.com/downloads/clus=
+ter/">MySQL NDB Cluster</a></li>
+                        <li><a href=3D"https://dev.mysql.com/downloads/shel=
+l/">MySQL Shell</a></li>
+                        <li><a href=3D"https://dev.mysql.com/downloads/rout=
+er/">MySQL Router</a></li>
+                        <li><a href=3D"https://dev.mysql.com/downloads/work=
+bench/">MySQL Workbench</a></li>
+                    </ul>
+                </div>
+
+                <div class=3D"links">
+                    <ul>
+                        <li class=3D"top"><a href=3D"https://dev.mysql.com/=
+doc/">Documentation</a></li>
+                        <li><a href=3D"https://dev.mysql.com/doc/refman/en/=
+">MySQL Reference Manual</a></li>
+                        <li><a href=3D"https://dev.mysql.com/doc/workbench/=
+en/">MySQL Workbench</a></li>
+                        <li><a href=3D"https://dev.mysql.com/doc/index-clus=
+ter.html">MySQL NDB Cluster</a></li>
+                        <li><a href=3D"https://dev.mysql.com/doc/index-conn=
+ectors.html">MySQL Connectors</a></li>
+                        <li><a href=3D"https://dev.mysql.com/doc/#topic">To=
+pic Guides</a></li>
+                    </ul>
+                </div>
+
+                <div class=3D"links">
+                    <ul>
+                        <li class=3D"top"><a href=3D"https://www.mysql.com/=
+about/">About MySQL</a></li>
+                        <li><a href=3D"https://www.mysql.com/about/contact/=
+">Contact Us</a></li>
+                        <li><a href=3D"https://blogs.oracle.com/mysql/">Blo=
+gs</a></li>
+                                                                        <li=
+><a href=3D"https://www.mysql.com/buy-mysql/">How to Buy</a></li>
+                        <li><a href=3D"https://www.mysql.com/partners/">Par=
+tners</a></li>
+                        <li><a href=3D"https://www.mysql.com/about/jobs/">J=
+ob Opportunities</a></li>
+                        <li><a href=3D"https://www.mysql.com/sitemap.html">=
+Site Map</a></li>
+                    </ul>
+                </div>
+
+                            </div>
+
+            <div id=3D"footer-logo">
+                <a href=3D"http://www.oracle.com/" aria-label=3D"Oracle" ti=
+tle=3D"Oracle"><span class=3D"oracle-logo"></span></a>
+                &nbsp; <a href=3D"https://www.oracle.com/legal/copyright.ht=
+ml">=C2=A9 2025 Oracle</a>
+                <div class=3D"footer-legal-links">
+                    <a href=3D"https://www.oracle.com/legal/privacy/">Priva=
+cy</a> /
+                    <a href=3D"https://www.oracle.com/legal/privacy/privacy=
+-choices.html">Do Not Sell My Info</a> |
+                    <a href=3D"https://www.oracle.com/us/legal/terms/index.=
+html">Terms of Use</a> |
+                    <a href=3D"https://www.oracle.com/us/legal/third-party-=
+trademarks/index.html">Trademark Policy</a> |
+                    <div id=3D"teconsent" consent=3D"undefined" aria-label=
+=3D"Open Cookie Preferences Modal" class=3D"truste_caIcon_display" role=3D"=
+complementary"><a role=3D"link" id=3D"icon-id0366179576410282" tabindex=3D"=
+0" lang=3D"ru" aria-haspopup=3D"dialog" aria-label=3D"Cookie Preferences, o=
+pens a dedicated popup modal window" class=3D"truste_cursor_pointer">=D0=9D=
+=D0=B0=D1=81=D1=82=D1=80=D0=BE=D0=B9=D0=BA=D0=B8 cookie</a></div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</div>
+
+            <iframe name=3D"trustarc_notice" id=3D"trustarcNoticeFrame" tit=
+le=3D"Trustarc Cross-Domain Consent Frame" src=3D"cid:frame-F9B7D509AB4F035=
+713E2F2F874784D7B@mhtml.blink" style=3D"display: none;"></iframe>
+
+       =20
+   =20
+
+
+</body></html>
+------MultipartBoundary--bxBkFwkppgpRZQ23L9YqYWpIhQrjFkENfo5o7UZikm----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-1e2e643e-ef1c-4952-a9fd-4c7fc1303336@mhtml.blink
+
+@charset "utf-8";
+
+.truste_caIcon_display { display: inline !important; }
+------MultipartBoundary--bxBkFwkppgpRZQ23L9YqYWpIhQrjFkENfo5o7UZikm----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-c050745a-0d63-4503-896f-a3c2efad2c03@mhtml.blink
+
+@charset "utf-8";
+
+.truste_cursor_pointer { cursor: pointer; }
+
+.truste_border_none { border: none; }
+------MultipartBoundary--bxBkFwkppgpRZQ23L9YqYWpIhQrjFkENfo5o7UZikm----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://labs.mysql.com/common/css/main-20241001.min.css
+
+@charset "utf-8";
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquot=
+e, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, sm=
+all, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, l=
+abel, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, asi=
+de, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav,=
+ section, summary, time, mark, audio, video { margin: 0px; padding: 0px; bo=
+rder: 0px; outline: 0px; font-size: 100%; vertical-align: baseline; backgro=
+und: transparent; }
+
+body { line-height: 1; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, =
+nav, section { display: block; }
+
+nav ul { list-style: none; }
+
+blockquote, q { quotes: none; }
+
+blockquote::before, blockquote::after, q::before, q::after { content: none;=
+ }
+
+a { margin: 0px; padding: 0px; font-size: 100%; vertical-align: baseline; b=
+ackground: transparent; }
+
+ins { background-color: rgb(255, 255, 153); color: rgb(0, 0, 0); text-decor=
+ation: none; }
+
+mark { background-color: rgb(255, 255, 153); color: rgb(0, 0, 0); font-styl=
+e: italic; font-weight: 700; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+
+table { border-collapse: collapse; border-spacing: 0px; }
+
+hr { display: block; height: 1px; border-width: 1px 0px 0px; border-right-s=
+tyle: initial; border-bottom-style: initial; border-left-style: initial; bo=
+rder-right-color: initial; border-bottom-color: initial; border-left-color:=
+ initial; border-image: initial; border-top-style: solid; border-top-color:=
+ rgb(204, 204, 204); margin: 1em 0px; padding: 0px; }
+
+input, select { vertical-align: middle; }
+
+img { border: 0px; }
+
+@font-face { font-family: "Open Sans"; src: url("/common/fonts/opensans-reg=
+ular-webfont.woff") format("woff"), url("/common/fonts/opensans-regular-web=
+font.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+
+@font-face { font-family: "Open Sans"; src: url("/common/fonts/opensans-bol=
+d-webfont.woff") format("woff"), url("/common/fonts/opensans-bold-webfont.t=
+tf") format("truetype"); font-weight: 700; font-style: normal; }
+
+@font-face { font-family: "Open Sans"; src: url("/common/fonts/opensans-bol=
+ditalic-webfont.woff") format("woff"), url("/common/fonts/opensans-boldital=
+ic-webfont.ttf") format("truetype"); font-weight: 700; font-style: italic; =
+}
+
+@font-face { font-family: "Open Sans"; src: url("/common/fonts/opensans-ita=
+lic-webfont.woff") format("woff"), url("/common/fonts/opensans-italic-webfo=
+nt.ttf") format("truetype"); font-weight: 400; font-style: italic; }
+
+@font-face { font-family: "Open Sans"; src: url("/common/fonts/opensans-ext=
+rabold-webfont.woff") format("woff"), url("/common/fonts/opensans-extrabold=
+-webfont.ttf") format("truetype"); font-weight: 900; font-style: normal; }
+
+@font-face { font-family: "Open Sans"; src: url("/common/fonts/opensans-ext=
+rabolditalic-webfont.woff") format("woff"), url("/common/fonts/opensans-ext=
+rabolditalic-webfont.ttf") format("truetype"); font-weight: 900; font-style=
+: italic; }
+
+@font-face { font-family: "Open Sans"; src: url("/common/fonts/opensans-lig=
+ht-webfont.woff") format("woff"), url("/common/fonts/opensans-light-webfont=
+.ttf") format("truetype"); font-weight: 200; font-style: normal; }
+
+@font-face { font-family: "Open Sans"; src: url("/common/fonts/opensans-lig=
+htitalic-webfont.woff") format("woff"), url("/common/fonts/opensans-lightit=
+alic-webfont.ttf") format("truetype"); font-weight: 200; font-style: italic=
+; }
+
+@font-face { font-family: "Open Sans"; src: url("/common/fonts/opensans-sem=
+ibold-webfont.woff") format("woff"), url("/common/fonts/opensans-semibold-w=
+ebfont.ttf") format("truetype"); font-weight: 500; font-style: normal; }
+
+@font-face { font-family: "Open Sans"; src: url("/common/fonts/opensans-sem=
+ibolditalic-webfont.woff") format("woff"), url("/common/fonts/opensans-semi=
+bolditalic-webfont.ttf") format("truetype"); font-weight: 500; font-style: =
+italic; }
+
+@font-face { font-family: "Liberation Mono"; src: url("/common/fonts/libera=
+tion-mono-bold-italic.woff") format("woff"), url("/common/fonts/liberation-=
+mono-bold-italic.ttf") format("truetype"); font-weight: 700; font-style: it=
+alic; }
+
+@font-face { font-family: "Liberation Mono"; src: url("/common/fonts/libera=
+tion-mono-bold.woff") format("woff"), url("/common/fonts/liberation-mono-bo=
+ld.ttf") format("truetype"); font-weight: 700; font-style: normal; }
+
+@font-face { font-family: "Liberation Mono"; src: url("/common/fonts/libera=
+tion-mono-italic.woff") format("woff"), url("/common/fonts/liberation-mono-=
+italic.ttf") format("truetype"); font-weight: 400; font-style: italic; }
+
+@font-face { font-family: "Liberation Mono"; src: url("/common/fonts/libera=
+tion-mono-regular.woff") format("woff"), url("/common/fonts/liberation-mono=
+-regular.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+
+@font-face { font-family: icons; src: url("/common/fonts/icons5.woff") form=
+at("woff"), url("/common/fonts/icons5.ttf") format("truetype"); font-weight=
+: 400; font-style: normal; }
+
+[data-icon]::before { content: attr(data-icon); speak: none; line-height: 1=
+; -webkit-font-smoothing: antialiased; font-family: icons !important; font-=
+style: normal !important; font-weight: normal !important; font-variant: nor=
+mal !important; text-transform: none !important; }
+
+[class^=3D"icon-"]::before, [class*=3D" icon-"]::before { speak: none; line=
+-height: 1; -webkit-font-smoothing: antialiased; font-family: icons !import=
+ant; font-style: normal !important; font-weight: normal !important; font-va=
+riant: normal !important; text-transform: none !important; }
+
+.icon-book::before { content: "b"; }
+
+.icon-download::before { content: "d"; }
+
+.icon-facebook-square::before { content: "f"; }
+
+.icon-facebook::before { content: "h"; }
+
+.icon-twitter::before { content: "i"; }
+
+.icon-twitter-square::before { content: "t"; }
+
+.icon-youtube-square::before { content: "y"; }
+
+.icon-youtube::before { content: "j"; }
+
+.icon-google-plus-square::before { content: "g"; }
+
+.icon-google-plus::before { content: "l"; }
+
+.icon-call-phone::before { content: "p"; }
+
+.icon-chevron-down::before { content: "n"; }
+
+.icon-chevron-left::before { content: "o"; }
+
+.icon-chevron-right::before { content: "v"; }
+
+.icon-chevron-up::before { content: "q"; }
+
+.icon-arrow-small-down::before { content: "e"; }
+
+.icon-arrow-small-left::before { content: "s"; }
+
+.icon-arrow-small-right::before { content: "a"; }
+
+.icon-arrow-small-up::before { content: "u"; }
+
+.icon-check::before { content: "c"; }
+
+.icon-rss-square::before { content: "r"; }
+
+.icon-rss::before { content: "k"; }
+
+.icon-x::before { content: "m"; }
+
+.icon-x-circle::before { content: "x"; }
+
+.icon-dot::before { content: "w"; }
+
+.icon-three-bars::before { content: "z"; }
+
+.icon-search::before { content: "A"; }
+
+.icon-minus-square::before { content: "B"; }
+
+.icon-plus-square::before { content: "C"; }
+
+.icon-pencil::before { content: "D"; }
+
+.icon-home::before { content: "E"; }
+
+.icon-download-thin::before { content: "F"; }
+
+.icon-code::before { content: "G"; }
+
+.icon-sakila::before { content: "I"; }
+
+.icon-database::before { content: "J"; }
+
+.icon-books::before { content: "H"; }
+
+.icon-spinner::before { content: "K"; }
+
+.icon-chevron-down-circle::before { content: "L"; }
+
+.icon-chevron-up-circle::before { content: "M"; }
+
+.icon-book-open::before { content: "N"; }
+
+.icon-bubbles::before { content: "O"; }
+
+.icon-chatbubble::before { content: "P"; }
+
+.icon-cloud-download::before { content: "Q"; }
+
+.icon-share::before { content: "R"; }
+
+.icon-clipboard::before { content: "S"; }
+
+.icon-related::before { content: "T"; }
+
+.icon-earth::before { content: "U"; }
+
+.icon-globe-world::before { content: "V"; }
+
+.icon-laptop::before { content: "X"; }
+
+.icon-files::before { content: "Y"; }
+
+.icon-chat-bubble-two::before { content: "W"; }
+
+.icon-folder::before { content: "Z"; }
+
+.icon-linkedin::before { content: "0"; }
+
+.icon-linkedin-square::before { content: "1"; }
+
+.icon-calendar::before { content: "2"; }
+
+.icon-x-twitter::before { content: "3"; }
+
+.icon-x-twitter-square::before { content: "4"; }
+
+html { box-sizing: border-box; }
+
+*, ::before, ::after { box-sizing: inherit; }
+
+body { font-family: "Open Sans", Arial, Helvetica, sans-serif; text-size-ad=
+just: 100%; text-rendering: optimizelegibility; color: rgb(68, 68, 68); }
+
+a { background: transparent; text-decoration: none; }
+
+a:link { color: rgb(0, 116, 163); }
+
+a:active { color: rgb(0, 116, 163); }
+
+a:visited { color: rgb(0, 116, 163); }
+
+a:hover { color: rgb(0, 116, 163); text-decoration: underline; }
+
+a.darker-blue:link, a.darker-blue:active, a.darker-blue:visited, a.darker-b=
+lue:hover { color: rgb(0, 106, 148); }
+
+.right { float: right; }
+
+.left { float: left; }
+
+.text-right { text-align: right !important; }
+
+.text-left { text-align: left !important; }
+
+.text-center { text-align: center !important; }
+
+.hidden { display: none; }
+
+hr.clear { clear: both; margin: 0px; padding: 0px; visibility: hidden; }
+
+br.clear { clear: both; margin: 0px; padding: 0px; }
+
+br.clear-right { clear: right; }
+
+body { background-color: rgb(247, 247, 247); }
+
+.page-wrapper { max-width: 1600px; margin: 0px auto; background: rgb(255, 2=
+55, 255); width: 100%; min-width: 300px; box-shadow: rgb(238, 238, 238) -2p=
+x 0px 5px 0px, rgb(238, 238, 238) 2px 0px 5px 0px; }
+
+header ul { margin: 0px; padding: 0px; }
+
+header ul li { margin: 0px; padding: 0px; line-height: 1.5; }
+
+#l1-section-title { display: none; padding: 5px 5px 2px 14px; font-size: 11=
+5%; margin-bottom: 7px; color: rgb(255, 255, 255); }
+
+#l1-section-title .icon-chevron-right { font-size: 65%; margin: 0px; paddin=
+g: 0px; }
+
+#l1-nav-container { height: 157px; padding-left: 240px; overflow: hidden; }
+
+#l1-nav-container nav { display: inline-block; }
+
+.svg #l1-nav-container { background-image: url("/common/logos/mysql-logo.sv=
+g?v2"); background-repeat: no-repeat; background-size: 142px 98px; backgrou=
+nd-position: 60px 30px; }
+
+.no-svg #l1-nav-container { background: url("/common/images/ui-sprite.png?v=
+2") 60px 20px no-repeat rgb(255, 255, 255); }
+
+#l1-line1 { border-bottom: 3px solid rgb(235, 236, 238); margin: 33px 60px =
+0px 15px; padding-bottom: 12px; }
+
+#l1-line2 { margin: 30px 60px 0px 15px; }
+
+#l1-slogan { color: rgb(148, 148, 148); font-size: 80%; padding-top: 3px; d=
+isplay: inline-block; font-style: italic; }
+
+#l1-contact-separator-br { display: none; }
+
+#l1-search-auth { font-size: 75%; padding: 15px 15px 0px 0px; text-align: r=
+ight; position: absolute; top: 0px; right: 0%; }
+
+#l1-search-form { display: inline; margin: 0px; }
+
+#l1-auth-links { font-size: 75%; padding-top: 3px; text-align: right; float=
+: right; font-weight: 400; }
+
+#l1-auth-links b { font-weight: 500; }
+
+#l1-search-box { margin-left: 10px; margin-top: -7px; padding: 0px; vertica=
+l-align: top; display: inline-block; }
+
+#l1-search-box input { outline: none; }
+
+#l1-search-box input::-webkit-search-decoration, #l1-search-box input::-web=
+kit-search-cancel-button { display: none; }
+
+#l1-search-box input[type=3D"search"] { appearance: textfield; box-sizing: =
+content-box; font-family: inherit; font-size: 90%; color: transparent; curs=
+or: pointer; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgA=
+AACAAAAAgBAMAAACBVGfHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2lDQ1BQaG90b3Nob3AgSU=
+NDIHByb2ZpbGUAAHjanVNnVFPpFj333vRCS4iAlEtvUhUIIFJCi4AUkSYqIQkQSoghodkVUcERR=
+UUEG8igiAOOjoCMFVEsDIoK2AfkIaKOg6OIisr74Xuja9a89+bN/rXXPues852zzwfACAyWSDNR=
+NYAMqUIeEeCDx8TG4eQuQIEKJHAAEAizZCFz/SMBAPh+PDwrIsAHvgABeNMLCADATZvAMByH/w/=
+qQplcAYCEAcB0kThLCIAUAEB6jkKmAEBGAYCdmCZTAKAEAGDLY2LjAFAtAGAnf+bTAICd+Jl7AQ=
+BblCEVAaCRACATZYhEAGg7AKzPVopFAFgwABRmS8Q5ANgtADBJV2ZIALC3AMDOEAuyAAgMADBRi=
+IUpAAR7AGDIIyN4AISZABRG8lc88SuuEOcqAAB4mbI8uSQ5RYFbCC1xB1dXLh4ozkkXKxQ2YQJh=
+mkAuwnmZGTKBNA/g88wAAKCRFRHgg/P9eM4Ors7ONo62Dl8t6r8G/yJiYuP+5c+rcEAAAOF0ftH=
++LC+zGoA7BoBt/qIl7gRoXgugdfeLZrIPQLUAoOnaV/Nw+H48PEWhkLnZ2eXk5NhKxEJbYcpXff=
+5nwl/AV/1s+X48/Pf14L7iJIEyXYFHBPjgwsz0TKUcz5IJhGLc5o9H/LcL//wd0yLESWK5WCoU4=
+1EScY5EmozzMqUiiUKSKcUl0v9k4t8s+wM+3zUAsGo+AXuRLahdYwP2SycQWHTA4vcAAPK7b8HU=
+KAgDgGiD4c93/+8//UegJQCAZkmScQAAXkQkLlTKsz/HCAAARKCBKrBBG/TBGCzABhzBBdzBC/x=
+gNoRCJMTCQhBCCmSAHHJgKayCQiiGzbAdKmAv1EAdNMBRaIaTcA4uwlW4Dj1wD/phCJ7BKLyBCQ=
+RByAgTYSHaiAFiilgjjggXmYX4IcFIBBKLJCDJiBRRIkuRNUgxUopUIFVIHfI9cgI5h1xGupE7y=
+AAygvyGvEcxlIGyUT3UDLVDuag3GoRGogvQZHQxmo8WoJvQcrQaPYw2oefQq2gP2o8+Q8cwwOgY=
+BzPEbDAuxsNCsTgsCZNjy7EirAyrxhqwVqwDu4n1Y8+xdwQSgUXACTYEd0IgYR5BSFhMWE7YSKg=
+gHCQ0EdoJNwkDhFHCJyKTqEu0JroR+cQYYjIxh1hILCPWEo8TLxB7iEPENyQSiUMyJ7mQAkmxpF=
+TSEtJG0m5SI+ksqZs0SBojk8naZGuyBzmULCAryIXkneTD5DPkG+Qh8lsKnWJAcaT4U+IoUspqS=
+hnlEOU05QZlmDJBVaOaUt2ooVQRNY9aQq2htlKvUYeoEzR1mjnNgxZJS6WtopXTGmgXaPdpr+h0=
+uhHdlR5Ol9BX0svpR+iX6AP0dwwNhhWDx4hnKBmbGAcYZxl3GK+YTKYZ04sZx1QwNzHrmOeZD5l=
+vVVgqtip8FZHKCpVKlSaVGyovVKmqpqreqgtV81XLVI+pXlN9rkZVM1PjqQnUlqtVqp1Q61MbU2=
+epO6iHqmeob1Q/pH5Z/YkGWcNMw09DpFGgsV/jvMYgC2MZs3gsIWsNq4Z1gTXEJrHN2Xx2KruY/=
+R27iz2qqaE5QzNKM1ezUvOUZj8H45hx+Jx0TgnnKKeX836K3hTvKeIpG6Y0TLkxZVxrqpaXllir=
+SKtRq0frvTau7aedpr1Fu1n7gQ5Bx0onXCdHZ4/OBZ3nU9lT3acKpxZNPTr1ri6qa6UbobtEd79=
+up+6Ynr5egJ5Mb6feeb3n+hx9L/1U/W36p/VHDFgGswwkBtsMzhg8xTVxbzwdL8fb8VFDXcNAQ6=
+VhlWGX4YSRudE8o9VGjUYPjGnGXOMk423GbcajJgYmISZLTepN7ppSTbmmKaY7TDtMx83MzaLN1=
+pk1mz0x1zLnm+eb15vft2BaeFostqi2uGVJsuRaplnutrxuhVo5WaVYVVpds0atna0l1rutu6cR=
+p7lOk06rntZnw7Dxtsm2qbcZsOXYBtuutm22fWFnYhdnt8Wuw+6TvZN9un2N/T0HDYfZDqsdWh1=
++c7RyFDpWOt6azpzuP33F9JbpL2dYzxDP2DPjthPLKcRpnVOb00dnF2e5c4PziIuJS4LLLpc+Lp=
+sbxt3IveRKdPVxXeF60vWdm7Obwu2o26/uNu5p7ofcn8w0nymeWTNz0MPIQ+BR5dE/C5+VMGvfr=
+H5PQ0+BZ7XnIy9jL5FXrdewt6V3qvdh7xc+9j5yn+M+4zw33jLeWV/MN8C3yLfLT8Nvnl+F30N/=
+I/9k/3r/0QCngCUBZwOJgUGBWwL7+Hp8Ib+OPzrbZfay2e1BjKC5QRVBj4KtguXBrSFoyOyQrSH=
+355jOkc5pDoVQfujW0Adh5mGLw34MJ4WHhVeGP45wiFga0TGXNXfR3ENz30T6RJZE3ptnMU85ry=
+1KNSo+qi5qPNo3ujS6P8YuZlnM1VidWElsSxw5LiquNm5svt/87fOH4p3iC+N7F5gvyF1weaHOw=
+vSFpxapLhIsOpZATIhOOJTwQRAqqBaMJfITdyWOCnnCHcJnIi/RNtGI2ENcKh5O8kgqTXqS7JG8=
+NXkkxTOlLOW5hCepkLxMDUzdmzqeFpp2IG0yPTq9MYOSkZBxQqohTZO2Z+pn5mZ2y6xlhbL+xW6=
+Lty8elQfJa7OQrAVZLQq2QqboVFoo1yoHsmdlV2a/zYnKOZarnivN7cyzytuQN5zvn//tEsIS4Z=
+K2pYZLVy0dWOa9rGo5sjxxedsK4xUFK4ZWBqw8uIq2Km3VT6vtV5eufr0mek1rgV7ByoLBtQFr6=
+wtVCuWFfevc1+1dT1gvWd+1YfqGnRs+FYmKrhTbF5cVf9go3HjlG4dvyr+Z3JS0qavEuWTPZtJm=
+6ebeLZ5bDpaql+aXDm4N2dq0Dd9WtO319kXbL5fNKNu7g7ZDuaO/PLi8ZafJzs07P1SkVPRU+lQ=
+27tLdtWHX+G7R7ht7vPY07NXbW7z3/T7JvttVAVVN1WbVZftJ+7P3P66Jqun4lvttXa1ObXHtxw=
+PSA/0HIw6217nU1R3SPVRSj9Yr60cOxx++/p3vdy0NNg1VjZzG4iNwRHnk6fcJ3/ceDTradox7r=
+OEH0x92HWcdL2pCmvKaRptTmvtbYlu6T8w+0dbq3nr8R9sfD5w0PFl5SvNUyWna6YLTk2fyz4yd=
+lZ19fi753GDborZ752PO32oPb++6EHTh0kX/i+c7vDvOXPK4dPKy2+UTV7hXmq86X23qdOo8/pP=
+TT8e7nLuarrlca7nuer21e2b36RueN87d9L158Rb/1tWeOT3dvfN6b/fF9/XfFt1+cif9zsu72X=
+cn7q28T7xf9EDtQdlD3YfVP1v+3Njv3H9qwHeg89HcR/cGhYPP/pH1jw9DBY+Zj8uGDYbrnjg+O=
+TniP3L96fynQ89kzyaeF/6i/suuFxYvfvjV69fO0ZjRoZfyl5O/bXyl/erA6xmv28bCxh6+yXgz=
+MV70VvvtwXfcdx3vo98PT+R8IH8o/2j5sfVT0Kf7kxmTk/8EA5jz/GMzLdsAAAAgY0hSTQAAeiU=
+AAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAAABhQTFRFsrKy2tralJSUmJiYl5eXlp=
+aWk5OT////KeObLAAAAPNJREFUKM9l0LFuwjAUheHbIIU1KYW7UkqZIQkw0wBzSUrnFMNui+F//=
+Q62K4V6/KRjnXsEcNmgFMU/AQaXulws9Q9G5vjeXIppBHf7WOZ5dt4MAzwfTgDZWxegan062SiA=
+WLPyYTvfAsj9GL531Q+ATNpQgLQFkGQaYVwDSPUa4d4oIOUpgv0HMw+PkaSLMKoVkMlnBF9AxkV=
+coup89etDdbcPzRJ/vzApVv3z7fX7SV1WbLZ5mPBlvqjL2aFzlXpwye3w1RgdnVdhdSdluVSsqd=
+UDOAVI17sIoYk5aw9Iq1MfrNlrD0jXuz5Y0/WBdPgAjl+L58GB/vjvcAAAAABJRU5ErkJggg=3D=
+=3D") 5px center / 16px 16px no-repeat rgb(255, 255, 255); border: 1px soli=
+d rgb(255, 255, 255); padding: 1px 10px 1px 24px; width: 0px; transition: 0=
+.5s; }
+
+#l1-search-box input[type=3D"search"]:focus { width: 100px; background-colo=
+r: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); padding-left: =
+32px; color: rgb(85, 85, 85); cursor: auto; }
+
+#l1-search-box input::-webkit-input-placeholder { color: rgb(153, 153, 153)=
+; }
+
+#l1-home-link { position: absolute; display: inline-block; width: 162px; he=
+ight: 111px; top: 25px; margin-left: 50px; border: 0px; float: left; }
+
+.social-icons { float: right; }
+
+.social-icons span { display: inline-block; margin-left: 2px; font-size: 16=
+5%; color: rgb(132, 166, 203); transition: 200ms ease-in-out; }
+
+header .social-icons span { margin-left: 15px; font-size: 135%; color: rgb(=
+148, 148, 148); }
+
+.social-icons span:hover { opacity: 1; }
+
+.social-icons span.icon-facebook:hover, .social-icons span.icon-facebook-sq=
+uare:hover { color: rgb(59, 89, 157); }
+
+.social-icons span.icon-twitter:hover, .social-icons span.icon-twitter-squa=
+re:hover { color: rgb(39, 200, 255); }
+
+.social-icons span.icon-x-twitter:hover, .social-icons span.icon-x-twitter-=
+square:hover { color: rgb(0, 0, 0); }
+
+.social-icons span.icon-linkedin:hover, .social-icons span.icon-linkedin-sq=
+uare:hover { color: rgb(0, 119, 181); }
+
+.social-icons span.icon-google-plus:hover, .social-icons span.icon-google-p=
+lus-square:hover { color: rgb(214, 75, 34); }
+
+.social-icons span.icon-youtube:hover, .social-icons span.icon-youtube-squa=
+re:hover { color: rgb(192, 8, 0); }
+
+#l1-nav { display: inline-block; }
+
+#l1-nav li a span.icon-sakila, #l1-nav li a span.icon-download-thin, #l1-na=
+v li a span.icon-books, #l1-nav li a span.icon-code, #l1-nav li a span.icon=
+-database { font-size: 150%; vertical-align: top; display: inline-block; ma=
+rgin-top: -1px; margin-right: 5px; }
+
+#l1-nav li { display: inline-block; list-style-type: none; background-color=
+: rgb(255, 255, 255); text-transform: uppercase; font-size: 115%; font-weig=
+ht: 200; margin-right: 30px; padding-bottom: 10px; border-bottom: 7px solid=
+ transparent; }
+
+#l1-nav li a { line-height: normal; display: inline-block; padding: 0px; te=
+xt-decoration: none; white-space: nowrap; }
+
+#l1-nav li:hover { border-bottom: 7px solid rgb(242, 146, 33); transition: =
+300ms ease-in-out; }
+
+#l1-nav li.active { border-bottom: 7px solid rgb(242, 146, 33); }
+
+#l1-nav li a:hover { text-decoration: none; }
+
+#l1-nav a, #l1-nav a:visited { color: rgb(68, 68, 68); text-decoration: non=
+e; }
+
+#l1-nav a:hover { text-decoration: underline; }
+
+#l2-nav-container { background-color: rgb(62, 110, 147); padding: 20px 10px=
+ 20px 50px; font-size: 130%; font-weight: 300; overflow: hidden; transition=
+: 0.3s; }
+
+#l2-search-toggle { display: none; float: right; cursor: pointer; width: 30=
+px; height: 28px; padding: 5px; margin-right: 5px; color: rgb(255, 255, 255=
+); font-size: 120%; }
+
+#l2-search { display: none; }
+
+#l2-nav li { font-size: 75%; display: inline; list-style-type: none; paddin=
+g: 0px 10px; white-space: nowrap; }
+
+#l2-nav li.active a, #l2-nav li.active a:visited { font-weight: 700; color:=
+ rgb(250, 237, 178); }
+
+#l1-section-title a, #l2-nav a, #l2-nav a:visited { color: rgb(255, 255, 25=
+5); text-decoration: none; }
+
+#l2-nav a:hover { color: rgb(250, 237, 178); }
+
+#top-orange { background-color: rgb(245, 150, 32); height: 7px; border-top:=
+ 2px solid rgb(255, 255, 255); display: none; }
+
+#l2-nav li.other-section { display: none; }
+
+#l2-nav li.drilldown { display: none; }
+
+#l2-nav-toggle { display: none; box-sizing: content-box; float: right; curs=
+or: pointer; margin-right: 10px; transition: 200ms ease-in; }
+
+#l2-nav-toggle span.icon-three-bars { color: rgb(255, 255, 255); font-size:=
+ 150%; display: inline-block; margin: 0px; padding: 2px 3px 0px; }
+
+#l2-site-icon { display: none; position: absolute; top: 15px; left: 15px; f=
+ont-size: 130%; color: rgb(156, 198, 239); }
+
+#l2-site-icon .icon-database { display: inline-block; font-size: 80%; margi=
+n-top: 3px; }
+
+#l2-site-icon .icon-code { display: inline-block; font-size: 80%; margin-to=
+p: 2px; }
+
+#l2-site-icon .icon-download-thin { display: inline-block; font-size: 90%; =
+margin-top: 2px; }
+
+#l3-search-container { overflow: hidden; max-height: 0px; }
+
+#l3-search-container #l1-search-input { width: 100%; font-size: 120%; }
+
+#sub-header { z-index: 200; width: 100%; transition: top 0.3s ease-in-out; =
+}
+
+.hide-top-nav { display: none; }
+
+.sr-only { clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1=
+px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px; =
+}
+
+a.skip-main { left: -999px; position: absolute; top: auto; width: 1px; heig=
+ht: 1px; overflow: hidden; z-index: -999; }
+
+a.skip-main:focus, a.skip-main:active { color: rgb(255, 255, 255); backgrou=
+nd-color: rgb(62, 110, 147); left: auto; top: auto; width: 30%; height: aut=
+o; overflow: auto; margin: 10px 35%; padding: 5px; border-radius: 8px; bord=
+er: 4px solid rgb(255, 255, 255); text-align: center; font-size: 1.2em; z-i=
+ndex: 999; }
+
+.sticky { position: fixed; top: 0px; }
+
+.nav-up { top: -65px; }
+
+.sticky .nav-button-1, .sticky .nav-button-2, .sticky .nav-button-3, .stick=
+y .nav-button-4 { display: inline-block; }
+
+.sticky #l2-nav-container { border-radius: 0px; transition: none; }
+
+.sticky #l2-site-icon { display: block; }
+
+header .button { background: rgb(95, 149, 196); color: rgb(255, 255, 255); =
+font-size: 75%; vertical-align: middle; border: 0px; margin: -4px 10px -5px=
+ 0px; padding: 6px 13px 6px 10px; display: inline-block; float: right; bord=
+er-radius: 4px; transition: 0.3s; }
+
+header .button span { font-size: 120%; height: 20px; margin-top: -1px; padd=
+ing: 0px 5px 2px 0px; line-height: 1; display: inline-block; vertical-align=
+: middle; }
+
+header .button:hover { text-decoration: none; }
+
+header .nav-button-1, header .nav-button-2, header .nav-button-3, header .n=
+av-button-4 { display: none; vertical-align: middle; }
+
+header .nav-button-1:hover, header .nav-button-2:hover, header .nav-button-=
+3:hover, header .nav-button-4:hover { background-color: rgb(40, 90, 134); }
+
+#l2-nav-container.open-nav { max-height: 3000px !important; }
+
+#l2-nav-container.open-nav #l2-nav-toggle { transform: rotate(-90deg); back=
+ground-color: rgb(106, 160, 204); }
+
+.open-search { max-height: 100px !important; }
+
+#l2-search-toggle.open-search { background-color: rgb(106, 160, 204); }
+
+footer { width: 100%; font-size: 80%; line-height: 1.8em; color: rgb(102, 1=
+02, 102); clear: both; }
+
+#footer-collapse { margin-left: -25px; margin-right: 20px; vertical-align: =
+top; font-size: 200%; display: inline-block; }
+
+#footer-collapse a, #footer-collapse a:visited { color: rgb(136, 136, 136);=
+ }
+
+#footer-collapse a:hover { color: rgb(51, 51, 51); text-decoration: none; }
+
+footer.collapsed #footer-links { display: none; }
+
+footer.collapsed #footer-bottom { background-color: rgb(247, 247, 247); bor=
+der-top: 2px solid rgb(225, 225, 225); }
+
+footer.collapsed #footer-collapse { display: inline-block; }
+
+.no-js footer.collapsed #footer-collapse, .no-js #footer-collapse { display=
+: none; }
+
+.no-js footer.collapsed #footer-links { display: block; }
+
+.no-js footer.collapsed #footer-bottom { background-color: rgb(225, 225, 22=
+5); }
+
+#footer-links { padding: 40px 0px; background-color: rgb(247, 247, 247); }
+
+#footer-bottom { background-color: rgb(225, 225, 225); color: rgb(51, 51, 5=
+1); padding: 25px 40px 20px 60px; }
+
+.oracle-logo { vertical-align: middle; display: inline-block; width: 91px; =
+height: 22px; }
+
+.svg .oracle-logo { background-image: url("/common/logos/oracle-logo-new.sv=
+g"); background-repeat: no-repeat; background-position: 0px 3px; background=
+-size: 100% 100%; }
+
+.no-svg .oracle-logo { background-image: url("/common/logos/logo-oracle-red=
+-91x22.gif"); }
+
+footer div { vertical-align: top; }
+
+#footer-contact { padding: 0px 20px 20px; display: table; max-width: 200px;=
+ }
+
+#footer-contact-icon { display: table-cell; padding-top: 5px; padding-right=
+: 20px; }
+
+#footer-contact-numbers { display: table-cell; padding-top: 0px; }
+
+#footer-contact-copyright { display: none; }
+
+footer ul li { padding: 1px 0px; margin: 0px; list-style-type: none; font-s=
+ize: 100%; line-height: 2; }
+
+footer ul { padding: 0px; margin: 0px; list-style: none; }
+
+footer p { margin: 0px; padding-bottom: 5px; line-height: 1.5; font-size: 9=
+5%; }
+
+footer .top { font-weight: 600; text-transform: uppercase; font-size: 120%;=
+ padding-bottom: 5px; }
+
+footer .links a, footer .links a:visited { color: rgb(113, 113, 113); text-=
+decoration: none; }
+
+footer .links a:hover { color: rgb(85, 85, 85); text-decoration: underline;=
+ }
+
+footer .links li.top a, footer .links li.top a:visited { color: rgb(85, 85,=
+ 85); text-decoration: none; }
+
+footer .links { display: inline-block; width: 19%; padding-left: 60px; }
+
+#footer-nav { display: none; padding: 0px 20px 20px; }
+
+#footer-logo { margin: 45px 15px 10px 60px; }
+
+.footer-legal-links { font-size: 90%; padding-top: 10px; }
+
+.footer-legal-links a, #footer-logo a { color: rgb(85, 85, 85); }
+
+#footer-langs { margin: 25px 15px 0px 60px; }
+
+#footer-langs a, #footer-langs a:visited { color: rgb(113, 113, 113); }
+
+#footer-langs span.icon-earth { font-size: 200%; vertical-align: middle; pa=
+dding-right: 10px; }
+
+.footer-contact { display: inline-block; }
+
+.footer-contact span.icon-call-phone { font-size: 280%; color: rgb(85, 85, =
+85); }
+
+footer .social-icons { float: right; font-size: 140%; padding-top: 7px; wid=
+th: 25%; text-align: right; }
+
+footer .social-icons span { color: gray; }
+
+footer .social-icons a:hover { text-decoration: none; }
+
+footer #teconsent { display: inline !important; }
+
+#page { font-size: 90%; font-weight: 400; line-height: 1.6; text-rendering:=
+ optimizelegibility; background: rgb(255, 255, 255); color: rgb(85, 85, 85)=
+; display: table; width: 100%; }
+
+p { line-height: 1.6; margin: 0px 0px 10px; padding: 0px; }
+
+sup { font-size: 80%; vertical-align: top; font-weight: 700; }
+
+sub { font-size: 80%; vertical-align: bottom; }
+
+#sidebar { display: table-cell; direction: ltr; vertical-align: top; width:=
+ 300px; padding: 35px 0px; font-size: 90%; border-right: 1px solid rgb(233,=
+ 234, 235); min-width: 250px; }
+
+#sidebar-blue { height: 40px; background-color: rgb(62, 120, 166); vertical=
+-align: top; width: 250px; margin: -7px 0px 0px; }
+
+#sidebar-orange { margin-top: -10px; height: 30px; border-top: 2px solid rg=
+b(255, 255, 255); border-left: 2px solid rgb(255, 255, 255); border-radius:=
+ 15px 0px 0px; background-color: rgb(245, 150, 32); font-weight: 700; paddi=
+ng-top: 2px; text-align: center; color: rgb(255, 255, 255); padding-left: 6=
+px; }
+
+#section-nav { display: none; }
+
+#section-select { max-width: 175px; }
+
+.sidebar-header { font-size: 140%; margin: 0px 40px 10px 60px; }
+
+#content { margin-right: 55px; padding-left: 50px; padding-top: 10px; line-=
+height: 1.6; height: 100%; }
+
+.forums #content { line-height: 1.2em; }
+
+#content-forums { margin: 0px 20px 20px 0px; }
+
+.no-sidebar #content { margin: 0px 60px 30px 10px; }
+
+#content-divider { display: table-cell; width: 30px; height: 30px; backgrou=
+nd-color: rgb(255, 255, 255); }
+
+#main-orange { background-color: rgb(245, 150, 32); height: 23px; }
+
+#content-divider-blue { margin-top: -7px; display: inline-block; height: 30=
+px; width: 30px; background-color: rgb(62, 120, 166); }
+
+#content-divider-orange { display: inline-block; height: 30px; width: 30px;=
+ border-top: 2px solid rgb(255, 255, 255); border-left: 2px solid rgb(255, =
+255, 255); border-radius: 15px 0px 0px; background-color: rgb(245, 150, 32)=
+; }
+
+.has-sticky-header #l1-nav li.active { background: none; }
+
+.has-sticky-header #content-divider, .has-sticky-header #content-divider-or=
+ange, .has-sticky-header #content-divider-blue, .has-sticky-header #main-or=
+ange, .has-sticky-header #sidebar-blue, .has-sticky-header #sidebar-orange =
+{ background-color: rgb(255, 255, 255); transition: 0.5s ease-in-out; }
+
+.has-sticky-header #sidebar-blue, .has-sticky-header #sidebar-orange { bord=
+er: 0px; background-color: rgb(241, 241, 241); color: rgb(85, 85, 85); }
+
+.has-sticky-header #sidebar { transition: 0.5s ease-in-out; }
+
+#main { display: table-cell; direction: ltr; vertical-align: top; padding: =
+0px 0px 40px; line-height: 1.3em; font-size: 90%; }
+
+.no-sidebar #main { padding: 0px; margin: 0px; }
+
+h1.page-title, h1.page_header { font-size: 260%; font-weight: 400; line-hei=
+ght: 140%; margin: 20px 0px 25px; padding: 4px 0px; color: rgb(85, 85, 85);=
+ }
+
+h1 span.page-subtitle { font-size: 60%; color: rgb(85, 85, 85); display: bl=
+ock; margin: 5px 0px; line-height: 1.6; }
+
+#sidebar ul { width: 215px; margin: 0px 0px 0px 5px; padding: 0px; list-sty=
+le-type: none; }
+
+#sidebar ul li { margin: 0px; padding: 0px 0px 12px 15px; line-height: 110%=
+; }
+
+#menu { margin: 0px; padding: 0px; }
+
+#menu ul { padding: 0px; width: 100%; list-style-type: none; list-style-ima=
+ge: none; margin: 0px !important; }
+
+#menu ul li { margin: 0px; padding: 0px; color: rgb(113, 113, 113); }
+
+#menu ul li.label { font-weight: 400; font-size: 120%; padding: 20px 20px 1=
+0px 40px; }
+
+#menu ul ul { margin: 0px; padding: 5px 0px 10px; }
+
+#menu ul a, #menu ul a:link, #menu ul a:active, #menu ul a:visited { displa=
+y: block; padding: 12px 10px 12px 40px; color: rgb(85, 85, 85); text-indent=
+: 0px; transition: text-indent 200ms ease-in-out; }
+
+#menu ul ul a, #menu ul ul a:link, #menu ul ul a:active, #menu ul ul a:visi=
+ted { padding: 8px 10px 8px 55px; font-size: 90%; }
+
+#menu ul ul ul a, #menu ul ul ul a:link, #menu ul ul ul a:active, #menu ul =
+ul ul a:visited { padding: 8px 10px 8px 70px; }
+
+#menu ul a.active { background-color: rgb(221, 236, 249); }
+
+#menu ul ul a.active { background-color: rgb(238, 245, 253); }
+
+#menu ul a:hover { text-decoration: none; text-indent: 10px; color: rgb(0, =
+116, 163); transition: text-indent 200ms ease-in-out; }
+
+#menu ul a.active:hover { text-indent: 0px; color: rgb(85, 85, 85); }
+
+#menu ul span.icon-chevron-down, #menu ul span.icon-chevron-right, #menu ul=
+ span.icon-dot { font-size: 90%; padding-right: 12px; color: rgb(187, 187, =
+187); }
+
+#menu ul span.icon-dot { font-size: 70%; }
+
+@media only screen and (max-width: 1500px) {
+  .l1-email { display: none; }
+}
+
+@media only screen and (max-width: 1470px) {
+  .de .sticky .nav-button-1 { display: none; }
+}
+
+@media only screen and (max-width: 1330px) {
+  .de .sticky .nav-button-2 { display: none; }
+}
+
+@media only screen and (max-width: 1160px) {
+  .de .sticky .nav-button-3 { display: none; }
+}
+
+@media only screen and (max-width: 1470px) {
+  .fr .sticky .nav-button-1 { display: none; }
+}
+
+@media only screen and (max-width: 1300px) {
+  .fr .sticky .nav-button-2 { display: none; }
+}
+
+@media only screen and (max-width: 1130px) {
+  .fr .sticky .nav-button-3 { display: none; }
+}
+
+@media only screen and (max-width: 1420px) {
+  .sticky .nav-button-1 { display: none; }
+}
+
+@media only screen and (max-width: 1280px) {
+  .sticky .nav-button-2 { display: none; }
+}
+
+@media only screen and (max-width: 1110px) {
+  .sticky .nav-button-3 { display: none; }
+}
+
+@media only screen and (max-width: 1275px) {
+  .fr #l1-nav-container .social-icons { display: none; }
+  .fr #l1-line2 { margin-right: 15px; }
+}
+
+@media only screen and (max-width: 1200px) {
+  .fr #l1-nav-container .social-icons, .de #l1-nav-container .social-icons,=
+ .it #l1-nav-container .social-icons, .jp #l1-nav-container .social-icons {=
+ display: none; }
+  .fr #l1-contact-separator, .de #l1-contact-separator, .it #l1-contact-sep=
+arator, .jp #l1-contact-separator { display: none; }
+  .fr #l1-contact-separator-br, .de #l1-contact-separator-br, .it #l1-conta=
+ct-separator-br, .jp #l1-contact-separator-br { display: inline; }
+  .fr #l1-slogan, .de #l1-slogan, .it #l1-slogan, .jp #l1-slogan { display:=
+ block; }
+  .fr #l1-line1, .de #l1-line1, .it #l1-line1, .jp #l1-line1 { margin-top: =
+20px; }
+  .fr #l1-search-box, .de #l1-search-box, .it #l1-search-box, .jp #l1-searc=
+h-box { margin-left: 0px; margin-top: 10px; }
+  .fr #l1-search-box input[type=3D"search"], .fr #l1-search-box input[type=
+=3D"search"]:focus, .de #l1-search-box input[type=3D"search"], .de #l1-sear=
+ch-box input[type=3D"search"]:focus, .it #l1-search-box input[type=3D"searc=
+h"], .it #l1-search-box input[type=3D"search"]:focus, .jp #l1-search-box in=
+put[type=3D"search"], .jp #l1-search-box input[type=3D"search"]:focus { wid=
+th: 140px; border: 1px solid rgb(204, 204, 204); padding-left: 32px; color:=
+ rgb(85, 85, 85); cursor: auto; }
+  .fr #l1-line2, .de #l1-line2, .it #l1-line2, .jp #l1-line2 { margin-top: =
+10px; }
+  .fr #l1-auth-links, .de #l1-auth-links, .it #l1-auth-links, .jp #l1-auth-=
+links { line-height: 2.2; padding-top: 0px; margin-top: -4px; }
+}
+
+@media only screen and (max-width: 1175px) {
+  #l1-nav-container .social-icons { display: none; }
+  #l1-line2 { margin-right: 15px; }
+}
+
+@media only screen and (max-width: 1000px) {
+  #l1-contact-separator { display: none; }
+  #l1-contact-separator-br { display: inline; }
+  #l1-slogan { display: block; }
+  #l1-line1 { margin-top: 20px; }
+  #l1-search-box { margin-left: 0px; margin-top: 10px; }
+  #l1-search-box input[type=3D"search"], #l1-search-box input[type=3D"searc=
+h"]:focus { width: 140px; border: 1px solid rgb(204, 204, 204); padding-lef=
+t: 32px; color: rgb(85, 85, 85); cursor: auto; }
+  #l1-line2 { margin-top: 10px; }
+  #l1-auth-links { line-height: 2.2; padding-top: 0px; margin-top: -19px; w=
+hite-space: nowrap; }
+  #l1-nav li { font-size: 100%; }
+  #l2-nav li { font-size: 70%; }
+}
+
+@media only screen and (min-width: 1px) and (max-width: 920px) {
+  body { background: rgb(255, 255, 255); }
+  .page-wrapper { box-shadow: none; }
+  #top-orange { display: block; }
+  .sticky #l2-site-icon { display: none; }
+  .sticky #l2-nav-container { transition: 0.3s; }
+  #l2-nav-toggle { display: block; }
+  #l1-line1 { margin-top: 15px; margin-right: 15px; border: none; }
+  #sub-header { font-size: 75%; }
+  .hide-top-nav { display: block; }
+  #sub-header span.icon-dot, #sub-header span.icon-chevron-right { display:=
+ none; }
+  #l1-nav-container { height: 80px; padding-left: 120px; }
+  .svg #l1-nav-container { background-size: 82px 56px; background-position:=
+ 15px 15px; }
+  .no-svg #l1-nav-container { background: url("/common/images/ui-sprite.png=
+?v2") 15px -116px no-repeat rgb(255, 255, 255); height: 80px; padding-left:=
+ 120px; }
+  #l1-section-title, #l2-nav li.other-section, #l2-nav li.drilldown { displ=
+ay: block; }
+  #l2-nav li a { padding: 7px 25px; border-bottom: 1px solid rgb(62, 120, 1=
+66); }
+  #l2-nav li a:hover, #l2-nav li.other-section a:hover { background-color: =
+rgb(43, 97, 139); }
+  #l2-nav li.other-section a { background-color: rgb(62, 120, 166); font-si=
+ze: 115%; padding: 5px 14px; border-bottom: 1px solid rgb(111, 147, 191); }
+  #l2-nav li.level1, #l2-nav li.level2, #l2-nav li.level3, #l2-nav li.level=
+4 { background-color: rgb(139, 175, 219); padding: 0px; margin: 0px; }
+  #l2-nav li.level1 a { border-bottom: 1px solid rgb(111, 147, 191); paddin=
+g: 4px 35px; font-size: 95%; }
+  #l2-nav li.level2 a { border-bottom: 1px solid rgb(111, 147, 191); paddin=
+g: 3px 50px; font-size: 90%; }
+  #l2-nav li.level3 a { border-bottom: 1px solid rgb(111, 147, 191); paddin=
+g: 3px 65px; font-size: 85%; }
+  #l2-nav li.level4 a { border-bottom: 1px solid rgb(111, 147, 191); paddin=
+g: 3px 80px; font-size: 80%; }
+  #l1-nav { display: none; }
+  #l1-home-link { width: 90px; height: 60px; top: 12px; left: 12px; margin-=
+left: 0px; }
+  #l2-nav-container { padding: 4px 0px 0px; min-height: 32px; max-height: 3=
+4px; border-radius: 0px; }
+  #l2-nav-container nav { width: 100%; }
+  #l2-nav-container nav ul { width: 100%; }
+  #l2-nav-container nav ul a { width: 100%; display: block; }
+  #l2-nav-container nav ul li { display: inline-block; background-color: rg=
+b(111, 147, 191); line-height: 1.5; width: 100%; font-size: 90%; padding: 0=
+px; margin: 0px; }
+  #page { display: block; width: 100%; }
+  #main { display: block; width: 100%; }
+  #sidebar { display: none; }
+  #content, #content-forums, .no-sidebar #content { margin: 25px; padding: =
+0px; }
+  h1.page-title { font-size: 200%; margin-top: 15px; }
+}
+
+@media only screen and (max-width: 720px) {
+  .fr #l1-lhs, .de #l1-lhs, .it #l1-lhs, .jp #l1-lhs { display: none; }
+  .fr #l2-search-toggle, .de #l2-search-toggle, .it #l2-search-toggle, .jp =
+#l2-search-toggle { display: inline; }
+}
+
+@media only screen and (min-width: 721px) {
+  .fr #l3-search-container, .de #l3-search-container, .it #l3-search-contai=
+ner, .jp #l3-search-container { max-height: 0px; }
+  .fr .open-search, .de .open-search, .it .open-search, .jp .open-search { =
+max-height: 0px !important; }
+}
+
+@media only screen and (max-width: 550px) {
+  #l1-lhs { display: none; }
+  #l2-search-toggle { display: inline; }
+}
+
+@media only screen and (min-width: 551px) {
+  #l3-search-container { max-height: 0px; }
+  .www .open-search, .dev .open-search, .forums .open-search, .downloads .o=
+pen-search, .labs .open-search { max-height: 0px !important; }
+}
+
+@media only screen and (max-width: 920px) {
+  footer ul li { font-size: 90%; }
+  #footer-links { padding: 15px 0px; }
+  footer .links { padding-left: 20px; }
+  #footer-bottom { padding: 15px 20px; }
+  #footer-langs { margin: 15px 15px 0px 20px; }
+  #footer-logo { margin: 25px 15px 10px 20px; }
+  #footer-collapse { margin-left: 0px; margin-right: 0px; position: absolut=
+e; right: 20px; }
+  #footer-contact-copyright { padding-right: 40px; }
+  #footer-collapse ~ div.social-icons { padding-right: 40px; width: auto; }
+}
+
+@media only screen and (max-width: 800px) {
+  footer .social-icons { float: none; width: 100%; text-align: left; margin=
+-top: 10px; padding-left: 0px; }
+}
+
+@media only screen and (max-width: 750px) {
+  footer .links { display: none; }
+  #footer-nav { display: block; }
+}
+------MultipartBoundary--bxBkFwkppgpRZQ23L9YqYWpIhQrjFkENfo5o7UZikm----
+Content-Type: image/svg+xml
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://labs.mysql.com/common/logos/mysql-logo.svg?v2
+
+<?xml version=3D"1.0" encoding=3D"UTF-8" standalone=3D"no"?>
+<svg xmlns=3D"http://www.w3.org/2000/svg" version=3D"1.1" viewBox=3D"0 0 38=
+8.12 264.29" width=3D"388.12" height=3D"264.29" preserveAspectRatio=3D"xMin=
+YMin meet">
+ <g display=3D"inline" transform=3D"matrix(1.8189257,0,0,1.8237746,-82.1421=
+1,-64.843651)">
+  <g transform=3D"matrix(1.2699241,0,0,-1.2699241,3.3662307,208.12494)">
+   <g transform=3D"scale(0.1,0.1)">
+    <path fill-rule=3D"nonzero" fill=3D"#00758F" d=3D"m733.07,319.32-64.832=
+,0c-2.28,109.43-8.6,212.33-18.93,308.72h-0.57104l-98.711-308.72h-49.363l-98=
+.113,308.72h-0.578c-7.28-92.57-11.86-195.47-13.77-308.72h-59.113c3.82,137.7=
+3,13.38,266.84,28.68,387.36h80.356l93.535-284.62h0.57397l94.109,284.62h76.8=
+87c16.836-141.15,26.778-270.3,29.832-387.36"/>
+    <path fill-rule=3D"nonzero" fill=3D"#00758F" d=3D"m1014.3,605.11c-26.40=
+1-143.25-61.225-247.35-104.45-312.29-33.679-50.039-70.574-75.058-110.75-75.=
+058-10.71,0-23.917,3.226-39.589,9.636v34.532c7.656-1.121,16.64-1.719,26.972=
+-1.719,18.743,0,33.848,5.18,45.34,15.519,13.762,12.598,20.649,26.758,20.649=
+,42.45,0,10.718-5.372,32.711-16.067,65.98l-71.152,220.95h63.691l51.067-165.=
+25c11.472-37.519,16.257-63.711,14.343-78.64,27.93,74.601,47.442,155.9,58.54=
+3,243.89h61.401"/>
+    <path fill-rule=3D"nonzero" fill=3D"#F29111" d=3D"m1298.3,426.69c0-32.8=
+51-12.07-59.82-36.13-80.921-24.08-21.008-56.43-31.54-96.94-31.54-37.89,0-74=
+.61,12.122-110.18,36.168l16.64,33.274c30.61-15.301,58.31-22.942,83.18-22.94=
+2,23.33,0,41.59,5.192,54.8,15.45,13.18,10.332,21.08,24.742,21.08,43.019,0,2=
+3-16.04,42.66-45.47,59.153-27.17,14.91-81.47,46.039-81.47,46.039-29.42,21.4=
+61-44.17,44.488-44.17,82.429,0,31.379,11,56.742,32.97,76.039,22.02,19.336,5=
+0.43,29.004,85.22,29.004,35.96,0,68.66-9.597,98.11-28.722l-14.96-33.243c-25=
+.2,10.684-50.05,16.047-74.55,16.047-19.88,0-35.2-4.773-45.88-14.375-10.74-9=
+.519-17.38-21.769-17.38-36.699,0-22.941,16.39-42.84,46.65-59.652,27.51-14.9=
+18,83.14-46.649,83.14-46.649,30.26-21.422,45.34-44.261,45.34-81.879"/>
+    <path fill-rule=3D"evenodd" fill=3D"#F29111" d=3D"m1414.2,396.81c-15.69=
+,25.25-23.55,65.769-23.55,121.64,0,97.539,29.66,146.34,88.95,146.34,31,0,53=
+.75-11.672,68.3-34.992,15.67-25.262,23.53-65.43,23.53-120.52,0-98.32-29.66-=
+147.5-88.95-147.5-30.99,0-53.75,11.66-68.28,35.028m230.68-86.829-71.2,35.11=
+c6.3401,5.199,12.36,10.808,17.81,17.301,30.23,35.539,45.36,88.14,45.36,157.=
+78,0,128.15-50.31,192.26-150.92,192.26-49.35,0-87.81-16.25-115.35-48.797-30=
+.24-35.582-45.34-87.985-45.34-157.23,0-68.089,13.38-118.04,40.16-149.77,24.=
+4-28.68,61.3-43.04,110.7-43.04,18.43,0,35.34,2.269,50.71,6.808l92.72-53.957=
+,25.28,43.539"/>
+    <path fill-rule=3D"nonzero" fill=3D"#F29111" d=3D"m1877.3,319.32-184.19=
+,0,0,387.36,61.98,0,0-339.71,122.21,0,0-47.649"/>
+    <path fill-rule=3D"nonzero" fill=3D"#F29111" d=3D"m1921.5,319.36,10.27,=
+0,0,39.411,13.44,0,0,8.05-37.67,0,0-8.05,13.96,0,0-39.411zm78.15,0,9.6801,0=
+,0,47.461-14.56,0-11.85-32.351-12.9,32.351-14.03,0,0-47.461,9.1599,0,0,36.1=
+21,0.5201,0,13.51-36.121,6.9799,0,13.49,36.121,0-36.121"/>
+    <path fill-rule=3D"evenodd" fill=3D"#00758F" d=3D"m1955.1,836.43c-37.46=
+,0.93695-66.47-2.801-90.8-13.106-7.02-2.805-18.24-2.805-19.2-11.699,3.77-3.=
+738,4.2201-9.817,7.52-14.988,5.6-9.36,15.41-21.977,24.32-28.547,9.8299-7.49=
+2,19.66-14.953,29.97-21.504,18.24-11.281,38.84-17.805,56.6-29.043,10.33-6.5=
+43,20.59-14.961,30.92-22,5.13-3.742,8.38-9.836,14.96-12.152v1.417c-3.3001,4=
+.2-4.22,10.286-7.48,14.993-4.67,4.644-9.36,8.883-14.05,13.543-13.58,18.25-3=
+0.45,34.148-48.66,47.254-14.99,10.324-47.77,24.367-53.83,41.632,0,0-0.49,0.=
+49597-0.95,0.95697,10.3,0.95001,22.49,4.7,32.31,7.539,15.89,4.2,30.4,3.25,4=
+6.78,7.45,7.5,1.886,14.99,4.242,22.51,6.543v4.242c-8.47,8.4059-14.53,19.656=
+-23.42,27.605-23.85,20.586-50.09,40.696-77.23,57.571-14.53,9.363-33.25,15.4=
+18-48.7,23.394-5.5899,2.813-14.94,4.199-18.23,8.906-8.4301,10.293-13.13,23.=
+848-19.2,36.036-13.56,25.713-26.69,54.253-38.37,81.443-8.4199,18.24-13.57,3=
+6.48-23.87,53.34-48.23,79.58-100.63,127.76-181.13,175.04-17.32,9.84-37.91,1=
+4.05-59.89,19.2-11.72,0.49-23.41,1.4-35.11,1.86-7.5,3.29-15,12.19-21.54,16.=
+4-26.69,16.84-95.46,53.34-115.13,5.14-12.64-30.44,18.72-60.38,29.49-75.83,7=
+.9499-10.75,18.26-22.94,23.85-35.09,3.2801-7.96,4.22-16.4,7.51-24.81,7.48-2=
+0.59,14.49-43.53,24.34-62.73,5.13-9.8299,10.74-20.14,17.29-28.99,3.7799-5.1=
+799,10.31-7.49,11.72-15.94-6.53-9.35-7.04-23.39-10.78-35.1-16.84-52.89-10.3=
+-118.41,13.58-157.25,7.47-11.699,25.28-37.449,49.15-27.597,21.06,8.4098,16.=
+38,35.089,22.46,58.476,1.3999,5.6562,0.4599,9.3668,3.26,13.106v-0.94592c6.5=
+499-13.086,13.12-25.691,19.2-38.84,14.53-22.91,39.78-46.785,60.86-62.683,11=
+.2-8.457,20.1-22.942,34.14-28.106v1.414h-0.92c-2.82,4.1998-7.0199,6.086-10.=
+77,9.3478-8.4201,8.4299-17.76,18.731-24.34,28.086-19.65,26.199-36.99,55.234=
+-52.4,85.184-7.5099,14.543-14.05,30.441-20.14,44.941-2.8001,5.5901-2.8001,1=
+4.039-7.4901,16.84-7.0399-10.285-17.31-19.191-22.45-31.789-8.9-20.149-9.829=
+9-44.949-13.13-70.703-1.86-0.48895-0.92,0-1.86-0.92999-14.96,3.7419-20.11,1=
+9.184-25.74,32.246-14.04,33.274-16.4,86.627-4.2099,125.01,3.26,9.8101,17.34=
+,40.7,11.7,50.06-2.8299,8.9299-12.18,14.03-17.32,21.08-6.0701,8.89-12.66,20=
+.1-16.83,29.95-11.24,26.2-16.89,55.23-29.02,81.43-5.62,12.19-15.47,24.83-23=
+.4,36.04-8.91,12.64-18.73,21.53-25.76,36.49-2.3201,5.16-5.6001,13.59-1.87,1=
+9.19,0.9199,3.75,2.8199,5.1601,6.5699,6.1001,6.0501,5.1499,23.39-1.39,29.46=
+-4.2,17.33-7,31.84-13.59,46.33-23.4,6.5599-4.6899,13.58-13.58,21.99-15.94h9=
+.8499c14.97-3.25,31.83-0.91,45.88-5.14,24.79-7.95,47.25-19.65,67.39-32.29,6=
+1.29-38.85,111.84-94.09,145.99-160.07,5.63-10.75,7.99-20.59,13.13-31.8,9.83=
+-22.98,22.01-46.38,31.82-68.823,9.8201-22,19.2-44.446,33.26-62.727,7-9.812,=
+35.09-14.961,47.73-20.113,9.3401-4.199,23.87-7.949,32.3-13.09,15.91-9.812,3=
+1.79-21.062,46.79-31.844,7.4699-5.617,30.88-17.304,32.29-26.679"/>
+    <path fill-rule=3D"evenodd" fill=3D"#00758F" d=3D"m1477.7,1243.2c-7.939=
+9,0-13.54-0.96-19.19-2.3501v-0.9399h0.91c3.7799-7.47,10.34-12.66,14.98-19.2=
+,3.77-7.4902,7.0499-14.95,10.79-22.45,0.4599,0.4599,0.9099,0.9501,0.9099,0.=
+9501,6.5999,4.6599,9.87,12.14,9.87,23.39-2.83,3.3001-3.2701,6.5501-5.63,9.8=
+401-2.8,4.6699-8.89,7.01-12.64,10.76"/>
+   </g>
+  </g>
+ </g>
+</svg>=0A
+------MultipartBoundary--bxBkFwkppgpRZQ23L9YqYWpIhQrjFkENfo5o7UZikm----
+Content-Type: image/svg+xml
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://labs.mysql.com/common/logos/oracle-logo-new.svg
+
+<?xml version=3D"1.0" encoding=3D"UTF-8" standalone=3D"no"?>
+<svg xmlns:rdf=3D"http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns=3D"htt=
+p://www.w3.org/2000/svg" version=3D"1.1" xmlns:cc=3D"http://creativecommons=
+.org/ns#" xmlns:dc=3D"http://purl.org/dc/elements/1.1/" viewBox=3D"0 0 231 =
+30" width=3D"231" height=3D"30" preserveAspectRatio=3D"xMinYMin meet">
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about=3D"">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource=3D"http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Oracle Logo</dc:title>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <title>Oracle Logo</title>
+ <g fill-rule=3D"nonzero" fill=3D"#c74634">
+  <path d=3D"M99.61,19.52h15.24l-8.05-13L92,30H85.27l18-28.17a4.29,4.29,0,0=
+,1,7-.05L128.32,30h-6.73l-3.17-5.25H103l-3.36-5.23m69.93,5.23V0.28h-5.72V27=
+.16a2.76,2.76,0,0,0,.85,2,2.89,2.89,0,0,0,2.08.87h26l3.39-5.25H169.54M75,20=
+.38A10,10,0,0,0,75,.28H50V30h5.71V5.54H74.65a4.81,4.81,0,0,1,0,9.62H58.54L7=
+5.6,30h8.29L72.43,20.38H75M14.88,30H32.15a14.86,14.86,0,0,0,0-29.71H14.88a1=
+4.86,14.86,0,1,0,0,29.71m16.88-5.23H15.26a9.62,9.62,0,0,1,0-19.23h16.5a9.62=
+,9.62,0,1,1,0,19.23M140.25,30h17.63l3.34-5.23H140.64a9.62,9.62,0,1,1,0-19.2=
+3h16.75l3.38-5.25H140.25a14.86,14.86,0,1,0,0,29.71m69.87-5.23a9.62,9.62,0,0=
+,1-9.26-7h24.42l3.36-5.24H200.86a9.61,9.61,0,0,1,9.26-7h16.76l3.35-5.25h-20=
+.5a14.86,14.86,0,0,0,0,29.71h17.63l3.35-5.23h-20.6" transform=3D"translate(=
+-0.02 0)"></path>
+ </g>
+</svg>=0A
+------MultipartBoundary--bxBkFwkppgpRZQ23L9YqYWpIhQrjFkENfo5o7UZikm----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://labs.mysql.com/common/css/docs-20241001.min.css
+
+@charset "utf-8";
+
+.notices .collapse { display: none; margin-top: 15px; }
+
+.show-collapsed .collapse { display: block; }
+
+.hide-collapsed .collapse { display: none; }
+
+.codeph { font-size: 95%; font-family: "Courier New", Courier, fixed, monos=
+pace; }
+
+.bold { font-weight: 700; }
+
+.titleintable { font-weight: 700; }
+
+.ind .table-contents { margin-bottom: 25px; }
+
+#docs-body .ind p { line-height: 1.6; }
+
+.ind ul { margin-bottom: 20px; }
+
+#docs-body .ind li, #docs-body .ind ul li { margin-bottom: 15px; line-heigh=
+t: 1.6; }
+
+.ind li li { margin-top: 15px; }
+
+#docs-body .ind ul li p { margin-bottom: 10px; }
+
+#docs-body .ind ul li p.notep1 { margin-bottom: 0px; }
+
+.ind .figure img[height][width] { height: auto; }
+
+.ind .figure img { max-width: 100%; vertical-align: middle; }
+
+.enumeration_chapter { margin-right: 15px; }
+
+.fp-docs-container { padding: 45px 40px 55px 120px; text-align: center; lin=
+e-height: 1; }
+
+#fp-docs-banner { background: url("/common/images/docs-splash-back.jpg") ce=
+nter center / cover no-repeat fixed; }
+
+.fp-docs-row { margin: 0px auto; text-align: left; }
+
+.fp-docs-banner-heading { font-size: 300%; color: rgb(255, 255, 255); margi=
+n-bottom: 20px; }
+
+a.fp-docs-banner-btn { display: inline-block; color: rgb(255, 255, 255); te=
+xt-decoration: none; background-color: rgb(68, 121, 161); font-size: 150%; =
+padding: 10px 35px 15px; vertical-align: middle; text-align: center; margin=
+-top: 15px; margin-right: 30px; font-weight: 200; border-radius: 5px; line-=
+height: 1em; transition: 200ms ease-in-out; }
+
+a.fp-docs-banner-btn span { font-size: 60%; display: block; border-radius: =
+5px; background-color: rgb(93, 132, 175); padding: 2px 30px; margin-bottom:=
+ 8px; margin-left: -20px; margin-right: -20px; }
+
+a.fp-docs-banner-btn:hover { text-decoration: none; background-color: rgb(4=
+0, 90, 134); }
+
+.fp-docs-anchor #product, .fp-docs-anchor #topic { margin-top: -35px; paddi=
+ng-top: 35px; }
+
+#fp-docs-browse { border-bottom: 1px solid rgb(238, 238, 238); padding-bott=
+om: 15px; padding-top: 15px; font-weight: 400; font-size: 180%; line-height=
+: 1.5; background: rgb(247, 247, 247); }
+
+#fp-docs-topics, #fp-docs-products, #fp-docs-cloud { font-size: 110%; }
+
+#fp-docs-topic-col1, #fp-docs-topic-col2, #fp-docs-topic-col3, #fp-docs-clo=
+ud-col1, #fp-docs-cloud-col2, #fp-docs-product-col1, #fp-docs-product-col2,=
+ #fp-docs-product-col3 { display: inline-block; padding-right: 30px; vertic=
+al-align: top; }
+
+#fp-docs-topic-col1 { width: 35%; }
+
+#fp-docs-topic-col2 { width: 30%; }
+
+#fp-docs-topic-col3 { width: 30%; }
+
+#fp-docs-cloud-col1 { width: 47%; }
+
+#fp-docs-cloud-col2 { width: 48%; }
+
+#fp-docs-product-col1 { width: 35%; }
+
+#fp-docs-product-col2 { width: 25%; }
+
+#fp-docs-product-col3 { width: 35%; }
+
+.fp-docs-link-header { font-weight: 700; padding: 20px 0px 10px; font-size:=
+ 110%; }
+
+.fp-docs-links { line-height: 1.7em; font-size: 95%; }
+
+#fp-docs-search-container { display: inline-block; vertical-align: top; pad=
+ding-top: 35px; }
+
+#fp-docs-search-box { background-color: rgb(255, 255, 255); border: 1px sol=
+id rgb(178, 195, 213); }
+
+#fp-docs-search-box #q { font-size: 120%; padding: 5px 10px; color: rgb(187=
+, 187, 187); width: 280px; border: none; }
+
+#fp-docs-search-box form { display: inline; }
+
+.fp-docs-search-btn { vertical-align: bottom; width: 30px; height: 28px; di=
+splay: inline; color: rgb(167, 187, 213); font-size: 180%; background-color=
+: rgb(255, 255, 255); padding: 3px 2px; border: 0px none; cursor: pointer; =
+}
+
+a.fp-docs-list-btn { display: inline-block; background: rgb(255, 255, 255);=
+ border: 3px solid rgb(238, 238, 238); padding: 5px 10px; border-radius: 5p=
+x; font-size: 80%; margin-left: 10px; color: rgb(118, 118, 118); margin-top=
+: 5px; line-height: 1.2; }
+
+a.fp-docs-list-btn.active, a.fp-docs-list-btn:hover { text-decoration: none=
+; border: 3px solid rgb(187, 187, 187); color: rgb(68, 68, 68); }
+
+#fp-docs-dl { display: none; border: 1px solid rgb(187, 187, 187); position=
+: absolute; border-radius: 4px; background: rgb(255, 255, 255); box-shadow:=
+ rgba(0, 0, 0, 0.33) 0px 0px 4px 0px; }
+
+.fp-docs-dl-header { background: rgb(247, 247, 247); border-bottom: 1px sol=
+id rgb(187, 187, 187); font-size: 110%; padding: 5px 5px 3px 10px; white-sp=
+ace: nowrap; }
+
+.fp-docs-dl-header a.fp-docs-dl-close { background: rgb(187, 187, 187); col=
+or: rgb(255, 255, 255); font-size: 90%; display: inline-block; padding: 0px=
+ 3px; margin: -1px 0px 0px 20px; border-radius: 4px; text-decoration: none;=
+ text-align: right; }
+
+.fp-docs-dl-header a.fp-docs-dl-close:hover { background: rgb(102, 102, 102=
+); }
+
+.fp-docs-dl-header .icon-x { margin-bottom: -2px; display: inline-block; ve=
+rtical-align: bottom; }
+
+#fp-docs-dl-links { padding: 10px 15px; line-height: 1.5; font-size: 90%; d=
+isplay: none; }
+
+#fp-docs-dl-loading { padding: 15px; font-size: 180%; text-align: center; }
+
+.fp-docs-links a .icon-cloud-download, .fp-docs-links a .icon-download-thin=
+ { vertical-align: bottom; font-size: 150%; display: inline-block; margin-b=
+ottom: -3px; padding-bottom: 0px; padding-left: 5px; margin-right: 10px; co=
+lor: rgb(204, 204, 204); }
+
+.fp-docs-links a:hover .icon-cloud-download, .fp-docs-links a:hover .icon-d=
+ownload-thin { color: rgb(0, 0, 0); }
+
+.line { padding-bottom: 2px; border-bottom: 1px solid rgb(233, 234, 235); f=
+loat: left; width: 100%; line-height: 1.7em; clear: both; }
+
+.docs-dl { float: right; }
+
+.fp-docs-link-header { clear: both; }
+
+#fp-docs-topics, #fp-docs-cloud { display: none; }
+
+.fp-docs-expandable-links { padding-left: 15px; display: none; }
+
+.fp-docs-expandable-links .line { padding-left: 5px; }
+
+.fp-docs-expandable-links .line > a { padding-left: 5px; }
+
+.fp-docs-expandable-links .line::before { content: "=E2=80=A2 "; }
+
+.fp-docs-sec-link .icon-plus-square, .fp-docs-sec-link .icon-minus-square {=
+ display: inline-block; vertical-align: bottom; margin-bottom: -2px; paddin=
+g-left: 3px; font-size: 120%; color: rgb(193, 193, 193); }
+
+.fp-docs-links-no-bb { border-bottom: none; }
+
+.no-js #fp-docs-topics, .no-js #fp-docs-cloud { display: block; }
+
+.no-js #fp-docs-browse { display: none; }
+
+.no-js a.docs-dl { display: none; }
+
+.no-js .fp-docs-expandable-links { display: block; }
+
+.no-js .fp-docs-sec-link .icon-plus-square { display: none; }
+
+#docs-sidebar-toc, #docs-sidebar { width: 351px; float: left; z-index: 200;=
+ background-color: rgb(255, 255, 255); border-right: 1px solid rgb(233, 234=
+, 235); font-size: 110%; }
+
+.scrollable { overflow-y: auto !important; }
+
+.not-scrollable { overflow-y: hidden !important; }
+
+.docs-sidebar-header { background-color: rgb(247, 247, 247); border-top: 1p=
+x solid rgb(233, 234, 235); border-bottom: 1px solid rgb(233, 234, 235); co=
+lor: rgb(102, 102, 102); padding: 5px 5px 2px 10px; margin-top: 3px; font-s=
+ize: 110%; }
+
+.docs-sidebar-header a, .docs-sidebar-header a:visited { color: rgb(136, 13=
+6, 136); }
+
+.docs-sidebar-header a:hover { color: rgb(85, 85, 85); text-decoration: non=
+e; }
+
+.docs-sidebar-header .icon-home, .docs-sidebar-header .icon-book, .docs-sid=
+ebar-header .icon-book-open, .docs-sidebar-header .icon-download, .docs-sid=
+ebar-header .icon-download-thin, .docs-sidebar-header .icon-search, .docs-s=
+idebar-header .icon-related, .docs-sidebar-header .icon-chevron-left, .docs=
+-sidebar-header .icon-chevron-up, .docs-sidebar-header .icon-chevron-right =
+{ font-size: 150%; vertical-align: middle; }
+
+.docs-sidebar-header .icon-download-thin { font-size: 140%; }
+
+.docs-sidebar-header .icon-related { font-size: 160%; }
+
+.docs-sidebar-header .icon-book-open { font-size: 120%; }
+
+.docs-sidebar-header-text { margin-left: 30px; margin-bottom: 5px; padding-=
+top: 2px; }
+
+a.docs-sidebar-section { display: block; background-color: rgb(247, 247, 24=
+7); border-top: 1px solid rgb(233, 234, 235); border-bottom: 1px solid rgb(=
+233, 234, 235); color: rgb(102, 102, 102); padding: 7px 5px 7px 10px; margi=
+n-top: -1px; font-size: 110%; vertical-align: middle; }
+
+a.docs-sidebar-section:hover { text-decoration: none; background-color: rgb=
+(62, 120, 166); color: rgb(255, 255, 255); }
+
+a.docs-sidebar-section span.text { display: block; margin-left: 33px; }
+
+a.docs-sidebar-section span.icon-related, a.docs-sidebar-section span.icon-=
+download-thin, a.docs-sidebar-section span.icon-book-open, a.docs-sidebar-s=
+ection span.icon-book { display: inline-block; float: left; font-size: 140%=
+; margin-top: -2px; margin-left: 3px; }
+
+a.docs-sidebar-section span.icon-book-open, a.docs-sidebar-section span.ico=
+n-book { font-size: 120%; margin-top: -1px; }
+
+#docs-body-extra a.docs-sidebar-section { border-left: 1px solid rgb(233, 2=
+34, 235); border-right: 1px solid rgb(233, 234, 235); }
+
+#docs-sidebar-search-container { padding: 30px 20px 20px 45px; }
+
+#docs-sidebar-search-box { display: inline-block; background-color: rgb(255=
+, 255, 255); border: 1px solid rgb(204, 204, 204); }
+
+#docs-sidebar-search-box #q { font-size: 100%; padding: 3px 5px; color: rgb=
+(187, 187, 187); width: 180px; border: none; }
+
+#docs-sidebar-search-box form { display: inline; }
+
+.docs-sidebar-search-btn { vertical-align: bottom; height: 22px; display: i=
+nline; color: rgb(136, 136, 136); font-size: 120%; background-color: rgb(25=
+5, 255, 255); padding: 2px; border: 0px none; cursor: pointer; }
+
+.docs-sidebar-nav { padding: 10px 25px 20px 45px; }
+
+.docs-sidebar-nav hr { border: 0px; height: 1px; background-color: rgb(233,=
+ 234, 235); margin-top: 10px; margin-bottom: 10px; padding: 0px; }
+
+.docs-sidebar-mtitle { font-weight: 700; padding-top: 5px; }
+
+.docs-sidebar-nav nav { padding-top: 10px; padding-bottom: 5px; font-size: =
+95%; }
+
+.docs-sidebar-nav nav ul { list-style-type: none; margin: 0px; padding: 0px=
+; }
+
+.docs-sidebar-nav-icon { font-size: 110%; display: inline-block; vertical-a=
+lign: top; text-align: center; width: 20px; float: left; }
+
+.docs-sidebar-nav-icon a.expandable { color: rgb(119, 119, 119); }
+
+.docs-sidebar-nav-icon a.expandable:hover { color: rgb(51, 51, 51); text-de=
+coration: none; }
+
+.docs-sidebar-nav-icon span.icon-chevron-right, .docs-sidebar-nav-icon span=
+.icon-chevron-down { vertical-align: middle; }
+
+.docs-sidebar-nav-link { margin-left: 20px; line-height: 1.2; }
+
+.docs-sidebar-nav .current { font-weight: 700; }
+
+.docs-sidebar-nav nav span.icon-dot { font-size: 65%; color: rgb(187, 187, =
+187); }
+
+.docs-sidebar-nav nav ul li { line-height: 1.2; clear: both; padding-top: 6=
+px; padding-bottom: 2px; }
+
+.docs-sidebar-nav nav ul ul li { margin-left: 15px; }
+
+.docs-show-hide-nav { display: inline-block; text-align: right; padding: 0p=
+x; margin: 0px; font-size: 160%; border-left: 6px solid rgb(187, 187, 187);=
+ background-color: rgb(227, 227, 227); color: rgb(187, 187, 187); }
+
+.docs-nav-links { float: right; }
+
+a.docs-icon-home span { vertical-align: bottom; font-size: 160%; color: rgb=
+(136, 136, 136); padding-right: 8px; display: inline-block; margin-bottom: =
+-2px; }
+
+a.docs-icon-home:hover span { color: rgb(85, 85, 85); text-decoration: none=
+; }
+
+.no-js .docs-show-hide-nav { display: none; }
+
+.no-js .docs-nav-links { float: none; text-align: right; }
+
+a.docs-show-hide-nav { color: rgb(136, 136, 136); }
+
+a:hover.docs-show-hide-nav { color: rgb(85, 85, 85); text-decoration: none;=
+ }
+
+#docs-in-page-nav-container { text-align: center; }
+
+#docs-in-page-nav { font-size: 80%; border-top: 1px solid rgb(204, 204, 204=
+); border-bottom: 1px solid rgb(204, 204, 204); padding: 2px 10px 0px; disp=
+lay: inline-block; }
+
+.docs-submenu { width: 100%; }
+
+.docs-toc-loading { margin: 5px 0px 5px 20px; vertical-align: middle; }
+
+.docs-toc-loading span { font-size: 100%; display: inline-block; vertical-a=
+lign: middle; padding-top: 2px; text-align: center; }
+
+.spin { margin: 0px; padding: 0px; display: inline-block; animation: 2s lin=
+ear 0s infinite normal none running spinner; }
+
+.pulse { margin: 0px; padding: 0px; display: inline-block; animation: 3s st=
+eps(8) 0s infinite normal none running spinner; }
+
+@-webkit-keyframes spinner {=20
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
+}
+
+@keyframes spinner {=20
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
+}
+
+.docs-sidebar-downloads { padding: 10px 10px 10px 45px; font-size: 90%; }
+
+.docs-sidebar-related { padding: 15px 10px 15px 45px; font-size: 95%; line-=
+height: 1.6; }
+
+.docs-sidebar-accordian { padding: 0px 10px 0px 45px; font-size: 95%; line-=
+height: 1.6; display: none; }
+
+#docs-body-extra .docs-sidebar-accordian { border-left: 1px solid rgb(233, =
+234, 235); border-right: 1px solid rgb(233, 234, 235); border-bottom: 1px s=
+olid rgb(233, 234, 235); }
+
+.no-js .docs-sidebar-accordian { display: block; }
+
+.docs-sidebar-accordian .text { padding: 15px 0px; font-size: 95%; }
+
+.open { display: block; }
+
+#docs-body-extra { display: none; }
+
+#docs-main { padding: 40px 60px 40px 50px; }
+
+.has-toc { border-left: 1px solid rgb(233, 234, 235); margin-left: 350px; }
+
+.no-toc { border-left: none; margin-left: 0px; }
+
+#docs-breadcrumbs { font-size: 90%; margin-bottom: 25px; }
+
+.no-js #breadcrumbs-link { display: none; }
+
+.no-js #hidden-breadcrumbs { display: inline; }
+
+#docs-version-nav { color: rgb(255, 255, 255); background-color: rgb(62, 12=
+0, 166); border-radius: 5px; padding: 5px 2px 5px 11px; overflow: hidden; f=
+ont-size: 100%; margin: 5px 0px 10px 15px; }
+
+#docs-version-list { line-height: 1.8; }
+
+#docs-version-nav a, #docs-version-nav a:hover { color: rgb(255, 255, 255);=
+ }
+
+#docs-version-nav span { padding-left: 5px; padding-right: 6px; font-size: =
+130%; vertical-align: middle; }
+
+#docs-version-nav a#docs-version-nav-toggle:hover { text-decoration: none; =
+}
+
+#docs-version-nav div { display: none; margin-top: 5px; transition: 0.3s; }
+
+#docs-version-nav-lang { background-color: rgb(92, 133, 186); margin-bottom=
+: 5px; margin-left: -8px; padding-left: 8px; }
+
+.no-js #docs-version-nav:hover div { display: block; }
+
+.docs-search-title { font-size: 115%; }
+
+.docs-search-synopsis { font-size: 90%; padding-bottom: 20px; color: rgb(51=
+, 51, 51); }
+
+.docs-search-uri { font-size: 85%; color: rgb(102, 102, 102); }
+
+.docs-search-results { line-height: 1.6; float: left; margin-top: 0px; padd=
+ing-top: 0px; font-size: 110%; }
+
+.docs-page-title { font-size: 260%; font-weight: 400; line-height: 140%; ma=
+rgin: 25px 0px 15px; padding: 4px 0px; color: rgb(85, 85, 85); }
+
+.docs-sub-title { font-size: 60%; font-weight: 400; color: rgb(85, 85, 85);=
+ margin: 0px; padding: 0px; }
+
+.docs-pagination-wrapper { padding: 10px 0px 15px; float: left; }
+
+.docs-downloadable-help { margin: 30px; font-size: 85%; line-height: 1.5; }
+
+.docs-downloadable-help b { font-weight: 500; font-size: 110%; }
+
+#docs-comments { margin-top: 40px; margin-bottom: 10px; }
+
+.docs-comments-header { font-size: 150%; font-weight: 500; margin-bottom: 5=
+px; padding-bottom: 10px; vertical-align: middle; }
+
+.docs-comments-disclaimer { line-height: 1.6; margin-bottom: 20px; }
+
+div#docs-main .doc-comment-instructions ul li { line-height: 1.6; }
+
+div#docs-main .doc-comment-instructions ul { margin-bottom: 10px; }
+
+.docs-comment-agreement { background: rgb(249, 249, 249); padding: 10px; }
+
+div#docs-main .docs-comment-agreement ol li { list-style-type: lower-alpha;=
+ line-height: 1.6; }
+
+.docs-comment-agree-wrapper { margin-top: 10px; font-weight: 700; }
+
+.docs-comment-item { border: 1px solid rgb(204, 204, 204); border-radius: 5=
+px; margin-bottom: 20px; }
+
+.docs-comment-item-header { border-bottom: 1px solid rgb(204, 204, 204); bo=
+rder-top-left-radius: 5px; border-top-right-radius: 5px; padding: 2px 10px;=
+ background-color: rgb(247, 247, 247); color: rgb(119, 119, 119); font-size=
+: 90%; vertical-align: middle; }
+
+.docs-comment-item-header span.icon-chatbubble { color: rgb(204, 204, 204);=
+ font-size: 220%; vertical-align: middle; }
+
+.docs-comment-item-header-links { padding-top: 5px; }
+
+.docs-comment-item-header-spinner { font-size: 140%; margin-right: 30px; ma=
+rgin-top: 5px; }
+
+.docs-comment-item-text, .docs-comment-item-edit { padding: 10px 15px; line=
+-height: 1.6; }
+
+.docs-comment-item-edit { padding: 0px 15px 15px; line-height: 1.6; display=
+: none; }
+
+.docs-comment-item-text pre.highlight { font-size: 130%; overflow: auto; ba=
+ckground-color: rgb(247, 247, 247); border: 1px solid rgb(204, 204, 204); p=
+adding: 0px 10px; line-height: 1.2; }
+
+.docs-comment-name { font-weight: 500; color: rgb(85, 85, 85); }
+
+.docs-comment-disclaimer { padding: 20px; font-size: 110%; background-color=
+: rgb(255, 255, 224); border: 1px solid rgb(223, 216, 194); border-radius: =
+5px; }
+
+a.docs-comment-btn, input.docs-comment-btn { background-color: rgb(95, 149,=
+ 196); color: rgb(255, 255, 255); vertical-align: middle; text-decoration: =
+none; border: 0px; padding: 8px 20px; display: inline-block; cursor: pointe=
+r; font-size: 100%; border-radius: 4px; transition: 0.3s; }
+
+input.docs-comment-btn.disabled, input.docs-comment-btn.disabled:hover { ba=
+ckground-color: rgb(247, 247, 247); color: rgb(136, 136, 136); }
+
+.docs-comment-disclaimer a.docs-comment-btn { margin-top: -8px; margin-left=
+: 15px; }
+
+a.docs-comment-btn:hover, input.docs-comment-btn:hover { text-decoration: n=
+one; background-color: rgb(40, 90, 134); }
+
+.docs-comment-form textarea { width: 100%; margin-top: 20px; margin-bottom:=
+ 20px; }
+
+.doc-comment-instructions { font-size: 95%; }
+
+.no-js #add-comment { display: block; margin-top: 40px; }
+
+.js #add-comment { display: none; }
+
+.no-js #docs-comment-show-form-btn, .no-js #docs-comment-hide-form-btn, .no=
+-js .docs-comment-cancel-btn { display: none; }
+
+.docs-select-all { display: none; float: right; position: relative; line-he=
+ight: 1; vertical-align: top; white-space: nowrap; font-size: 100%; margin:=
+ -1px -5px -4px 0px; z-index: 2; }
+
+.docs-select-all .copy-help { display: none; padding: 3px 6px; margin: 0px;=
+ background-color: rgb(85, 85, 85); color: rgb(255, 255, 255); }
+
+.docs-select-all a, .docs-select-all a:visited { display: inline-block; col=
+or: rgb(85, 85, 85); background-color: rgb(255, 255, 255); border: 1px soli=
+d rgb(217, 217, 217); margin-top: -1px; padding: 3px 2px 0px 3px; }
+
+.docs-select-all a:hover { text-decoration: none; border: 1px solid rgb(85,=
+ 85, 85); }
+
+.toc small, .list-of-figures small, .list-of-tables small, .list-of-example=
+s small { display: none; }
+
+dl.toc dl { display: none; }
+
+#Figures-detail, #Tables-detail, #Examples-detail { display: block !importa=
+nt; }
+
+div p { font-size: 100%; display: block; }
+
+em, .italic { font-style: italic; font-size: 100%; }
+
+span.bold strong { font-style: italic; font-weight: 700; }
+
+span.emphasis em { font-style: italic; font-weight: 400; }
+
+span.emphasis em { color: rgb(0, 0, 0); }
+
+div.chapter sup, div.section sup, table.topic-guide td sup { vertical-align=
+: super; font-size: smaller; }
+
+td span.bold strong sup, td sup { margin-left: 3px; font-weight: 400; }
+
+div.content a { text-decoration: underline; text-underline-position: under;=
+ }
+
+div.navfooter a { text-decoration: none; }
+
+div.footnote p { line-height: 125%; height: 100%; margin-bottom: 0px; font-=
+size: 95%; margin-top: 5px; }
+
+.example-break { display: none; }
+
+div .quote { border: 0px; padding: 0px; margin: 0px; width: 100%; font-size=
+: inherit; font-weight: inherit; font-style: inherit; font-family: inherit;=
+ }
+
+div h1, div.titlepage h1.title { font-size: 250%; line-height: 100%; font-w=
+eight: 700; }
+
+div.titlepage h2 { font-size: 200%; font-weight: 400; color: rgb(0, 0, 0); =
+}
+
+div.preface div.titlepage h2, div.section div.titlepage h2 { font-size: 180=
+%; font-weight: 700; color: rgb(0, 0, 0); }
+
+div.section div.titlepage h3 { font-size: 160%; font-weight: 700; color: rg=
+b(0, 0, 0); }
+
+div.section div.titlepage h4 { font-size: 140%; font-weight: 700; color: rg=
+b(0, 0, 0); }
+
+div.section div.titlepage h5 { font-size: 120%; font-weight: 700; }
+
+div.section div.titlepage h6 { font-weight: 700; }
+
+#subfld h1 { font-size: 90%; font-weight: 700; }
+
+div.col66 div.book div.titlepage h1.title { font-size: 150%; font-weight: 7=
+00; }
+
+div.figure p.title b, div.figure p.titleinfigure { font-size: 100%; font-we=
+ight: 700; font-style: normal; }
+
+.ind div.figure { margin-bottom: 20px; }
+
+.ind p.titleinfigure + br { display: none; }
+
+div.copyright-footer, div.status-header { text-align: center; padding: 0px;=
+ margin: 0px; font-size: 85%; }
+
+.alert { font-weight: 700; color: rgb(238, 0, 0); margin: 0px; padding: 0px=
+; }
+
+code { font-size: 95%; }
+
+p strong code { font-size: 95%; font-weight: 400; }
+
+pre strong code { font-weight: 400; font-size: 100%; }
+
+em code { font-size: 110%; }
+
+code em code { font-size: 100%; }
+
+div.chapter code, div.section code { color: rgb(0, 0, 0); font-weight: 400;=
+ font-family: "Courier New", Courier, fixed, monospace; font-size: 95%; }
+
+a code { text-decoration: underline; text-underline-position: under; }
+
+pre { color: rgb(0, 0, 0); font-family: "Courier New", Courier, fixed, mono=
+space; font-size: 95%; }
+
+pre.classsynopsis { color: rgb(0, 0, 0); font-family: "Courier New", Courie=
+r, fixed, monospace; font-size: 95%; }
+
+pre.programlisting { margin-left: 6px; background: rgb(238, 238, 238); colo=
+r: rgb(0, 0, 0); display: block; line-height: 20px; font-size: 95%; padding=
+: 2px; }
+
+.type { font-family: "Courier New", Courier, fixed, monospace; font-size: 9=
+5%; }
+
+span.section span strong.command { font-family: "Courier New", Courier, fix=
+ed, monospace; font-weight: 700; font-size: 110%; }
+
+strong.command { color: rgb(0, 0, 0); font-weight: 400; font-style: oblique=
+; font-size: 110%; }
+
+span.type { font-family: "Courier New", Courier, fixed, monospace; }
+
+td code.literal { font-size: 100%; }
+
+div.titlepage code { font-size: 100%; }
+
+strong.command { font-family: "Courier New", Courier, fixed, monospace; fon=
+t-size: 100%; color: rgb(0, 0, 0); font-weight: 400; }
+
+em.replaceable code, span.variable { color: inherit; font-weight: 700; back=
+ground-color: inherit; padding: 1px; }
+
+span.variable { font-family: "Courier New", Courier, fixed, monospace; font=
+-style: italic; }
+
+strong.userinput code { color: inherit; font-weight: 700; background-color:=
+ inherit; padding: 1px; }
+
+code.filename { color: rgb(0, 0, 0); }
+
+span.section span strong.command { color: rgb(0, 0, 0); }
+
+table tr { vertical-align: top; }
+
+td { font-size: 95%; padding: 0px 5px; border: 0.1em outset gray; }
+
+th, div.informaltable td strong { font-weight: 700; font-style: normal; tex=
+t-align: left; }
+
+table.topic-guide tbody tr td { text-align: center; font-size: 80%; line-he=
+ight: 180%; }
+
+div.table-contents th, div.table-contents td, div.informaltable th, div.inf=
+ormaltable td { border: 0.1em solid gray; padding: 3px; margin: 0px; }
+
+div.oracle-none th, div.oracle-grprows th, div.oracle-seprows th, div.oracl=
+e-all th { font-size: 100%; font-weight: 700; font-style: normal; color: rg=
+b(0, 0, 0); text-align: left; vertical-align: bottom; padding: 4px 8px; bor=
+der: 0px solid rgb(255, 255, 255); }
+
+div.oracle-none tbody th, div.oracle-grprows tbody th, div.oracle-seprows t=
+body th, div.oracle-all tbody th { vertical-align: top; }
+
+div.oracle-none td, div.oracle-grprows td, div.oracle-seprows td, div.oracl=
+e-all td { font-size: 100%; font-weight: 400; font-style: normal; color: rg=
+b(0, 0, 0); text-align: left; vertical-align: top; padding: 4px 8px; border=
+: 0px solid rgb(255, 255, 255); }
+
+div.oracle-none p, div.oracle-grprows p, div.oracle-seprows p, div.oracle-a=
+ll p { margin: 4px 0px; }
+
+div.oracle-none p.title, div.oracle-grprows p.title, div.oracle-seprows p.t=
+itle, div.oracle-all p.title { margin: 8px 0px; }
+
+div.oracle-none table { border-collapse: collapse; border-spacing: 0px; bor=
+der: 0px solid rgb(255, 255, 255); }
+
+div.oracle-grprows table { border-collapse: collapse; border-spacing: 0px; =
+border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0) rgb(255,=
+ 255, 255); }
+
+div.oracle-grprows tr { border: 0px solid rgb(255, 255, 255); }
+
+div.oracle-grprows th { border-style: solid hidden; border-top-width: 1px; =
+border-top-color: rgb(0, 0, 0); border-bottom-width: 1px; border-bottom-col=
+or: rgb(0, 0, 0); }
+
+div.oracle-grprows td { border-left-style: hidden; border-right-style: hidd=
+en; }
+
+div.oracle-seprows table { border-collapse: collapse; border-spacing: 0px; =
+border-width: 1px; border-style: solid; border-color: rgb(0, 0, 0) rgb(255,=
+ 255, 255); }
+
+div.oracle-seprows tr { border-left-style: hidden; border-right-style: hidd=
+en; border-bottom: 1px solid rgb(0, 0, 0); }
+
+div.oracle-seprows th { border-style: solid hidden; border-top-width: 1px; =
+border-top-color: rgb(0, 0, 0); border-bottom-width: 1px; border-bottom-col=
+or: rgb(0, 0, 0); }
+
+div.oracle-seprows td { border-left-style: hidden; border-right-style: hidd=
+en; border-bottom: 1px solid rgb(0, 0, 0); }
+
+div.oracle-all table { border-collapse: collapse; border-spacing: 0px; bord=
+er: 1px solid rgb(0, 0, 0); }
+
+div.oracle-all th { border: 1px solid rgb(0, 0, 0); }
+
+div.oracle-all td { border: 1px solid rgb(0, 0, 0); }
+
+div#docs-main ul li { font-size: 100%; list-style: outside none disc; verti=
+cal-align: middle; line-height: 120%; }
+
+div#docs-main ul ul li, div#docs-main ol ul li { font-size: 100%; list-styl=
+e: outside none square; vertical-align: middle; line-height: 120%; }
+
+div#docs-main ul ul ul li, div#docs-main ul ol ul li, div#docs-main ol ul u=
+l li, div#docs-main ol ol ul li { font-size: 100%; list-style: outside none=
+ circle; vertical-align: middle; line-height: 120%; }
+
+div#docs-main ul ul ul ul li, div#docs-main ul ul ol ul li, div#docs-main u=
+l ol ul ul li, div#docs-main ul ol ol ul li, div#docs-main ol ul ol ul li, =
+div#docs-main ol ul ul ul li, div#docs-main ol ol ul ul li, div#docs-main o=
+l ol ol ul li { font-size: 100%; list-style: outside none disc; vertical-al=
+ign: middle; line-height: 120%; }
+
+div#docs-main ol li { font-size: 100%; list-style: outside none decimal; ve=
+rtical-align: middle; line-height: 120%; }
+
+div#docs-main ul ol li, div#docs-main ol ol li { font-size: 100%; list-styl=
+e: outside none lower-alpha; vertical-align: middle; line-height: 120%; }
+
+div#docs-main ul ul ol li, div#docs-main ul ol ol li, div#docs-main ol ul o=
+l li, div#docs-main ol ol ol li { font-size: 100%; list-style: outside none=
+ lower-roman; vertical-align: middle; line-height: 120%; }
+
+div#docs-main ul ul ul ol li, div#docs-main ul ul ol ol li, div#docs-main u=
+l ol ul ol li, div#docs-main ul ol ol ol li, div#docs-main ol ul ol ol li, =
+div#docs-main ol ul ul ol li, div#docs-main ol ol ul ol li, div#docs-main o=
+l ol ol ol li { font-size: 100%; list-style: outside none decimal; vertical=
+-align: middle; line-height: 120%; }
+
+div#docs-main div.ind ol > li { list-style: auto; }
+
+div#docs-main div.ind ol { list-style: auto; }
+
+span.term { font-weight: 700; }
+
+div.index div.index div.indexdiv h3 { font-size: 200%; color: rgb(0, 0, 0);=
+ }
+
+div a.firstterm:link, div a.firstterm:visited { text-decoration: none; }
+
+div a.firstterm:hover, div a.firstterm:active { text-decoration: underline;=
+ }
+
+em.glossterm, em.firstterm { color: rgb(0, 0, 0); font-style: normal; text-=
+decoration: none; border-bottom: 1px dotted green; }
+
+div.warning, div.note, div.important, div.tip, div.caution, div.infoboxnote=
+, div.infoboxnotewarn, div.infobox-tip { border-left: 2px solid rgb(0, 0, 0=
+); padding-left: 5px; margin-right: 1in; }
+
+div.infoboxnote, div.infoboxnotewarn, div.infobox-tip { margin-left: 0.5in;=
+ margin-right: 0.5in; }
+
+div.warning div.admon-title, div.note div.admon-title, div.important div.ad=
+mon-title, div.tip div.admon-title, div.caution div.admon-title, div.infobo=
+xnote p.notep1, div.infoboxnotewarn p.notep1, div.infobox-tip p.notep1 { fo=
+nt-size: 120%; font-weight: 700; }
+
+.guibutton { background: rgb(255, 255, 255); display: inline; border: 1px d=
+ouble rgb(119, 119, 119); padding: 1px 4px; line-height: 1.2em; white-space=
+: nowrap; }
+
+.guilabel { background: rgb(238, 238, 238); font-weight: 700; display: inli=
+ne; padding: 1px 2px; line-height: 1.2em; }
+
+.guimenu { background: rgb(238, 238, 238); font-weight: 700; border-left: 4=
+px solid rgb(153, 153, 153); display: inline; padding: 1px 2px 1px 4px; lin=
+e-height: 1.2em; white-space: nowrap; }
+
+.guimenuitem, .guisubmenu { background: rgb(238, 238, 238); font-weight: 70=
+0; display: inline; padding: 1px 2px; line-height: 1.2em; white-space: nowr=
+ap; }
+
+.errorcode, .errortext { font-family: "Courier New", Courier, fixed, monosp=
+ace; font-weight: 400; color: rgb(0, 0, 0); }
+
+.errorname { font-family: "Courier New", Courier, fixed, monospace; font-we=
+ight: 700; color: rgb(0, 0, 0); }
+
+.errortype { font-family: "Courier New", Courier, fixed, monospace; color: =
+rgb(0, 0, 0); font-style: italic; }
+
+p.deprecated span.bold strong { color: red; font-weight: 700; font-style: n=
+ormal; }
+
+.remark, .remark .added, .remark .changed, .remark .deleted { background: y=
+ellow; }
+
+.added { background-color: yellow; }
+
+.deleted { background-color: fuchsia; }
+
+.changed { background-color: green; }
+
+div.article h2.title { font-size: 250%; }
+
+div.article p.title { font-size: 120%; }
+
+div.article h2.subtitle { font-size: 110%; }
+
+div.article p { font-size: 100%; }
+
+#tocdetail, div#docs-main .toc { margin-bottom: 20px; }
+
+div#docs-main dl { line-height: 1.6; }
+
+div#docs-main ul, div#docs-main ol, div#docs-main dd { margin-left: 30px; }
+
+div#docs-main h1, div#docs-main h2, div#docs-main h3, div#docs-main h4, div=
+#docs-main h5, div#docs-main h6, p.subhead1 { font-weight: 400; line-height=
+: 1.5; color: rgb(85, 85, 85) !important; }
+
+div#docs-main h1, div#docs-main div.article h2.title, div#docs-main h2.sect=
+2, div#docs-main h2.docinfo { font-size: 250%; margin: 15px 0px 25px; }
+
+div#docs-main h1.title, div#docs-main h2.title, div#docs-main div.article h=
+2.title { margin-top: 0px; }
+
+div#docs-main h2, div#docs-main h3.sect3 { font-size: 180%; margin: 12px 0p=
+x 20px; }
+
+div#docs-main h3, p.subhead1 { font-size: 160%; margin: 8px 0px 15px; }
+
+div#docs-main h4 { font-size: 120%; margin: 20px 0px 15px; font-weight: 700=
+; }
+
+div#docs-main h5 { font-size: 110%; margin: 15px 0px; font-weight: 700; }
+
+div#docs-main h6 { font-size: 100%; margin: 15px 0px 10px; font-weight: 700=
+; }
+
+div#docs-main .titlepage h2.subtitle { margin-top: 0px; margin-bottom: 20px=
+; }
+
+span.bold strong { color: rgb(68, 68, 68); }
+
+div.table { padding-top: 10px; padding-bottom: 10px; }
+
+pre.programlisting { margin-top: 20px; margin-bottom: 20px; border: 1px sol=
+id rgb(217, 217, 217); background-color: rgb(238, 238, 238); padding: 3px 8=
+px; }
+
+div.informaltable { padding-bottom: 15px; padding-top: 5px; }
+
+div.warning, div.note, div.important, div.tip, div.caution, div.infoboxnote=
+, div.infoboxnotewarn, div.infobox-tip { border-left: 3px solid rgb(62, 120=
+, 166); background: rgb(239, 246, 254); padding: 10px 20px 3px; margin-bott=
+om: 20px; margin-top: 20px; }
+
+div.warning, div.infoboxnotewarn { border-left: 3px solid rgb(245, 151, 0);=
+ background: rgb(254, 251, 243); }
+
+div.warning div.admon-title, div.note div.admon-title, div.important div.ad=
+mon-title, div.tip div.admon-title, div.caution div.admon-title, div.infobo=
+xnote p.notep1, div.infoboxnotewarn p.notep1, div.infobox-tip p.notep1 { pa=
+dding-bottom: 10px; }
+
+#docs-body p.notep1 { margin-bottom: 0px; }
+
+#docs-body thead td, #docs-body thead th { background-color: rgb(255, 255, =
+255); }
+
+#docs-body tr > th > span > em { font-style: italic; font-weight: bold !imp=
+ortant; }
+
+.docs-listing th { color: rgb(85, 85, 85); border-top: none; border-right: =
+none; border-left: none; border-image: initial; border-bottom: 1px solid rg=
+b(85, 85, 85); padding: 3px 15px 3px 0px; }
+
+.docs-listing td { border-top: none; border-right: none; border-left: none;=
+ border-image: initial; border-bottom: 1px solid rgb(204, 204, 204); paddin=
+g: 2px 10px 2px 0px; font-size: 90%; }
+
+div#docs-main.docs-listing ul li { line-height: 1.6; }
+
+div#docs-main.docs-listing ul { margin-bottom: 15px; }
+
+div#docs-main.docs-listing h2 { margin-top: 35px; font-size: 150%; }
+
+.docs-listing .docs-document-list { margin-bottom: 15px; }
+
+.docs-listing .docs-document-list tr:hover { background-color: rgb(239, 239=
+, 239); }
+
+.docs-listing .docs-document-list tr.title:hover { background-color: rgb(25=
+5, 255, 255); }
+
+.docs-listing .docs-document-list td.link { white-space: nowrap; }
+
+.docs-listing pre { margin-bottom: 15px; }
+
+table.topic-guide tbody tr td { font-size: 90%; }
+
+table.topic-guide { margin: 20px 0px; }
+
+#docs-sidebar #menu { background: none; min-height: 50px; margin: 0px 20px =
+50px; padding: 0px; }
+
+#docs-sidebar #menu ul { width: auto; padding: 0px; margin: 0px; }
+
+#docs-sidebar #menu ul li { margin: 0px; }
+
+#docs-sidebar #menu ul li.active { font-weight: 700; }
+
+#docs-sidebar #menu { background: none; }
+
+.list-of-figures, .list-of-tables { margin-bottom: 20px; }
+
+pre { overflow: auto; }
+
+#page { display: block; direction: ltr; width: 100%; }
+
+#main { display: block; direction: ltr; width: 100%; }
+
+#docs-body { font-size: 110%; line-height: 1.75; }
+
+#docs-body p { line-height: 1.75; margin-bottom: 15px; }
+
+#docs-body p.valid-value { margin-bottom: 0px; line-height: 1.6; }
+
+#docs-body pre { line-height: 1.5; }
+
+div#docs-body ul li { line-height: 1.75; }
+
+div#docs-body ul li.listitem > a:first-of-type:not([href]) { float: left; }
+
+div#docs-body table { line-height: 1.6; }
+
+#docs-body.docs-auto-hide-page-toc .toc { display: none; }
+
+.no-toc #docs-body.docs-auto-hide-page-toc .toc { display: block; }
+
+.pagination_text { float: left; margin-right: 40px; padding-bottom: 10px; f=
+ont-size: 110%; }
+
+.pagination_list { float: left; min-width: 400px; padding-bottom: 0px; }
+
+div#docs-main ul#pagination, ul#pagination { border: 0px; margin: 0px; padd=
+ing: 0px; }
+
+div#docs-main #pagination li, #pagination li { border: 0px; margin: 0px 4px=
+ 0px 0px; padding: 0px; font-size: 90%; list-style: none; }
+
+#pagination a { border: 1px solid rgb(229, 238, 253); margin-right: 4px; }
+
+div#docs-main #pagination .previous-off, div#docs-main #pagination .next-of=
+f, #pagination .previous-off, #pagination .next-off { border: 1px solid rgb=
+(222, 222, 222); color: rgb(136, 136, 136); display: block; float: left; ma=
+rgin-right: 4px; padding: 3px 4px; }
+
+div#docs-main #pagination .active, #pagination .active { border: 1px solid =
+rgb(1, 90, 132); background: rgb(229, 238, 253); color: rgb(1, 90, 132); fo=
+nt-weight: 700; display: block; float: left; padding: 3px 6px; }
+
+#pagination a:link, #pagination a:visited { color: rgb(1, 90, 132); display=
+: block; float: left; padding: 3px 6px; text-decoration: none; }
+
+#pagination a:hover { border: 1px solid rgb(1, 90, 132); background: rgb(22=
+9, 238, 253); }
+
+[data-tooltip], .tooltip { position: absolute; cursor: pointer; }
+
+[data-tooltip]::before, [data-tooltip]::after, .tooltip::before, .tooltip::=
+after { position: absolute; visibility: hidden; opacity: 0; transition: opa=
+city 0.3s, visibility 0.3s, transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.=
+24); pointer-events: none; }
+
+[data-tooltip]:hover::before, [data-tooltip]:hover::after, [data-tooltip]:f=
+ocus::before, [data-tooltip]:focus::after, .tooltip:hover::before, .tooltip=
+:hover::after, .tooltip:focus::before, .tooltip:focus::after { visibility: =
+visible; opacity: 1; }
+
+.tooltip::before, [data-tooltip]::before { z-index: 1001; border: 6px solid=
+ transparent; background: transparent; content: ""; }
+
+.tooltip::after, [data-tooltip]::after { z-index: 1000; padding: 4px 8px 6p=
+x; width: 200px; background-color: rgb(250, 237, 178); color: rgb(85, 85, 8=
+5); content: attr(data-tooltip); font-size: 95%; line-height: 1.4; border-r=
+adius: 5px; text-decoration: none; }
+
+[data-tooltip]::before, [data-tooltip]::after, .tooltip::before, .tooltip::=
+after, .tooltip-top::before, .tooltip-top::after { bottom: 100%; left: 50%;=
+ }
+
+[data-tooltip]::before, .tooltip::before, .tooltip-top::before { margin-lef=
+t: -6px; margin-bottom: -12px; border-top-color: rgb(250, 237, 178); }
+
+[data-tooltip]::after, .tooltip::after, .tooltip-top::after { margin-left: =
+-80px; }
+
+[data-tooltip]:hover::before, [data-tooltip]:hover::after, [data-tooltip]:f=
+ocus::before, [data-tooltip]:focus::after, .tooltip:hover::before, .tooltip=
+:hover::after, .tooltip:focus::before, .tooltip:focus::after, .tooltip-top:=
+hover::before, .tooltip-top:hover::after, .tooltip-top:focus::before, .tool=
+tip-top:focus::after { transform: translateY(-12px); }
+
+.tooltip-left::before, .tooltip-left::after { right: 100%; bottom: 50%; lef=
+t: auto; }
+
+.tooltip-left::before { margin-left: 0px; margin-right: -12px; margin-botto=
+m: 0px; border-top-color: transparent; border-left-color: rgb(250, 237, 178=
+); }
+
+.tooltip-left:hover::before, .tooltip-left:hover::after, .tooltip-left:focu=
+s::before, .tooltip-left:focus::after { transform: translateX(-12px); }
+
+.tooltip-bottom::before, .tooltip-bottom::after { top: 100%; bottom: auto; =
+left: 50%; }
+
+.tooltip-bottom::before { margin-top: -12px; margin-bottom: 0px; border-top=
+-color: transparent; border-bottom-color: rgb(250, 237, 178); }
+
+.tooltip-bottom:hover::before, .tooltip-bottom:hover::after, .tooltip-botto=
+m:focus::before, .tooltip-bottom:focus::after { transform: translateY(12px)=
+; }
+
+.tooltip-right::before, .tooltip-right::after { bottom: 50%; left: 100%; }
+
+.tooltip-right::before { margin-bottom: 0px; margin-left: -12px; border-top=
+-color: transparent; border-right-color: rgb(250, 237, 178); }
+
+.tooltip-right:hover::before, .tooltip-right:hover::after, .tooltip-right:f=
+ocus::before, .tooltip-right:focus::after { transform: translateX(12px); }
+
+.tooltip-left::before, .tooltip-right::before { top: 3px; }
+
+.tooltip-left::after, .tooltip-right::after { margin-left: 0px; margin-bott=
+om: -16px; }
+
+a.tooltip-left:hover { text-decoration: none; }
+
+pre[class*=3D"language-"] { font-size: 90%; border: 1px solid rgb(217, 217,=
+ 217); margin-left: 50px; }
+
+pre[class*=3D"language-"] code { font-size: 100%; }
+
+div.chapter code[class*=3D"language-"], div.section code[class*=3D"language=
+-"], code[class*=3D"language-"], pre[class*=3D"language-"] { color: rgb(0, =
+0, 0); background: none; text-shadow: rgb(255, 255, 255) 0px 1px; font-fami=
+ly: "Liberation Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", mono=
+space; text-align: left; white-space: pre; word-spacing: normal; word-break=
+: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: no=
+ne; }
+
+pre[class*=3D"language-"]::selection, pre[class*=3D"language-"] ::selection=
+, code[class*=3D"language-"]::selection, code[class*=3D"language-"] ::selec=
+tion { text-shadow: none; background: rgb(179, 212, 252); }
+
+@media print {
+  code[class*=3D"language-"], pre[class*=3D"language-"] { text-shadow: none=
+; }
+}
+
+pre[class*=3D"language-"] { padding: 0px 1em; margin: 20px; overflow: auto;=
+ }
+
+pre[class*=3D"language-"] code { margin-top: 15px; margin-bottom: 15px; dis=
+play: block; }
+
+:not(pre) > code[class*=3D"language-"], pre[class*=3D"language-"] { backgro=
+und: rgb(248, 248, 248); }
+
+:not(pre) > code[class*=3D"language-"] { padding: 0.1em; border-radius: 0.3=
+em; white-space: normal; }
+
+.token.comment, .token.prolog, .token.doctype, .token.cdata { color: slateg=
+ray; }
+
+.token.punctuation { color: rgb(153, 153, 153); }
+
+.token.datatype { color: rgb(131, 70, 137); }
+
+.namespace { opacity: 0.7; }
+
+.token.property, .token.tag, .token.boolean, .token.number, .token.constant=
+, .token.symbol, .token.deleted { color: rgb(153, 0, 85); }
+
+.token.deleted { background: none !important; }
+
+.token.selector, .token.attr-name, .token.string, .token.string em.replacea=
+ble, .token.char, .token.builtin, .token.inserted { color: rgb(102, 153, 0)=
+; }
+
+.token.prompt, .token.operator, .token.entity, .token.url, .language-css .t=
+oken.string, .style .token.string { color: rgb(166, 127, 89); }
+
+.token.output { color: rgb(85, 85, 85); }
+
+.token.command, .token.atrule, .token.attr-value, .token.keyword, .token.co=
+ord { color: rgb(0, 119, 170); }
+
+.token.function { color: rgb(221, 74, 104); }
+
+.token.regex, .token.important, .token.variable, .token.variable em.replace=
+able { color: rgb(238, 153, 0); }
+
+.token.important, .token.bold { font-weight: 700; }
+
+.token.italic { font-style: italic; }
+
+.token.entity { cursor: help; }
+
+pre em { font-weight: 400; }
+
+pre em.replaceable { color: inherit; font-style: italic; font-weight: 400; =
+}
+
+pre[class*=3D"language-sql"] em.replaceable, pre[class*=3D"language-sql"] e=
+m.replaceable .keyword, pre[class*=3D"language-sql"] em.replaceable .dataty=
+pe { color: rgb(0, 0, 0); }
+
+pre.line-numbers { position: relative; padding-left: 4.5em; counter-reset: =
+linenumber 0; }
+
+.no-js pre.line-numbers { padding-left: 2em; }
+
+pre.line-numbers > code { position: relative; }
+
+.line-numbers .line-numbers-rows { position: absolute; pointer-events: none=
+; top: -16px; font-size: 100%; left: -4.8em; width: 3.5em; border-right: 3p=
+x solid rgb(134, 225, 89); background: rgb(255, 255, 255); user-select: non=
+e; padding-top: 15px; padding-bottom: 15px; }
+
+.line-numbers-rows > span { pointer-events: none; display: block; counter-i=
+ncrement: linenumber 1; }
+
+.line-numbers-rows > span::before { content: counter(linenumber); color: rg=
+b(153, 153, 153); display: block; padding-right: 0.8em; text-align: right; =
+}
+
+.clipboard-btn { display: inline-block; color: rgb(85, 85, 85); background-=
+color: rgb(255, 255, 255); border: 1px solid rgb(217, 217, 217); margin-top=
+: -1px; padding: 3px 2px 0px 3px; font-size: 105%; cursor: pointer; }
+
+.clipboard-btn:hover { text-decoration: none; border: 1px solid rgb(85, 85,=
+ 85); }
+
+pre[class*=3D"language-"] .docs-select-all { margin: 5px -5px 0px 0px; }
+
+.docs-select-all .copy-help { text-shadow: none; }
+
+#mds-banner { padding: 20px 35px; color: rgb(255, 255, 255); line-height: 1=
+.6; margin-top: 20px; margin-right: 80px; background: url("/common/banners/=
+ee-background-cloud.jpg") right top no-repeat rgb(58, 103, 143); border-rad=
+ius: 5px; float: left; width: 93%; }
+
+.mds-banner-header { font-size: 240%; }
+
+.mds-banner-sub-header { font-size: 130%; margin-bottom: 25px; padding-righ=
+t: 20px; }
+
+.mds-banner-col1 { width: 200px; float: left; }
+
+.mds-banner-col2 { padding: 10px; width: auto; float: left; }
+
+.mds-banner-list-col1, .mds-banner-list-col2, .mds-banner-list-col3, .mds-b=
+anner-list-col2-3 { width: 37%; float: left; padding-bottom: 10px; padding-=
+right: 5px; }
+
+.mds-banner-list-col2-3 { width: 63%; }
+
+#mds-banner .cbtn > div:hover { background: rgb(40, 90, 134); }
+
+#mds-banner h2 { color: rgb(250, 255, 191); font-size: 120%; padding-bottom=
+: 10px; padding-top: 10px; }
+
+#fp-docs-hwdev-con { background-color: rgb(54, 94, 128); padding: 15px 20px=
+; border-radius: 5px; margin-left: 10px; }
+
+#fp-docs-hwdev-con a { color: rgb(250, 237, 178); }
+
+div#docs-main .tabbed-interface ul { margin-left: 0px; }
+
+div#docs-main .tabbed-interface ul li { list-style-type: none; }
+
+.tabbed-interface { font-size: 95%; }
+
+.tabbed-interface .ui-widget-content { color: rgb(85, 85, 85); }
+
+.tabbed-interface .ui-widget-content a { color: rgb(0, 116, 163); }
+
+.cbtn { position: relative; margin: 10px 0px; line-height: 1.6; width: 100%=
+; z-index: 3; }
+
+.cbtn > div { display: inline-block; margin: 0px 16px 0.6em 0px; position: =
+relative; background: rgb(231, 231, 231); text-align: center; }
+
+.cbtn > div > a { position: relative; display: inline-block; z-index: 0; }
+
+.cbtn > div > a { position: relative; border: 1px solid rgb(212, 212, 212);=
+ display: block; padding: 0.4em 3.375em 0.4em 0.9375em; font-size: 110%; ba=
+ckground: linear-gradient(rgb(231, 231, 231) 0%, rgb(255, 255, 255) 56%); l=
+ine-height: 1.8; }
+
+.cbtn > div > a::before { font-family: icons; content: "v"; display: table-=
+cell; position: absolute; right: 0px; width: 35px; min-height: 30px; height=
+: 100%; }
+
+.cbtn > div > a::after { content: ""; display: block; position: absolute; r=
+ight: 0px; top: 0px; bottom: 0px; border-left: 1px solid rgb(215, 215, 215)=
+; width: 36px; }
+
+.cbtn > div:hover > a { text-decoration: none; background: transparent; }
+
+.cbtn > div:hover { background: rgb(68, 121, 161); transition: background 1=
+50ms linear; }
+
+.cbtn > div:hover > a { border: 1px solid rgb(44, 130, 185); color: rgb(255=
+, 255, 255); transition: color 150ms linear; }
+
+.cbtn > div:hover > a::after { border-left: 1px solid rgb(170, 170, 170); t=
+ransition: border-color 250ms linear; box-shadow: rgb(44, 130, 185) -1px 0p=
+x 0px; }
+
+.cbtn > div:hover > a::before { background-position: 11px 6px; }
+
+@media (max-width: 1200px) {
+  .mds-banner-list-col1, .mds-banner-list-col2, .mds-banner-list-col2, .mds=
+-banner-list-col2-3 { width: 100%; float: none; margin-left: 0px; }
+  .mds-banner-col2 { padding-top: 0px; }
+}
+
+@media only screen and (max-width: 1000px) {
+  .fp-docs-container { padding: 35px 50px 45px 60px; }
+}
+
+@media only screen and (max-width: 920px) {
+  #docs-sidebar-toc, #docs-sidebar { width: 241px; }
+  .has-toc { margin-left: 240px; }
+  #docs-sidebar-search-box #q { width: 160px; }
+  #fp-docs-topic-col1, #fp-docs-topic-col2, #fp-docs-topic-col3, #fp-docs-c=
+loud-col1, #fp-docs-cloud-col2, #fp-docs-product-col1, #fp-docs-product-col=
+2, #fp-docs-product-col3 { display: block; width: 100%; padding: 0px 0px 15=
+px; margin: 0px; }
+  #l1-search-box { display: none; }
+  #l1-lhs { padding-top: 37px; }
+  #docs-sidebar-toc, #docs-sidebar { width: 301px; font-size: 100%; }
+  a.docs-sidebar-section span.text { display: block; margin-left: 30px; }
+  a.docs-sidebar-section span.icon-related, a.docs-sidebar-section span.ico=
+n-download-thin, a.docs-sidebar-section span.icon-book-open, a.docs-sidebar=
+-section span.icon-book { margin-left: 0px; }
+  #docs-sidebar-search-container { padding: 20px; }
+  .docs-sidebar-nav { padding: 10px 10px 20px 20px; }
+  .docs-sidebar-nav hr { margin-top: 5px; margin-bottom: 5px; }
+  .docs-sidebar-nav nav ul li { padding-top: 4px; padding-bottom: 0px; }
+  .docs-sidebar-downloads { padding: 10px 10px 10px 20px; }
+  .docs-sidebar-related { padding: 15px 10px 15px 20px; }
+  .docs-sidebar-accordian { padding: 0px 10px 0px 20px; }
+  #docs-main { padding: 20px 40px; }
+  .has-toc { margin-left: 300px; }
+  #docs-version-nav { font-size: 90%; }
+  .docs-search-results { font-size: 100%; }
+  div#docs-main.docs-listing h2 { margin-top: 0px; }
+  #docs-body { font-size: 103%; }
+  .pagination_text { font-size: 100%; }
+  div#docs-main #pagination li, #pagination li { font-size: 80%; }
+  .mds-banner-col1, .mds-banner-col2 { width: 100%; float: none; }
+  .mds-banner-col2 { padding-top: 20px; padding-left: 0px; }
+  #fp-docs-hwdev-con { margin-left: 0px; }
+}
+
+@media only screen and (max-width: 700px) {
+  .fp-docs-container { padding: 25px 20px 35px; }
+  .fp-docs-banner-heading { font-size: 250%; line-height: 1.3; margin-botto=
+m: 5px; }
+  a.fp-docs-banner-btn { font-size: 140%; }
+  .mds-banner-header { font-size: 180%; }
+  .mds-banner-sub-header { font-size: 130%; }
+}
+
+@media only screen and (max-width: 400px) {
+  a.fp-docs-banner-btn { width: 95%; }
+  #fp-docs-search-box #q { font-size: 110%; width: 240px; }
+  .pagination_list { min-width: 280px; }
+}
+
+@media only screen and (max-width: 640px) {
+  #docs-sidebar.docs-listing { display: none; }
+  #docs-sidebar-toc.no-search { display: none; }
+  #docs-sidebar-toc, #docs-sidebar { display: block; float: none; width: 10=
+0%; height: 50px; max-height: 50px; overflow: hidden; }
+  #docs-sidebar-search-container { overflow: hidden; }
+  #docs-show-nav { display: none; }
+  #docs-sidebar-search-header { display: none; }
+  #docs-sidebar-toc .docs-sidebar-header, #docs-sidebar-toc .docs-sidebar-d=
+ownloads { display: none; }
+  #docs-nav-header { display: none; }
+  #docs-body-extra { display: block; margin: 35px 0px; }
+  #docs-sidebar-search-container { text-align: center; }
+  #docs-sidebar-search-box #q { width: 220px; }
+  .docs-sidebar-nav, #docs-sidebar #menu, #l2-search-toggle { display: none=
+; }
+  .has-toc { margin-left: -1px; }
+  #docs-main { padding: 20px; }
+  div.warning, div.note, div.important, div.tip, div.caution, div.infoboxno=
+te, div.infoboxnotewarn, div.infobox-tip { margin-left: 20px !important; ma=
+rgin-right: 20px !important; }
+  #docs-sidebar-toc { display: block; }
+  #docs-show-nav { display: none; }
+  #docs-body.docs-auto-hide-page-toc .toc { display: block; }
+}
+------MultipartBoundary--bxBkFwkppgpRZQ23L9YqYWpIhQrjFkENfo5o7UZikm----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://labs.mysql.com/common/css/print-20241001.min.css
+
+@charset "utf-8";
+
+body { margin: 0px; }
+
+@page { margin: 1.5cm; }
+
+* { background: transparent !important; color: black !important; text-shado=
+w: none !important; filter: none !important; }
+
+header, #main-orange, #content-divider, #sidebar, .oracle-logo, #footer-nav=
+, footer .links, footer .social-icons { display: none; }
+
+#footer-links { padding: 20px 0px 0px; margin: 0px; }
+
+#footer-bottom { padding: 10px; }
+
+#docs-main { margin: 0px; padding: 0px; }
+
+#docs-main { margin-left: 0px; border: none !important; }
+
+#docs-sidebar-toc, #breadcrumbs-link, #docs-version-nav, #footer-collapse, =
+#expand-footer, #docs-comments, #docs-downloads, #docs-in-page-nav-containe=
+r, #docs-sidebar { display: none; }
+
+#hidden-breadcrumbs { display: inline-block; }
+
+#rside { display: none; }
+------MultipartBoundary--bxBkFwkppgpRZQ23L9YqYWpIhQrjFkENfo5o7UZikm----
+Content-Type: text/html
+Content-ID: <frame-F9B7D509AB4F035713E2F2F874784D7B@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://consent.trustarc.com/get?name=crossdomain.html&domain=oracle.com
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Dwindows-1252"></head><body></body></html>
+------MultipartBoundary--bxBkFwkppgpRZQ23L9YqYWpIhQrjFkENfo5o7UZikm------

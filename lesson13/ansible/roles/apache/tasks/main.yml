@@ -14,8 +14,8 @@
   template:
     src: apache.conf.j2
     dest: /etc/apache2/sites-available/000-default.conf
-  notify:
-    - Restart Apache
+  # notify:
+  #   - Restart Apache
 
 - name: Enable mod_rewrite
   command: a2enmod rewrite
