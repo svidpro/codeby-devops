@@ -1,0 +1,43 @@
+Vagrant.configure("2") do |config|
+  
+  # Базовые переменные
+  base_box = "ubuntu/jammy64"
+  base_box_version = "20241002.0.0"
+  base_bridge = "eno1"
+  path = "./sh_provision/"
+  ip_client = "192.168.50.100"
+  ip_server = "192.168.50.200"
+  shared_folder = "./shared_folder"
+
+  # Конфигурация ВМ "server"
+  config.vm.define "server" do |server|
+    server.vm.box = base_box
+    server.vm.box_version = base_box_version
+    server.vm.box_check_update = false
+    server.vm.hostname = "server"
+    server.ssh.forward_agent = true
+    server.vm.network "public_network", ip: ip_server, bridge: base_bridge
+    server.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+      vb.memory = "2048"
+    end
+    server.vm.provision "file", source: "~/.ssh/vagrant_vm_rsa.pub", destination: "/home/vagrant/.ssh/vagrant_vm_rsa.pub"
+    server.vm.provision "shell", run: "always", path: "#{path}server.sh"
+  end
+
+  # Конфигурация ВМ "client"
+  config.vm.define "client" do |client|
+    client.vm.box = base_box
+    client.vm.box_version = base_box_version
+    client.vm.box_check_update = false
+    client.vm.hostname = "client"
+    client.vm.network "public_network", ip: ip_client, bridge: base_bridge
+    client.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+      vb.memory = "2048"
+    end
+    client.vm.provision "file", source: "~/.ssh/vagrant_vm_rsa", destination: "/home/vagrant/.ssh/vagrant_vm_rsa"
+    client.vm.provision "file", source: "~/.ssh/vagrant_vm_rsa.pub", destination: "/home/vagrant/.ssh/vagrant_vm_rsa.pub"
+    client.vm.provision "shell", run: "always", path: "#{path}client.sh"
+  end
+end
