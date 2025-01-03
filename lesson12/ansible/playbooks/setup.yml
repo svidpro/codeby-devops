@@ -1,0 +1,40 @@
+---
+- name: Setup web server and environment info
+  hosts: all
+  become: yes
+  tasks:
+    - name: Gather facts
+      setup:
+
+    - name: Debug OS family
+      debug:
+        var: ansible_os_family
+
+    - name: Check Python version
+      command: python3 --version
+      register: python_version
+      ignore_errors: yes
+
+    - name: Install Python if not present
+      apt: 
+        name: python3 
+        state: present
+      when: python_version.rc != 0
+
+    - name: Install required packages
+      apt: 
+        name:
+          - wget
+          - htop
+          - nginx
+        state: present
+
+    - name: Start and enable Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Display environment info
+      debug:
+        msg: "This host is in {{ ansible_environment }} environment"
