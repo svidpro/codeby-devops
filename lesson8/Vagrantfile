@@ -14,17 +14,15 @@ Vagrant.configure("2") do |config|
     server.vm.box = base_box
     server.vm.box_version = base_box_version
     server.vm.box_check_update = false
-    server.vm.hostname = "server8"
+    server.vm.hostname = "server"
     server.ssh.forward_agent = true
     server.vm.network "public_network", ip: ip_server, bridge: base_bridge
     server.vm.provider "virtualbox" do |vb|
       vb.gui = false
       vb.memory = "2048"
     end
-    server.vm.synced_folder shared_folder, "/home/vagrant/shared_folder", create: true
-    server.vm.provision "shell", run: "always", path: "#{path}server.sh"
-    server.vm.provision "file", source: "~/.ssh/vagrant_vm_rsa", destination: "/home/vagrant/.ssh/vagrant_vm_rsa"
     server.vm.provision "file", source: "~/.ssh/vagrant_vm_rsa.pub", destination: "/home/vagrant/.ssh/vagrant_vm_rsa.pub"
+    server.vm.provision "shell", run: "always", path: "#{path}server.sh"
   end
 
   # Конфигурация ВМ "client"
@@ -32,13 +30,13 @@ Vagrant.configure("2") do |config|
     client.vm.box = base_box
     client.vm.box_version = base_box_version
     client.vm.box_check_update = false
-    client.vm.hostname = "client8"
+    client.vm.hostname = "client"
     client.vm.network "public_network", ip: ip_client, bridge: base_bridge
     client.vm.provider "virtualbox" do |vb|
       vb.gui = false
       vb.memory = "2048"
     end
-    client.vm.synced_folder shared_folder, "/home/vagrant/shared_folder", create: true
+    client.vm.provision "file", source: "~/.ssh/vagrant_vm_rsa", destination: "/home/vagrant/.ssh/vagrant_vm_rsa"
     client.vm.provision "file", source: "~/.ssh/vagrant_vm_rsa.pub", destination: "/home/vagrant/.ssh/vagrant_vm_rsa.pub"
     client.vm.provision "shell", run: "always", path: "#{path}client.sh"
   end
