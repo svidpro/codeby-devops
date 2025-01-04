@@ -36,8 +36,8 @@ Vagrant.configure("2") do |config|
       vb.gui = false
       vb.memory = "2048"
     end
-    store.vm.provision "shell", run: "always", path: "#{path}store.sh"
     store.vm.provision "file", source: "~/.ssh/vagrant_vm_rsa", destination: "/home/vagrant/.ssh/vagrant_vm_rsa"
     store.vm.provision "file", source: "~/.ssh/vagrant_vm_rsa.pub", destination: "/home/vagrant/.ssh/vagrant_vm_rsa.pub"
+    store.vm.provision "shell", run: "always", path: "#{path}store.sh"
   end
 end
