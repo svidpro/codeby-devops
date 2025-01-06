@@ -1,0 +1,36 @@
+services:
+
+  wp-data:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80
+    networks:
+      - wp-net
+    environment:
+      WORDPRESS_DB_HOST: wp-db
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppassword
+      WORDPRESS_DB_NAME: wordpressdb
+    volumes:
+      - wp-data:/var/www/html
+
+  wp-db:
+    image: mysql:8.0
+    restart: always
+    networks:
+      - wp-net
+    environment:
+      MYSQL_DATABASE: wordpressdb
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppassword
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - wp-db:/var/lib/mysql
+
+networks:
+  wp-net:
+
+volumes:
+  wp-data:
+  wp-db:
