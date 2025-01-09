@@ -1,0 +1,38 @@
+services:
+
+  app:
+    image: wordpress
+    container_name: app
+    restart: always
+    ports:
+      - 8080:80
+    networks:
+      - wp-net
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ${MYSQL_USER}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+    volumes:
+      - wp-data:/var/www/html
+
+  db:
+    image: mysql:8.0
+    container_name: db
+    restart: always
+    networks:
+      - wp-net
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - wp-db:/var/lib/mysql
+
+networks:
+  wp-net:
+
+volumes:
+  wp-data:
+  wp-db:
