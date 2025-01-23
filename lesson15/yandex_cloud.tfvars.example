@@ -1,0 +1,7 @@
+auth_token = "auth_token_here"
+cloud_id   = "cloud_id_here"
+folder_id  = "folder_id_here"
+ssh_pub_key       = "ssh_pub_key"
+private_subnet_id = "private_subnet_id"
+public_subnet_id  = "public_subnet_id"
+image_os = "fd8v0s6adqu3ui3rsuap" # ОС (Ubuntu, 22.04 LTS)
