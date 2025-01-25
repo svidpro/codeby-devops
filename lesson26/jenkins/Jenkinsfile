@@ -1,0 +1,125 @@
+pipeline {
+        agent {
+                docker {
+                    image 'maven:3.9.0'
+                    args '-v /root/.m2:/root/.m2'
+                }
+        }
+    stages {
+        stage('Line stage') {
+            steps {
+                git branch: 'lesson26', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/svidpro/codeby-devops.git'
+            }
+        }
+            
+        stage('Parallel stage') {
+
+            failFast true
+            parallel {
+                stage('Hello_World') {
+
+                    stages {
+                        stage('Build') {
+                            steps {
+                                dir ('lesson26/app-hello-world') {
+                                    sh 'mvn -B -DskipTast clean package'
+                                }
+                            }
+                        }
+                        stage('Test') {
+                            steps {
+                                dir('lesson26/app-hello-world') {
+                                    sh 'mvn test'
+                                }
+                            }
+                            post {
+                                always {
+                                    junit 'lesson26/app-hello-world/target/surefire-reports/*.xml'
+                                }
+                            }
+                        }
+                        stage('Deliver') {
+                            steps {
+                                sh 'chmod +x lesson26/app-hello-world/jenkins/scripts/deliver.sh'
+                            }
+                        }
+                        stage('Final') {
+                            steps {
+                                echo "Hello Word!"
+                            }
+                        }
+                    }
+                }
+                stage('Hello_Jenkins') {
+
+                    stages {
+                        stage('Build') {
+                            steps {
+                                dir ('lesson26/app-hello-jenkins') {
+                                    sh 'mvn -B -DskipTast clean package'
+                                }
+                            }
+                        }
+                        stage('Test') {
+                            steps {
+                                dir('lesson26/app-hello-jenkins') {
+                                    sh 'mvn test'
+                                }
+                            }
+                            post {
+                                always {
+                                    junit 'lesson26/app-hello-jenkins/target/surefire-reports/*.xml'
+                                }
+                            }
+                        }
+                        stage('Deliver') {
+                            steps {
+                                sh 'chmod +x lesson26/app-hello-jenkins/jenkins/scripts/deliver.sh'
+                            }
+                        }
+                        stage('Final') {
+                            steps {
+                                echo "Hello Jenkins!"
+                            }
+                        }
+                    }
+                }
+                
+                stage('Hello_DevOps') {
+
+                    stages {
+                        stage('Build') {
+                            steps {
+                                dir ('lesson26/app-hello-devops') {
+                                    sh 'mvn -B -DskipTast clean package'
+                                }
+                            }
+                        }
+                        stage('Test') {
+                            steps {
+                                dir('lesson26/app-hello-devops') {
+                                    sh 'mvn test'
+                                }
+                            }
+                            post {
+                                always {
+                                    junit 'lesson26/app-hello-devops/target/surefire-reports/*.xml'
+                                }
+                            }
+                        }
+                        stage('Deliver') {
+                            steps {
+                                sh 'chmod +x lesson26/app-hello-devops/jenkins/scripts/deliver.sh'
+                            }
+                        }
+                        stage('Final') {
+                            steps {
+                                echo "Hello DevOps!"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
