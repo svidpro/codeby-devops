@@ -1,7 +1,6 @@
 **/.vagrant/
+**/.terraform/
 
-# файл тяжелый для github
-**/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.135.0/linux_amd64/terraform-provider-yandex_v0.135.0
 # переменные доступа к яндекс cloud
 **/yandex_cloud.tfvars
 # tfstate
