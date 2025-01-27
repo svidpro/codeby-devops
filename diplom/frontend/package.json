@@ -1,37 +1,29 @@
 {
-  "name": "vuetify-project",
-  "version": "0.0.0",
+  "name": "todo-list-frontend",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "serve": "cross-env NODE_OPTIONS='--no-warnings' vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "prettier": "prettier --write \"src/**/*.{js,vue,css}\"",
-    "prettier:check": "prettier --check \"src/**/*.{js,vue,css}\""
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@mdi/font": "7.0.96",
-    "axios": "^1.6.7",
-    "core-js": "^3.34.0",
-    "roboto-fontface": "*",
-    "uuid": "^9.0.1",
-    "vis-network": "^9.1.9",
-    "vue": "^3.3.0",
-    "vuetify": "^3.0.0"
+    "axios": "^1.6.2",
+    "core-js": "^3.33.3",
+    "vue": "^3.3.9",
+    "vuetify": "^3.4.4",
+    "@mdi/font": "^7.3.67"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.5.0",
-    "cross-env": "^7.0.3",
-    "html-webpack-inline-source-plugin": "^0.0.10",
-    "pinia": "^2.1.0",
-    "prettier": "^3.2.5",
-    "sass": "^1.69.0",
-    "unplugin-auto-import": "^0.17.3",
-    "unplugin-fonts": "^1.1.0",
-    "unplugin-vue-components": "^0.26.0",
-    "unplugin-vue-router": "^0.7.0",
-    "vite": "^5.0.0",
-    "vite-plugin-vue-layouts": "^0.10.0",
-    "vite-plugin-vuetify": "^2.0.0",
-    "vue-router": "^4.2.0"
+    "@babel/core": "^7.23.7",
+    "@babel/eslint-parser": "^7.23.3",
+    "@vue/cli-plugin-babel": "~5.0.8",
+    "@vue/cli-plugin-eslint": "~5.0.8",
+    "@vue/cli-service": "~5.0.8",
+    "@vue/compiler-sfc": "^3.3.9",
+    "eslint": "^8.54.0",
+    "eslint-plugin-vue": "^9.18.1",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2"
   }
 }

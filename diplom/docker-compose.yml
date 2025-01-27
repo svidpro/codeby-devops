@@ -1,22 +1,50 @@
-version: "3.8"
 services:
-  web_app_template:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      # Notes
-      - APP_NOTES_NUMBER_MAX=10
-      - APP_NOTES_TITLE_LENGTH_MAX=50
-      - APP_NOTES_CONTENT_LENGTH_MAX=500
-
-        # ArangoDB
-      - APP_ARANGODB_HOST=...
-      - APP_ARANGODB_PORT=...
-      - APP_ARANGODB_DATABASE=...
-      - APP_ARANGODB_USER=...
-      - APP_ARANGODB_PASSWORD=...
-    container_name: web_app_template
-    restart: always
+  web:
+    build: .
+    command: bash -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+    volumes:
+      - .:/app
     ports:
-      - 3000:3000
+      - "8000:8000"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - DATABASE_URL=${DATABASE_URL}
+      - HOST=0.0.0.0
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=8080
+    depends_on:
+      - web
+
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
