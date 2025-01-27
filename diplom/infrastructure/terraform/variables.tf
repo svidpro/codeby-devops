@@ -23,6 +23,11 @@ variable "public_subnet_id" {
   type        = string
 }
 
+variable "network_id" {
+  description = "ID of the VPN network to connect the instance to"
+  type        = string
+}
+
 variable "image_os" {
   description = "Image OS"
   type        = string

@@ -1,0 +1,33 @@
+Vagrant.configure("2") do |config|
+
+  # Базовые переменные
+  base_box = "ubuntu/jammy64"
+  base_box_version = "20241002.0.0"
+  base_bridge = "eno1"
+  path = "./sh_provision/"
+  ip_ansible = "192.168.50.100"
+
+  # Конфигурация ВМ "ansible"
+  config.vm.define "ansible" do |ansible|
+    ansible.vm.box = base_box
+    ansible.vm.box_version = base_box_version
+    ansible.vm.box_check_update = false
+    ansible.vm.hostname = "ansible"
+    ansible.vm.network "public_network", ip: ip_ansible, bridge: base_bridge
+    ansible.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+      vb.memory = "2048"
+      end
+    # invetory files
+    ansible.vm.provision "file", source: "./env_servers/inventory/inventory.yaml", destination: "/home/vagrant/ansible//env_servers/inventory/inventory.yaml"
+    # playbook files
+    ansible.vm.provision "file", source: "./playbooks/prod.yaml", destination: "/home/vagrant/ansible/playbooks/prod.yaml"
+    # config ansible
+    ansible.vm.provision "file", source: "./ansible.cfg", destination: "/home/vagrant/ansible/ansible.cfg"
+    # ssh keys
+    ansible.vm.provision "file", source: "~/.ssh/yandex_cloud_codeby", destination: "/home/vagrant/.ssh/yandex_cloud_codeby"
+    ansible.vm.provision "file", source: "~/.ssh/vagrant_vm_rsa.pub", destination: "/home/vagrant/.ssh/vagrant_vm_rsa.pub"
+    # sh scripts
+    ansible.vm.provision "shell", path: "#{path}ansible.sh"
+  end
+end

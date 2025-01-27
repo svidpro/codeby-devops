@@ -1,0 +1,55 @@
+---
+- name: Установка Docker и Docker Compose, копирование файлов и запуск проекта
+  hosts: prod_host
+  become: true
+  tasks:
+    - name: Установка необходимых пакетов
+      apt:
+        name:
+          - docker.io
+          - docker-compose
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Удаление директории /home/ubuntu/codeby-devops, если она существует
+      file:
+        path: /home/ubuntu/codeby-devops
+        state: absent
+
+    - name: Создание директории /home/ubuntu/codeby-devops, если она не существует
+      file:
+        path: /home/ubuntu/codeby-devops
+        state: directory
+        mode: '0755'
+
+    - name: Клонирование git репозитория
+      command: git clone --single-branch --branch diplom https://github.com/svidpro/codeby-devops.git /home/ubuntu/codeby-devops/
+
+    - name: Проверка содержимого директории
+      command: ls -la /home/ubuntu/codeby-devops
+      register: repo_contents
+
+    - name: Вывод содержимого репозитория
+      debug:
+        var: repo_contents.stdout_lines
+
+
+    - name: Создание директории /home/ubuntu/codeby-devops, если она не существует
+      file:
+        path: /home/ubuntu/diplom/
+        state: directory
+        mode: '0755'
+
+    - name: Копирование папки diplom из репозитория в /home/ubuntu/diplom/
+      copy:
+        src: /home/ubuntu/codeby-devops/diplom/
+        dest: /home/ubuntu/diplom/
+      delegate_to: localhost
+
+    - name: Копирование .env.example в .env
+      command: cp /home/ubuntu/diplom/.env.example /home/ubuntu/diplom/.env
+
+    - name: Запуск docker-compose
+      command: docker-compose up --build
+      args:
+        chdir: /home/ubuntu/diplom/
