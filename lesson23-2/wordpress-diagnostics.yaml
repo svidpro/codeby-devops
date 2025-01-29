@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wordpress-diagnostics
+  namespace: dev
+spec:
+  serviceAccountName: wordpress-diagnostics-sa
+  containers:
+  - name: diagnostics
+    image: alpine
+    command: ["sh", "-c", "while true; do echo 'WordPress Pods:'; kubectl get pods -l app=wordpress -n dev; sleep 30; done"]
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "100m"
