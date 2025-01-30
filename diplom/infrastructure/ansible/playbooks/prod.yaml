@@ -10,44 +10,59 @@
           - docker-compose
         state: present
       when: ansible_os_family == "Debian"
-
-    - name: Удаление директории /home/ubuntu/codeby-devops, если она существует
-      file:
-        path: /home/ubuntu/codeby-devops
-        state: absent
-
+      
     - name: Создание директории /home/ubuntu/codeby-devops, если она не существует
       file:
         path: /home/ubuntu/codeby-devops
         state: directory
         mode: '0755'
+
+    - name: Проверка, существует ли папка /home/ubuntu/codeby-devops
+      stat:
+        path: /home/ubuntu/codeby-devops
+      register: repo_stat
 
     - name: Клонирование git репозитория
       command: git clone --single-branch --branch diplom https://github.com/svidpro/codeby-devops.git /home/ubuntu/codeby-devops/
+      when: repo_stat.stat.exists == false or (repo_stat.stat.isdir == true and repo_stat.stat.size == 0)
+      become: yes
 
-    - name: Проверка содержимого директории
+    - name: Проверка содержимого директории /home/ubuntu/codeby-devops
       command: ls -la /home/ubuntu/codeby-devops
       register: repo_contents
 
-    - name: Вывод содержимого репозитория
+    - name: Вывод содержимого /home/ubuntu/codeby-devops
       debug:
         var: repo_contents.stdout_lines
 
+    - name: Копирование папки diplom из репозитория в /home/ubuntu/
+      command: cp -r /home/ubuntu/codeby-devops/diplom /home/ubuntu/
 
-    - name: Создание директории /home/ubuntu/codeby-devops, если она не существует
-      file:
-        path: /home/ubuntu/diplom/
-        state: directory
-        mode: '0755'
+    - name: Проверка содержимого директории /home/ubuntu/diplom
+      command: ls -la /home/ubuntu/diplom
+      register: repo_contents
 
-    - name: Копирование папки diplom из репозитория в /home/ubuntu/diplom/
-      copy:
-        src: /home/ubuntu/codeby-devops/diplom/
-        dest: /home/ubuntu/diplom/
-      delegate_to: localhost
+    - name: Вывод содержимого /home/ubuntu/diplom
+      debug:
+        var: repo_contents.stdout_lines
 
-    - name: Копирование .env.example в .env
+    - name: Копирование backend .env.example в .env
       command: cp /home/ubuntu/diplom/.env.example /home/ubuntu/diplom/.env
+
+    - name: Копирование frontend .env.example в .env
+      command: cp /home/ubuntu/diplom/frontend/.env.example /home/ubuntu/diplom/frontend/.env
+
+    - name: Редактирование backend .env
+      lineinfile:
+        path: /home/ubuntu/diplom/.env
+        regexp: '^# Для автоматической ansible вставки'
+        line: "HOST=0.0.0.0\nPORT=8000\nCORS_ORIGINS=http://localhost:8080,http://{{ ansible_host }}"
+
+    - name: Редактирование frontend .env
+      lineinfile:
+        path: /home/ubuntu/diplom/frontend/.env
+        regexp: '^# Для автоматической ansible вставки'
+        line: "VUE_APP_API_URL=http://{{ ansible_host }}:8000"
 
     - name: Запуск docker-compose
       command: docker-compose up --build
