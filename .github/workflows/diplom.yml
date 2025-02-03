@@ -2,6 +2,7 @@ name: CI/CD
 
 on:
   push:
+    paths-ignore: ["*.md"]
     branches:
       - diplom
     paths:
@@ -9,9 +10,25 @@ on:
       - "diplom/frontend/**"
 
 jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Проверка кода
+        uses: actions/checkout@v2
+
+      - name: Проверка на изменение путей
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            app:
+              - 'diplom/app/**'
+            frontend:
+              - 'diplom/frontend/**'
+
   build-and-deploy-backend:
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.message, 'diplom/app/')
+    if: steps.changes.outputs.app == 'true'
     steps:
       - name: Проверка исходного кода
         uses: actions/checkout@v2
@@ -29,7 +46,7 @@ jobs:
       - name: Сборка и тестирование
         run: |
           cd app
-          pytest  # Или команды для тестирования вашего приложения
+          pytest
 
       - name: Деплой на сервер
         env:
@@ -37,11 +54,11 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-          ssh -o StrictHostKeyChecking=no user@$SERVER_IP "cd /path/to/app && git pull && docker-compose up -d"
+          ssh -o StrictHostKeyChecking=no user@$SERVER_IP "cd /home/ubuntu/diplom/app && git pull && docker-compose up -d"
 
   build-and-deploy-frontend:
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.message, 'diplom/frontend/')
+    if: steps.changes.outputs.frontend == 'true'
     steps:
       - name: Проверка исходного кода
         uses: actions/checkout@v2
@@ -59,7 +76,7 @@ jobs:
       - name: Сборка и тестирование
         run: |
           cd frontend
-          npm run build  # Или команды для тестирования вашего приложения
+          npm run build
 
       - name: Деплой на сервер
         env:
@@ -67,4 +84,4 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-          ssh -o StrictHostKeyChecking=no user@$SERVER_IP "cd /path/to/frontend && git pull && npm run deploy"
+          ssh -o StrictHostKeyChecking=no user@$SERVER_IP "cd /home/ubuntu/diplom/frontend && git pull && npm run deploy"
