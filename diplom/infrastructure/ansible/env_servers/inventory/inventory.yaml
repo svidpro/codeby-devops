@@ -1,0 +1,8 @@
+all:
+  hosts:
+    prod_host:
+      ansible_host: 62.84.113.67
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: /home/vagrant/.ssh/yandex_cloud_codeby
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_environment: prod
