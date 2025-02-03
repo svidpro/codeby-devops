@@ -4,15 +4,15 @@ on:
   push:
     branches: [lesson28]
     paths:
-      - "/lesson28/app-hello-devops/"
-      - "/lesson28/app-hello-jenkins/"
-      - "/lesson28/app-hello-world/"
+      - "lesson28/app-hello-devops/**"
+      - "lesson28/app-hello-jenkins/**"
+      - "lesson28/app-hello-world/**"
   pull_request:
     branches: [main]
     paths:
-      - "/lesson28/app-hello-devops/"
-      - "/lesson28/app-hello-jenkins/"
-      - "/lesson28/app-hello-world/"
+      - "lesson28/app-hello-devops/**"
+      - "lesson28/app-hello-jenkins/**"
+      - "lesson28/app-hello-world/**"
 
 jobs:
   build_and_test:
@@ -33,14 +33,14 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('app-${{ matrix.app }}/pom.xml') }}
+          key: ${{ runner.os }}-m2-${{ hashFiles('lesson28/${{ matrix.app }}/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build project with Maven
-        run: mvn -B package --file app-${{ matrix.app }}/pom.xml
+        run: mvn -B package --file lesson28/${{ matrix.app }}/pom.xml
 
       - name: Run Tests
-        run: mvn test --file app-${{ matrix.app }}/pom.xml
+        run: mvn test --file lesson28/${{ matrix.app }}/pom.xml
 
   publish-job:
     runs-on: ubuntu-latest
@@ -54,10 +54,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Package without tests
-        run: mvn -B package --file app-${{ matrix.app }}/pom.xml -DskipTests
+        run: mvn -B package --file ${{ matrix.app }}/pom.xml -DskipTests
 
       - name: Prepare Staging Directory
-        run: mkdir staging && cp app-${{ matrix.app }}/target/*.jar staging
+        run: mkdir staging && cp ${{ matrix.app }}/target/*.jar staging
 
       - uses: actions/upload-artifact@v4
         with:
@@ -80,7 +80,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker Image
-        run: docker build -t ${{ secrets.DOCKER_REPO }}:${{ matrix.app }} --file app-${{ matrix.app }}/Dockerfile .
+        run: docker build -t ${{ secrets.DOCKER_REPO }}:${{ matrix.app }} --file ${{ matrix.app }}/Dockerfile .
 
       - name: Publish Docker Image
         run: docker push ${{ secrets.DOCKER_REPO }}:${{ matrix.app }}
