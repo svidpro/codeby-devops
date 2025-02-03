@@ -20,7 +20,7 @@ from .api import endpoints
 app = FastAPI(
     title="Todo List API",
     description="API для управления списком задач",
-    version="1.0.0"
+    version="1.0.0",
 )
 
 # Настройка CORS для работы с фронтендом
@@ -34,3 +34,5 @@ app.add_middleware(
 
 # Подключаем роутер с эндпоинтами
 app.include_router(endpoints.router)
+
+# test github action 1
