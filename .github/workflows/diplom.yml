@@ -11,6 +11,9 @@ on:
 jobs:
   check-changes:
     runs-on: ubuntu-latest
+    outputs:
+      app: ${{ steps.changes.outputs.app }}
+      frontend: ${{ steps.changes.outputs.frontend }}
     steps:
       - name: Проверка кода
         uses: actions/checkout@v2
@@ -27,7 +30,7 @@ jobs:
 
   build-and-deploy-backend:
     runs-on: ubuntu-latest
-    if: steps.changes.outputs.app == 'true'
+    if: needs.check-changes.outputs.app == 'true'
     steps:
       - name: Проверка исходного кода
         uses: actions/checkout@v2
@@ -57,7 +60,7 @@ jobs:
 
   build-and-deploy-frontend:
     runs-on: ubuntu-latest
-    if: steps.changes.outputs.frontend == 'true'
+    if: needs.check-changes.outputs.frontend == 'true'
     steps:
       - name: Проверка исходного кода
         uses: actions/checkout@v2
