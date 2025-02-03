@@ -11,7 +11,7 @@ on:
 jobs:
   build-and-deploy-backend:
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.message, 'app/')
+    if: contains(github.event.head_commit.message, 'diplom/app/')
     steps:
       - name: Проверка исходного кода
         uses: actions/checkout@v2
@@ -41,7 +41,7 @@ jobs:
 
   build-and-deploy-frontend:
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.message, 'frontend/')
+    if: contains(github.event.head_commit.message, 'diplom/frontend/')
     steps:
       - name: Проверка исходного кода
         uses: actions/checkout@v2
