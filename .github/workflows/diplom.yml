@@ -28,6 +28,11 @@ jobs:
             frontend:
               - 'diplom/frontend/**'
 
+      - name: Логирование изменений
+        run: |
+          echo "Изменения в app: ${{ steps.changes.outputs.app }}"
+          echo "Изменения в frontend: ${{ steps.changes.outputs.frontend }}"
+
   build-and-deploy-backend:
     runs-on: ubuntu-latest
     if: needs.check-changes.outputs.app == 'true'
