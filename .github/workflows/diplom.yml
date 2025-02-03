@@ -1,0 +1,67 @@
+name: diplom CI/CD
+
+on:
+  push:
+    branches:
+      - diplom
+
+jobs:
+  build-and-deploy-backend:
+    if: github.event.head_commit.modified contains 'app/'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Проверка исходного кода
+        uses: actions/checkout@v2
+
+      - name: Установка Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.11"
+
+      - name: Установка зависимостей
+        run: |
+          cd app
+          pip install -r requirements.txt
+
+      - name: Сборка и тестирование
+        run: |
+          cd app
+          pytest  # Или команды для тестирования вашего приложения
+
+      - name: Деплой на сервер
+        env:
+          SERVER_IP: ${{ secrets.DIPLOM_SERVER_IP }}
+          SSH_PRIVATE_KEY: ${{ secrets.DIPLOM_SSH_PRIVATE_KEY }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+          ssh -o StrictHostKeyChecking=no user@$SERVER_IP "cd /path/to/app && git pull && docker-compose up -d"
+
+  build-and-deploy-frontend:
+    if: github.event.head_commit.modified contains 'frontend/'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Проверка исходного кода
+        uses: actions/checkout@v2
+
+      - name: Установка Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+
+      - name: Установка зависимостей
+        run: |
+          cd frontend
+          npm install
+
+      - name: Сборка приложения
+        run: |
+          cd frontend
+          npm run build
+
+      - name: Деплой на сервер
+        env:
+          SERVER_IP: ${{ secrets.DIPLOM_SERVER_IP }}
+          SSH_PRIVATE_KEY: ${{ secrets.DIPLOM_SSH_PRIVATE_KEY }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+          scp -r frontend/dist/* user@$SERVER_IP:/path/to/frontend/
