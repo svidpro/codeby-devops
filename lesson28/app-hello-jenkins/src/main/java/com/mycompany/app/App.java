@@ -5,9 +5,10 @@ package com.mycompany.app;
  */
 public class App {
 
-    private static final String MESSAGE = "Hello Jenkins! Fail app!";
+    private static final String MESSAGE = "Hello Jenkins!";
 
-    public App() {}
+    public App() {
+    }
 
     public static void main(String[] args) {
         System.out.println(MESSAGE);

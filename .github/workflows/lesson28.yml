@@ -54,10 +54,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Package without tests
-        run: mvn -B package --file ${{ matrix.app }}/pom.xml -DskipTests
+        run: mvn -B package --file lesson28/${{ matrix.app }}/pom.xml -DskipTests
 
       - name: Prepare Staging Directory
-        run: mkdir staging && cp ${{ matrix.app }}/target/*.jar staging
+        run: mkdir staging && cp lesson28/${{ matrix.app }}/target/*.jar staging
 
       - uses: actions/upload-artifact@v4
         with:
