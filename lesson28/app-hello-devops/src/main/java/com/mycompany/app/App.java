@@ -5,10 +5,7 @@ package com.mycompany.app;
  */
 public class App {
 
-    private static final String MESSAGE = "Hello Devops! Fail APP.";
-
-    
-    
+    private static final String MESSAGE = "Hello Devops!";
 
     public App() {
     }
