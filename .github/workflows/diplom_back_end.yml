@@ -21,12 +21,12 @@ jobs:
 
       - name: Установка зависимостей
         run: |
-          cd app
+          cd diplom/app
           pip install -r requirements.txt
 
       - name: Сборка и тестирование
         run: |
-          cd app
+          cd diplom/app
           pytest
 
       - name: Деплой на сервер
