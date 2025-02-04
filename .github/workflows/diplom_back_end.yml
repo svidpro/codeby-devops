@@ -87,8 +87,8 @@ jobs:
         run: |
           eval "$(ssh-agent -s)"
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - 
-          scp -o StrictHostKeyChecking=no -r diplom/app user@$SERVER_IP:/home/ubuntu/diplom/app
-          ssh -o StrictHostKeyChecking=no user@$SERVER_IP "cd /home/ubuntu/diplom/app && git pull && docker-compose up -d"
+          scp -o StrictHostKeyChecking=no -r diplom/app ubuntu@$SERVER_IP:/home/ubuntu/diplom/app
+          ssh -o StrictHostKeyChecking=no ubuntu@$SERVER_IP "cd /home/ubuntu/diplom/app && git pull && docker-compose up -d"
         env:
           SERVER_IP: ${{ secrets.DIPLOM_SERVER_IP }}
           SSH_PRIVATE_KEY: ${{ secrets.DIPLOM_SSH_PRIVATE_KEY }}
