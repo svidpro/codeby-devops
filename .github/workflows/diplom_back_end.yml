@@ -68,6 +68,11 @@ jobs:
             echo "PostgreSQL доступна!"
           fi
 
+      - name: Run migrations
+        run: |
+          cd diplom/
+          alembic upgrade head
+
       - name: Test with pytest
         run: |
           pip install pytest
