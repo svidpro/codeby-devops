@@ -39,7 +39,7 @@ jobs:
             -e POSTGRES_DB=${{ secrets.POSTGRES_DB }} \
             -p 5432:5432 \
             -d \
-            --health-cmd="pg_isready -U $POSTGRES_USER" \
+            --health-cmd="pg_isready -U ${{ secrets.POSTGRES_USER }}" \
             --health-interval=5s \
             --health-timeout=5s \
             --health-retries=5 \
@@ -54,6 +54,20 @@ jobs:
             echo "Waiting for PostgreSQL..."
             sleep 5
           done
+
+      - name: Проверка статуса контейнера
+        run: |
+          docker ps -a
+
+      - name: Проверка доступности PostgreSQL
+        run: |
+          if ! docker exec db pg_isready -U "${{ secrets.POSTGRES_USER }}"; then
+            echo "PostgreSQL не доступна!"
+            exit 1
+          else
+            echo "PostgreSQL доступна!"
+          fi
+
       - name: Test with pytest
         run: |
           pip install pytest
