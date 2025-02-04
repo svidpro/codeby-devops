@@ -5,7 +5,7 @@ on:
     branches:
       - diplom
     paths:
-      - "diplom/frontend/**"
+      - "diplom/app/**"
 
 jobs:
   build-and-deploy-backend:
