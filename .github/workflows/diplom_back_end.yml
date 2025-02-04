@@ -1,4 +1,4 @@
-name: Diplom CI/CD
+name: Diplom CI/CD for back-end
 
 on:
   push:
