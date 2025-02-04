@@ -75,6 +75,7 @@ jobs:
 
       - name: Test with pytest
         run: |
+          cd diplom/app
           pip install pytest
           pytest .
       - name: Stop PostgreSQL
