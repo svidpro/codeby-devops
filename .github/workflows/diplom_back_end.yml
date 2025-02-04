@@ -85,6 +85,7 @@ jobs:
 
       - name: Set up SSH agent
         run: |
+          ls -la
           eval "$(ssh-agent -s)"
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - 
           scp -o StrictHostKeyChecking=no -r diplom/app ubuntu@$SERVER_IP:/home/ubuntu/diplom/app
