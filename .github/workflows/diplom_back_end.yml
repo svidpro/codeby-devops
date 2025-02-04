@@ -89,6 +89,7 @@ jobs:
           eval "$(ssh-agent -s)"
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - 
           ssh -o StrictHostKeyChecking=no ubuntu@$SERVER_IP "cd /home/ubuntu/diplom/app && ls -la"
+          ssh -o StrictHostKeyChecking=no ubuntu@$SERVER_IP "sudo chown -R ubuntu:ubuntu /home/ubuntu/diplom/app"
           scp -o StrictHostKeyChecking=no -r diplom/app/* ubuntu@$SERVER_IP:/home/ubuntu/diplom/app
           ssh -o StrictHostKeyChecking=no ubuntu@$SERVER_IP "cd /home/ubuntu/diplom/app && docker-compose up -d"
         env:
