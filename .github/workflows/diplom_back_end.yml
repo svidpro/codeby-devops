@@ -1,0 +1,38 @@
+name: Diplom CI/CD
+
+on:
+  push:
+    branches:
+      - diplom
+    paths:
+      - "diplom/frontend/**"
+
+jobs:
+  build-and-deploy-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Проверка исходного кода
+        uses: actions/checkout@v2
+
+      - name: Установка Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.11"
+
+      - name: Установка зависимостей
+        run: |
+          cd app
+          pip install -r requirements.txt
+
+      - name: Сборка и тестирование
+        run: |
+          cd app
+          pytest
+
+      - name: Деплой на сервер
+        env:
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+          ssh -o StrictHostKeyChecking=no user@$SERVER_IP "cd /home/ubuntu/diplom/app && git pull && docker-compose up -d"
