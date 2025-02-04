@@ -19,7 +19,7 @@ jobs:
           python-version: "3.10"
       - name: Install dependencies
         run: |
-          cp diplom/.env.example diplom/app/.env
+          cp diplom/.env.github_action diplom/app/.env
           cp diplom/requirements.txt diplom/app/requirements.txt
           cd diplom/app
           python -m pip install --upgrade pip
